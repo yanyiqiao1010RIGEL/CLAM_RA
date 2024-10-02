@@ -41,6 +41,18 @@ elif args.task == 'task_2_tumor_subtyping':
                             patient_voting='maj',
                             ignore=[])
 
+
+elif args.task == 'task_3_tgca':
+    args.n_classes=2
+    dataset = Generic_WSI_Classification_Dataset(csv_path = 'TrainLabel1.csv',
+                            shuffle = False,
+                            seed = args.seed,
+                            print_info = True,
+                            label_dict = {'0':0, '1':1},
+                            patient_strat= False,
+                            patient_voting='maj',
+                            ignore=[])
+
 else:
     raise NotImplementedError
 

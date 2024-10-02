@@ -32,7 +32,8 @@ parser.add_argument('--model_size', type=str, choices=['small', 'big'], default=
                     help='size of model (default: small)')
 parser.add_argument('--model_type', type=str, choices=['clam_sb', 'clam_mb', 'mil'], default='clam_sb', 
                     help='type of model (default: clam_sb)')
-parser.add_argument('--k', type=int, default=10, help='number of folds (default: 10)')
+### Rigel changed the default k = 10 to k = 3
+parser.add_argument('--k', type=int, default=3, help='number of folds (default: 3)')
 parser.add_argument('--k_start', type=int, default=-1, help='start fold (default: -1, last fold)')
 parser.add_argument('--k_end', type=int, default=-1, help='end fold (default: -1, first fold)')
 parser.add_argument('--fold', type=int, default=-1, help='single fold to evaluate')
@@ -88,6 +89,17 @@ elif args.task == 'task_2_tumor_subtyping':
                             print_info = True,
                             label_dict = {'subtype_1':0, 'subtype_2':1, 'subtype_3':2},
                             patient_strat= False,
+                            ignore=[])
+
+### Rigel added 1 task
+elif args.task == 'task_3_tgca':
+    args.n_classes=2
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/TrainLabel1.csv',
+                            data_dir= os.path.join(args.data_root_dir, 'h5_files'),
+                            shuffle = False,
+                            print_info = True,
+                            label_dict = {'0':0, '1':1},
+                            patient_strat=False,
                             ignore=[])
 
 # elif args.task == 'tcga_kidney_cv':

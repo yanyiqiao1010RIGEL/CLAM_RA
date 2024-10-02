@@ -57,8 +57,9 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		self.patient_strat = patient_strat
 		self.train_ids, self.val_ids, self.test_ids  = (None, None, None)
 		self.data_dir = None
+		### Rigel changed "label" to "IDH"
 		if not label_col:
-			label_col = 'label'
+			label_col = 'IDH'
 		self.label_col = label_col
 
 		slide_data = pd.read_csv(csv_path)
