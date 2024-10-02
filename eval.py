@@ -98,7 +98,7 @@ elif args.task == 'task_3_tgca':
                             data_dir= os.path.join(args.data_root_dir, 'h5_files'),
                             shuffle = False,
                             print_info = True,
-                            label_dict = {'0':0, '1':1},
+                            label_dict = {0:0, 1:1},
                             patient_strat=False,
                             ignore=[])
 
