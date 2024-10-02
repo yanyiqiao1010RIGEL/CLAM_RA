@@ -56,7 +56,11 @@ elif args.task == 'task_3_tgca':
 else:
     raise NotImplementedError
 
-num_slides_cls = np.array([len(cls_ids) for cls_ids in dataset.patient_cls_ids])
+### Rigel add if condition
+if dataset.patient_strat:
+    num_slides_cls = np.array([len(cls_ids) for cls_ids in dataset.patient_cls_ids])
+else:
+    num_slides_cls = np.array([len(cls_ids) for cls_ids in dataset.slide_cls_ids])
 val_num = np.round(num_slides_cls * args.val_frac).astype(int)
 test_num = np.round(num_slides_cls * args.test_frac).astype(int)
 
