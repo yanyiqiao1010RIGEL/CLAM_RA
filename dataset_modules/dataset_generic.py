@@ -84,9 +84,11 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 	def cls_ids_prep(self):
 		# store ids corresponding each class at the patient or case level
-		self.patient_cls_ids = [[] for i in range(self.num_classes)]		
-		for i in range(self.num_classes):
-			self.patient_cls_ids[i] = np.where(self.patient_data['label'] == i)[0]
+		### Rigel add one if condition
+		if self.patient_strat:
+			self.patient_cls_ids = [[] for i in range(self.num_classes)]
+			for i in range(self.num_classes):
+				self.patient_cls_ids[i] = np.where(self.patient_data['label'] == i)[0]
 
 		# store ids corresponding each class at the slide level
 		self.slide_cls_ids = [[] for i in range(self.num_classes)]
