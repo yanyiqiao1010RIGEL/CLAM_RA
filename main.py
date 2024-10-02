@@ -183,7 +183,7 @@ elif args.task == 'task_2_tumor_subtyping':
 elif args.task == 'task_3_tgca':
     args.n_classes=2
     dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/TrainLabel1.csv',
-                            data_dir= os.path.join(args.data_root_dir, 'h5_files'),
+                            data_dir= args.data_root_dir,
                             label_col='IDH',
                             shuffle = False,
                             seed = args.seed,
