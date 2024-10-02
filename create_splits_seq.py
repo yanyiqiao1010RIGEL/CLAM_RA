@@ -50,7 +50,6 @@ elif args.task == 'task_3_tgca':
                             print_info = True,
                             label_dict = {'0':0, '1':1},
                             patient_strat= False,
-                            patient_voting='maj',
                             ignore=[])
 
 else:
