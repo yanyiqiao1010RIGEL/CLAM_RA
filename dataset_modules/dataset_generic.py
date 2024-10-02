@@ -149,8 +149,13 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		print("label dictionary: {}".format(self.label_dict))
 		print("number of classes: {}".format(self.num_classes))
 		print("slide-level counts: ", '\n', self.slide_data['label'].value_counts(sort = False))
+
+		### Rigel add one if condition
+		if self.patient_strat:
+			for i in range(self.num_classes):
+				print('Patient-LVL; Number of samples registered in class %d: %d' % (i, self.patient_cls_ids[i].shape[0]))
+
 		for i in range(self.num_classes):
-			print('Patient-LVL; Number of samples registered in class %d: %d' % (i, self.patient_cls_ids[i].shape[0]))
 			print('Slide-LVL; Number of samples registered in class %d: %d' % (i, self.slide_cls_ids[i].shape[0]))
 
 	def create_splits(self, k = 3, val_num = (25, 25), test_num = (40, 40), label_frac = 1.0, custom_test_ids = None):
