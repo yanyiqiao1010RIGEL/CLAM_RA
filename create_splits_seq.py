@@ -45,7 +45,7 @@ elif args.task == 'task_2_tumor_subtyping':
 
 elif args.task == 'task_3_tgca':
     args.n_classes=2
-    dataset = Generic_WSI_Classification_Dataset(csv_path = 'TrainLabel1.csv',
+    dataset = Generic_WSI_Classification_Dataset(csv_path = 'dataset_csv/TrainLabel1.csv',
                             shuffle = False,
                             seed = args.seed,
                             print_info = True,
