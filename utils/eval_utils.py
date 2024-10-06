@@ -11,6 +11,8 @@ import pandas as pd
 from utils.utils import *
 from utils.core_utils import Accuracy_Logger
 from sklearn.metrics import roc_auc_score, roc_curve, auc
+### Rigel add f1
+from sklearn.metrics import f1_score
 from sklearn.preprocessing import label_binarize
 import matplotlib.pyplot as plt
 
@@ -45,15 +47,17 @@ def initiate_model(args, ckpt_path, device='cuda'):
     _ = model.eval()
     return model
 
+### Rigel add f1
 def eval(dataset, args, ckpt_path):
     model = initiate_model(args, ckpt_path)
     
     print('Init Loaders')
     loader = get_simple_loader(dataset)
-    patient_results, test_error, auc, df, _ = summary(model, loader, args)
+    patient_results, test_error, auc, df, acc_logger, f1 = summary(model, loader, args)
     print('test_error: ', test_error)
     print('auc: ', auc)
-    return model, patient_results, test_error, auc, df
+    print('f1 score: ', f1)
+    return model, patient_results, test_error, auc, df, f1
 
 def summary(model, loader, args):
     acc_logger = Accuracy_Logger(n_classes=args.n_classes)
@@ -111,8 +115,11 @@ def summary(model, loader, args):
             else:
                 auc_score = np.nanmean(np.array(aucs))
 
+    #  Rigel add Calculate F1 score
+    f1 = f1_score(all_labels, all_preds, average='weighted')
+
     results_dict = {'slide_id': slide_ids, 'Y': all_labels, 'Y_hat': all_preds}
     for c in range(args.n_classes):
         results_dict.update({'p_{}'.format(c): all_probs[:,c]})
     df = pd.DataFrame(results_dict)
-    return patient_results, test_error, auc_score, df, acc_logger
+    return patient_results, test_error, auc_score, df, acc_logger, f1
