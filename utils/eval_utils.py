@@ -71,7 +71,11 @@ def summary(model, loader, args):
 
     slide_ids = loader.dataset.slide_data['slide_id']
     patient_results = {}
+    ## test
+    print(f"Loader length: {len(loader)}")
+
     for batch_idx, (data, label) in enumerate(loader):
+        print(f"Batch {batch_idx}: Data shape: {data.shape}, Label: {label}")
         data, label = data.to(device), label.to(device)
         slide_id = slide_ids.iloc[batch_idx]
         with torch.no_grad():
@@ -90,7 +94,7 @@ def summary(model, loader, args):
         error = calculate_error(Y_hat, label)
         test_error += error
 
-    del data
+    #del data
     test_error /= len(loader)
 
     aucs = []
