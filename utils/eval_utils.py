@@ -34,6 +34,9 @@ def initiate_model(args, ckpt_path, device='cuda'):
             model = MIL_fc(**model_dict)
 
     print_network(model)
+#### test
+    if device is None:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
     ckpt_clean = {}
