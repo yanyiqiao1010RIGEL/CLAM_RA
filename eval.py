@@ -44,6 +44,11 @@ parser.add_argument('--split', type=str, choices=['train', 'val', 'test', 'all']
 parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_tgca'])
 parser.add_argument('--drop_out', type=float, default=0.25, help='dropout')
 parser.add_argument('--embed_dim', type=int, default=1024)
+
+### Rigel add csv path for test in task 3
+parser.add_argument('--csv_path', type=str, required=True,
+                    help='Path to the CSV file for labels')
+
 args = parser.parse_args()
 
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -95,7 +100,13 @@ elif args.task == 'task_2_tumor_subtyping':
 ### Rigel added 1 task
 elif args.task == 'task_3_tgca':
     args.n_classes=2
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/TrainLabel1.csv',
+
+    if os.path.exists(args.csv_path):
+        df = pd.read_csv(args.csv_path)
+        df.dropna(inplace=True)
+        df.to_csv(args.csv_path, index=False)
+
+    dataset = Generic_MIL_Dataset(csv_path=args.csv_path,
                             data_dir= os.path.join(args.data_root_dir),
                             shuffle = False,
                             print_info = True,
