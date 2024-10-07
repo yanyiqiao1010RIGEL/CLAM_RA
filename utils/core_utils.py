@@ -517,6 +517,8 @@ def summary(model, loader, n_classes):
 
     if n_classes == 2:
         auc = roc_auc_score(all_labels, all_probs[:, 1])
+        ### Rigel add f1
+        f1 = f1_score(all_labels, all_preds, average='binary')
         aucs = []
     else:
         aucs = []
