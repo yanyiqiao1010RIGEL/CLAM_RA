@@ -8,6 +8,8 @@ from models.model_clam import CLAM_MB, CLAM_SB
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import roc_auc_score, roc_curve
 from sklearn.metrics import auc as calc_auc
+from sklearn.metrics import f1_score
+
 
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -203,8 +205,8 @@ def train(datasets, cur, args):
     _, val_error, val_auc, _= summary(model, val_loader, args.n_classes)
     print('Val error: {:.4f}, ROC AUC: {:.4f}'.format(val_error, val_auc))
 
-    results_dict, test_error, test_auc, acc_logger = summary(model, test_loader, args.n_classes)
-    print('Test error: {:.4f}, ROC AUC: {:.4f}'.format(test_error, test_auc))
+    results_dict, test_error, test_auc, acc_logger, test_f1  = summary(model, test_loader, args.n_classes)
+    print('Test error: {:.4f}, ROC AUC: {:.4f}, F1: {:.4f}'.format(test_error, test_auc, test_f1))
 
     for i in range(args.n_classes):
         acc, correct, count = acc_logger.get_summary(i)
@@ -219,7 +221,7 @@ def train(datasets, cur, args):
         writer.add_scalar('final/test_error', test_error, 0)
         writer.add_scalar('final/test_auc', test_auc, 0)
         writer.close()
-    return results_dict, test_auc, val_auc, 1-test_error, 1-val_error 
+    return results_dict, test_auc, val_auc, 1-test_error, 1-val_error, test_f1
 
 
 def train_loop_clam(epoch, model, loader, optimizer, n_classes, bag_weight, writer = None, loss_fn = None):
@@ -490,6 +492,7 @@ def summary(model, loader, n_classes):
 
     all_probs = np.zeros((len(loader), n_classes))
     all_labels = np.zeros(len(loader))
+    all_preds = np.zeros(len(loader))
 
     slide_ids = loader.dataset.slide_data['slide_id']
     patient_results = {}
@@ -504,6 +507,7 @@ def summary(model, loader, n_classes):
         probs = Y_prob.cpu().numpy()
         all_probs[batch_idx] = probs
         all_labels[batch_idx] = label.item()
+        all_preds[batch_idx] = Y_hat.item()
         
         patient_results.update({slide_id: {'slide_id': np.array(slide_id), 'prob': probs, 'label': label.item()}})
         error = calculate_error(Y_hat, label)
@@ -525,6 +529,7 @@ def summary(model, loader, n_classes):
                 aucs.append(float('nan'))
 
         auc = np.nanmean(np.array(aucs))
+        f1 = f1_score(all_labels, all_preds, average='weighted')
 
 
-    return patient_results, test_error, auc, acc_logger
+    return patient_results, test_error, auc, acc_logger, f1
