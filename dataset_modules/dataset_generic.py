@@ -66,8 +66,12 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 		if 'IDH' in slide_data.columns:
 			slide_data.rename(columns={'IDH': 'label'}, inplace=True)
-		if 'labels' in slide_data.columns:
+			self.label_col = 'label'
+		elif 'labels' in slide_data.columns:
 			slide_data.rename(columns={'labels': 'label'}, inplace=True)
+			self.label_col = 'label'
+		else:
+			raise ValueError("Neither 'IDH' nor 'labels' column found in CSV.")
 
 		slide_data = self.filter_df(slide_data, filter_dict)
 		slide_data = self.df_prep(slide_data, self.label_dict, ignore, self.label_col)
@@ -121,8 +125,14 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 	@staticmethod
 	def df_prep(data, label_dict, ignore, label_col):
-		if label_col != 'label':
-			data['label'] = data[label_col].copy()
+		#if label_col != 'label':
+		#	data['label'] = data[label_col].copy()
+		if 'IDH' in data.columns:
+			label_col = 'IDH'  # 优先使用 'IDH' 列
+		elif 'label' in data.columns:
+			label_col = 'label'  # 如果没有 'IDH'，使用 'label'
+		else:
+			raise ValueError("Neither 'IDH' nor 'label' column found in CSV.")
 
 		mask = data['label'].isin(ignore)
 		data = data[~mask]
