@@ -58,11 +58,17 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		self.train_ids, self.val_ids, self.test_ids  = (None, None, None)
 		self.data_dir = None
 		### Rigel changed "label" to "IDH"
-		if not label_col:
-			label_col = 'IDH'
-		self.label_col = label_col
+		#if not label_col:
+		#	label_col = 'label'
+		#self.label_col = label_col
 
 		slide_data = pd.read_csv(csv_path)
+
+		if 'IDH' in slide_data.columns:
+			slide_data.rename(columns={'IDH': 'label'}, inplace=True)
+		if 'labels' in slide_data.columns:
+			slide_data.rename(columns={'labels': 'label'}, inplace=True)
+
 		slide_data = self.filter_df(slide_data, filter_dict)
 		slide_data = self.df_prep(slide_data, self.label_dict, ignore, self.label_col)
 
