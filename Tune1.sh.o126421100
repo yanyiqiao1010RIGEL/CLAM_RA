@@ -1,0 +1,4748 @@
+initializing dataset
+loading model checkpoint
+TimmCNNEncoder(
+  (model): FeatureListNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act1): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+  )
+  (pool): AdaptiveAvgPool2d(output_size=1)
+)
+
+progress: 0/105
+TCGA-FG-5962-01Z-00-DX1.3df4ee8a-9be3-482e-a0d6-4e4d9c3c9f54
+downsample [1. 1.]
+downsampled_level_dim [172664  84999]
+level_dim [172664  84999]
+name TCGA-FG-5962-01Z-00-DX1.3df4ee8a-9be3-482e-a0d6-4e4d9c3c9f54
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 154 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-5962-01Z-00-DX1.3df4ee8a-9be3-482e-a0d6-4e4d9c3c9f54.h5 took 94.7970507144928 s
+features size:  (78712, 1024)
+coordinates size:  (78712, 2)
+
+progress: 1/105
+TCGA-FG-5963-01Z-00-DX1.7bcacb10-cec1-4397-9c3a-bf08cab7d63d
+downsample [1. 1.]
+downsampled_level_dim [169786  84976]
+level_dim [169786  84976]
+name TCGA-FG-5963-01Z-00-DX1.7bcacb10-cec1-4397-9c3a-bf08cab7d63d
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 211 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-5963-01Z-00-DX1.7bcacb10-cec1-4397-9c3a-bf08cab7d63d.h5 took 121.0537543296814 s
+features size:  (107664, 1024)
+coordinates size:  (107664, 2)
+
+progress: 2/105
+TCGA-FG-5964-01Z-00-DX1.971827c7-4e41-4b8c-af02-01b340cf4cbd
+downsample [1. 1.]
+downsampled_level_dim [124701  46574]
+level_dim [124701  46574]
+name TCGA-FG-5964-01Z-00-DX1.971827c7-4e41-4b8c-af02-01b340cf4cbd
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 57 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-5964-01Z-00-DX1.971827c7-4e41-4b8c-af02-01b340cf4cbd.h5 took 35.26746320724487 s
+features size:  (29114, 1024)
+coordinates size:  (29114, 2)
+
+progress: 3/105
+TCGA-FG-5965-01Z-00-DX1.f317c968-bc3d-47dc-b608-41cb98b6608e
+downsample [1. 1.]
+downsampled_level_dim [166908  84951]
+level_dim [166908  84951]
+name TCGA-FG-5965-01Z-00-DX1.f317c968-bc3d-47dc-b608-41cb98b6608e
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 208 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-5965-01Z-00-DX1.f317c968-bc3d-47dc-b608-41cb98b6608e.h5 took 116.2056655883789 s
+features size:  (106222, 1024)
+coordinates size:  (106222, 2)
+
+progress: 4/105
+TCGA-FG-6688-01Z-00-DX1.8f282d89-9838-4295-8c58-9ee29d915b07
+downsample [1. 1.]
+downsampled_level_dim [176501  85030]
+level_dim [176501  85030]
+name TCGA-FG-6688-01Z-00-DX1.8f282d89-9838-4295-8c58-9ee29d915b07
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 175 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-6688-01Z-00-DX1.8f282d89-9838-4295-8c58-9ee29d915b07.h5 took 112.08135604858398 s
+features size:  (89527, 1024)
+coordinates size:  (89527, 2)
+
+progress: 5/105
+TCGA-FG-6689-01Z-00-DX1.378dc7f0-a35e-4157-bcb3-1bb8bf87fee8
+downsample [1. 1.]
+downsampled_level_dim [165949  84949]
+level_dim [165949  84949]
+name TCGA-FG-6689-01Z-00-DX1.378dc7f0-a35e-4157-bcb3-1bb8bf87fee8
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 196 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-6689-01Z-00-DX1.378dc7f0-a35e-4157-bcb3-1bb8bf87fee8.h5 took 112.29804301261902 s
+features size:  (100260, 1024)
+coordinates size:  (100260, 2)
+
+progress: 6/105
+TCGA-FG-6690-01Z-00-DX1.69e8e3dd-91a5-442c-b0c9-8da45828b2c5
+downsample [1. 1.]
+downsampled_level_dim [146764  82254]
+level_dim [146764  82254]
+name TCGA-FG-6690-01Z-00-DX1.69e8e3dd-91a5-442c-b0c9-8da45828b2c5
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 58 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-6690-01Z-00-DX1.69e8e3dd-91a5-442c-b0c9-8da45828b2c5.h5 took 34.80392575263977 s
+features size:  (29250, 1024)
+coordinates size:  (29250, 2)
+
+progress: 7/105
+TCGA-FG-6691-01Z-00-DX1.d5e614cf-985b-4ca1-9ded-4ff57e938df1
+downsample [1. 1.]
+downsampled_level_dim [151560  76709]
+level_dim [151560  76709]
+name TCGA-FG-6691-01Z-00-DX1.d5e614cf-985b-4ca1-9ded-4ff57e938df1
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 165 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-6691-01Z-00-DX1.d5e614cf-985b-4ca1-9ded-4ff57e938df1.h5 took 92.53844165802002 s
+features size:  (84353, 1024)
+coordinates size:  (84353, 2)
+
+progress: 8/105
+TCGA-FG-6692-01Z-00-DX1.719e6a21-c620-46a4-a47e-fb0fccc34cec
+downsample [1. 1.]
+downsampled_level_dim [113191  42668]
+level_dim [113191  42668]
+name TCGA-FG-6692-01Z-00-DX1.719e6a21-c620-46a4-a47e-fb0fccc34cec
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 24 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-6692-01Z-00-DX1.719e6a21-c620-46a4-a47e-fb0fccc34cec.h5 took 16.214696645736694 s
+features size:  (12083, 1024)
+coordinates size:  (12083, 2)
+
+progress: 9/105
+TCGA-FG-7634-01Z-00-DX1.BF0F2F3E-2CAD-495C-A0E6-D8194BCC4A77
+downsample [1. 1.]
+downsampled_level_dim [129498  50924]
+level_dim [129498  50924]
+name TCGA-FG-7634-01Z-00-DX1.BF0F2F3E-2CAD-495C-A0E6-D8194BCC4A77
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 26 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-7634-01Z-00-DX1.BF0F2F3E-2CAD-495C-A0E6-D8194BCC4A77.h5 took 16.765552043914795 s
+features size:  (12882, 1024)
+coordinates size:  (12882, 2)
+
+progress: 10/105
+TCGA-FG-7636-01Z-00-DX1.BD12D54F-E266-4950-AB43-912C714E338C
+downsample [1. 1.]
+downsampled_level_dim [126620  80057]
+level_dim [126620  80057]
+name TCGA-FG-7636-01Z-00-DX1.BD12D54F-E266-4950-AB43-912C714E338C
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 97 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-7636-01Z-00-DX1.BD12D54F-E266-4950-AB43-912C714E338C.h5 took 71.77002692222595 s
+features size:  (49640, 1024)
+coordinates size:  (49640, 2)
+
+progress: 11/105
+TCGA-FG-7637-01Z-00-DX1.29BC8289-EC8E-4182-A235-C7AC5DAC9A0E
+downsample [1. 1.]
+downsampled_level_dim [165949  91030]
+level_dim [165949  91030]
+name TCGA-FG-7637-01Z-00-DX1.29BC8289-EC8E-4182-A235-C7AC5DAC9A0E
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 221 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-7637-01Z-00-DX1.29BC8289-EC8E-4182-A235-C7AC5DAC9A0E.h5 took 140.04138231277466 s
+features size:  (112761, 1024)
+coordinates size:  (112761, 2)
+
+progress: 12/105
+TCGA-FG-7638-01Z-00-DX1.27EE5A65-D5D9-41B9-998E-049764C18DC8
+downsample [1. 1.]
+downsampled_level_dim [101680  48661]
+level_dim [101680  48661]
+name TCGA-FG-7638-01Z-00-DX1.27EE5A65-D5D9-41B9-998E-049764C18DC8
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 80 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-7638-01Z-00-DX1.27EE5A65-D5D9-41B9-998E-049764C18DC8.h5 took 41.606616735458374 s
+features size:  (40594, 1024)
+coordinates size:  (40594, 2)
+
+progress: 13/105
+TCGA-FG-7641-01Z-00-DX1.7672d4c9-2bd2-4faf-a183-f69b7e1aefea
+downsample [1. 1.]
+downsampled_level_dim [82495 66507]
+level_dim [82495 66507]
+name TCGA-FG-7641-01Z-00-DX1.7672d4c9-2bd2-4faf-a183-f69b7e1aefea
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 61 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-7641-01Z-00-DX1.7672d4c9-2bd2-4faf-a183-f69b7e1aefea.h5 took 30.023542404174805 s
+features size:  (31165, 1024)
+coordinates size:  (31165, 2)
+
+progress: 14/105
+TCGA-FG-7643-01Z-00-DX1.2F1D1287-FC69-4A7A-B401-9F48C0A2A7B9
+downsample [1. 1.]
+downsampled_level_dim [136212  79373]
+level_dim [136212  79373]
+name TCGA-FG-7643-01Z-00-DX1.2F1D1287-FC69-4A7A-B401-9F48C0A2A7B9
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 77 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-7643-01Z-00-DX1.2F1D1287-FC69-4A7A-B401-9F48C0A2A7B9.h5 took 50.98766541481018 s
+features size:  (39176, 1024)
+coordinates size:  (39176, 2)
+
+progress: 15/105
+TCGA-FG-8181-01Z-00-DX1.2902c472-2ec1-4e6c-a31e-e04b693ae4fb
+downsample [1. 1.]
+downsampled_level_dim [102639  40558]
+level_dim [102639  40558]
+name TCGA-FG-8181-01Z-00-DX1.2902c472-2ec1-4e6c-a31e-e04b693ae4fb
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 33 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8181-01Z-00-DX1.2902c472-2ec1-4e6c-a31e-e04b693ae4fb.h5 took 17.500418663024902 s
+features size:  (16592, 1024)
+coordinates size:  (16592, 2)
+
+progress: 16/105
+TCGA-FG-8182-01Z-00-DX1.287825ff-7486-455b-b3d7-90200806ae87
+downsample [1. 1.]
+downsampled_level_dim [94965 31367]
+level_dim [94965 31367]
+name TCGA-FG-8182-01Z-00-DX1.287825ff-7486-455b-b3d7-90200806ae87
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 27 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8182-01Z-00-DX1.287825ff-7486-455b-b3d7-90200806ae87.h5 took 15.916726112365723 s
+features size:  (13546, 1024)
+coordinates size:  (13546, 2)
+
+progress: 17/105
+TCGA-FG-8185-01Z-00-DX1.99b9779e-d967-47c6-836c-8b71a335b9a0
+downsample [1. 1.]
+downsampled_level_dim [132375  67936]
+level_dim [132375  67936]
+name TCGA-FG-8185-01Z-00-DX1.99b9779e-d967-47c6-836c-8b71a335b9a0
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 129 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8185-01Z-00-DX1.99b9779e-d967-47c6-836c-8b71a335b9a0.h5 took 56.75475573539734 s
+features size:  (65665, 1024)
+coordinates size:  (65665, 2)
+
+progress: 18/105
+TCGA-FG-8186-01Z-00-DX1.61031186-ca17-4c25-b7e8-b9a3f99a8242
+downsample [1. 1.]
+downsampled_level_dim [94006 86130]
+level_dim [94006 86130]
+name TCGA-FG-8186-01Z-00-DX1.61031186-ca17-4c25-b7e8-b9a3f99a8242
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 144 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8186-01Z-00-DX1.61031186-ca17-4c25-b7e8-b9a3f99a8242.h5 took 58.33051347732544 s
+features size:  (73652, 1024)
+coordinates size:  (73652, 2)
+
+progress: 19/105
+TCGA-FG-8187-01Z-00-DX1.4af1e387-0e5f-43e2-a237-fad93a0209a7
+downsample [1. 1.]
+downsampled_level_dim [49880 51280]
+level_dim [49880 51280]
+name TCGA-FG-8187-01Z-00-DX1.4af1e387-0e5f-43e2-a237-fad93a0209a7
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 30 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8187-01Z-00-DX1.4af1e387-0e5f-43e2-a237-fad93a0209a7.h5 took 16.423917055130005 s
+features size:  (14992, 1024)
+coordinates size:  (14992, 2)
+
+progress: 20/105
+TCGA-FG-8187-01Z-00-DX2.e9ba4a17-f5b7-4786-b4f3-29e0d79b5985
+downsample [1. 1.]
+downsampled_level_dim [48921 56848]
+level_dim [48921 56848]
+name TCGA-FG-8187-01Z-00-DX2.e9ba4a17-f5b7-4786-b4f3-29e0d79b5985
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 41 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8187-01Z-00-DX2.e9ba4a17-f5b7-4786-b4f3-29e0d79b5985.h5 took 21.470396995544434 s
+features size:  (20867, 1024)
+coordinates size:  (20867, 2)
+
+progress: 21/105
+TCGA-FG-8188-01Z-00-DX1.2a587a5c-9985-4d83-868d-4801fb239a61
+downsample [1. 1.]
+downsampled_level_dim [60432 75456]
+level_dim [60432 75456]
+name TCGA-FG-8188-01Z-00-DX1.2a587a5c-9985-4d83-868d-4801fb239a61
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 105 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8188-01Z-00-DX1.2a587a5c-9985-4d83-868d-4801fb239a61.h5 took 45.69084119796753 s
+features size:  (53426, 1024)
+coordinates size:  (53426, 2)
+
+progress: 22/105
+TCGA-FG-8188-01Z-00-DX2.41b9a28a-95c5-4ebe-ab98-51aa44967cd0
+downsample [1. 1.]
+downsampled_level_dim [100720  40539]
+level_dim [100720  40539]
+name TCGA-FG-8188-01Z-00-DX2.41b9a28a-95c5-4ebe-ab98-51aa44967cd0
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 41 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8188-01Z-00-DX2.41b9a28a-95c5-4ebe-ab98-51aa44967cd0.h5 took 20.836257934570312 s
+features size:  (20901, 1024)
+coordinates size:  (20901, 2)
+
+progress: 23/105
+TCGA-FG-8188-01Z-00-DX3.0238ac4e-c4ea-486e-9884-7853729294a9
+downsample [1. 1.]
+downsampled_level_dim [51799 49268]
+level_dim [51799 49268]
+name TCGA-FG-8188-01Z-00-DX3.0238ac4e-c4ea-486e-9884-7853729294a9
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 48 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8188-01Z-00-DX3.0238ac4e-c4ea-486e-9884-7853729294a9.h5 took 25.287442684173584 s
+features size:  (24358, 1024)
+coordinates size:  (24358, 2)
+
+progress: 24/105
+TCGA-FG-8189-01Z-00-DX1.3B81D484-0399-44AE-8D64-8498D2691139
+downsample [1. 1.]
+downsampled_level_dim [173303  83883]
+level_dim [173303  83883]
+name TCGA-FG-8189-01Z-00-DX1.3B81D484-0399-44AE-8D64-8498D2691139
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 157 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8189-01Z-00-DX1.3B81D484-0399-44AE-8D64-8498D2691139.h5 took 65.86293625831604 s
+features size:  (80124, 1024)
+coordinates size:  (80124, 2)
+
+progress: 25/105
+TCGA-FG-8191-01Z-00-DX1.cf5a8abc-ba6d-438f-b070-95fc79ba0fce
+downsample [1. 1.]
+downsampled_level_dim [106476  37546]
+level_dim [106476  37546]
+name TCGA-FG-8191-01Z-00-DX1.cf5a8abc-ba6d-438f-b070-95fc79ba0fce
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 31 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-8191-01Z-00-DX1.cf5a8abc-ba6d-438f-b070-95fc79ba0fce.h5 took 17.015034914016724 s
+features size:  (15384, 1024)
+coordinates size:  (15384, 2)
+
+progress: 26/105
+TCGA-FG-A4MT-02Z-00-DX1.F0250524-BEDE-4C23-A3E9-F1D927F5E561
+downsample [1. 1.]
+downsampled_level_dim [113288  95059]
+level_dim [113288  95059]
+name TCGA-FG-A4MT-02Z-00-DX1.F0250524-BEDE-4C23-A3E9-F1D927F5E561
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 144 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MT-02Z-00-DX1.F0250524-BEDE-4C23-A3E9-F1D927F5E561.h5 took 62.62005138397217 s
+features size:  (73342, 1024)
+coordinates size:  (73342, 2)
+
+progress: 27/105
+TCGA-FG-A4MT-02Z-00-DX2.9CCA63C2-537E-4830-B6C3-ADF6F614AFF3
+downsample [1. 1.]
+downsampled_level_dim [121856  94040]
+level_dim [121856  94040]
+name TCGA-FG-A4MT-02Z-00-DX2.9CCA63C2-537E-4830-B6C3-ADF6F614AFF3
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 137 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MT-02Z-00-DX2.9CCA63C2-537E-4830-B6C3-ADF6F614AFF3.h5 took 57.147552251815796 s
+features size:  (69768, 1024)
+coordinates size:  (69768, 2)
+
+progress: 28/105
+TCGA-FG-A4MT-02Z-00-DX3.1EB377EB-35FD-420F-9CD9-4A9E4B75EB53
+downsample [1. 1.]
+downsampled_level_dim [134232  91858]
+level_dim [134232  91858]
+name TCGA-FG-A4MT-02Z-00-DX3.1EB377EB-35FD-420F-9CD9-4A9E4B75EB53
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 158 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MT-02Z-00-DX3.1EB377EB-35FD-420F-9CD9-4A9E4B75EB53.h5 took 66.89677667617798 s
+features size:  (80466, 1024)
+coordinates size:  (80466, 2)
+
+progress: 29/105
+TCGA-FG-A4MT-02Z-00-DX4.5CC76ADE-AFCE-4BDC-AC27-4CD962926AD6
+downsample [1. 1.]
+downsampled_level_dim [104720  87689]
+level_dim [104720  87689]
+name TCGA-FG-A4MT-02Z-00-DX4.5CC76ADE-AFCE-4BDC-AC27-4CD962926AD6
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 145 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MT-02Z-00-DX4.5CC76ADE-AFCE-4BDC-AC27-4CD962926AD6.h5 took 61.56448793411255 s
+features size:  (73776, 1024)
+coordinates size:  (73776, 2)
+
+progress: 30/105
+TCGA-FG-A4MT-02Z-00-DX5.BC137126-2035-4629-BCCF-EDDD39CC7178
+downsample [1. 1.]
+downsampled_level_dim [92344 95299]
+level_dim [92344 95299]
+name TCGA-FG-A4MT-02Z-00-DX5.BC137126-2035-4629-BCCF-EDDD39CC7178
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 132 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MT-02Z-00-DX5.BC137126-2035-4629-BCCF-EDDD39CC7178.h5 took 57.0058319568634 s
+features size:  (67396, 1024)
+coordinates size:  (67396, 2)
+
+progress: 31/105
+TCGA-FG-A4MT-02Z-00-DX6.0CD6853F-A85E-4AD5-86BD-0925F6542453
+downsample [1. 1.]
+downsampled_level_dim [113288  96044]
+level_dim [113288  96044]
+name TCGA-FG-A4MT-02Z-00-DX6.0CD6853F-A85E-4AD5-86BD-0925F6542453
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 124 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MT-02Z-00-DX6.0CD6853F-A85E-4AD5-86BD-0925F6542453.h5 took 52.74177575111389 s
+features size:  (63243, 1024)
+coordinates size:  (63243, 2)
+
+progress: 32/105
+TCGA-FG-A4MU-01Z-00-DX1.F557204B-3E0E-4961-ACCA-0567C66E318F
+downsample [1. 1.]
+downsampled_level_dim [146607  79521]
+level_dim [146607  79521]
+name TCGA-FG-A4MU-01Z-00-DX1.F557204B-3E0E-4961-ACCA-0567C66E318F
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 88 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MU-01Z-00-DX1.F557204B-3E0E-4961-ACCA-0567C66E318F.h5 took 37.132853507995605 s
+features size:  (44673, 1024)
+coordinates size:  (44673, 2)
+
+progress: 33/105
+TCGA-FG-A4MU-01Z-00-DX2.4E6A0F42-3203-453D-A8BE-D9B451618407
+downsample [1. 1.]
+downsampled_level_dim [64736 52835]
+level_dim [64736 52835]
+name TCGA-FG-A4MU-01Z-00-DX2.4E6A0F42-3203-453D-A8BE-D9B451618407
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 51 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MU-01Z-00-DX2.4E6A0F42-3203-453D-A8BE-D9B451618407.h5 took 23.68571186065674 s
+features size:  (25814, 1024)
+coordinates size:  (25814, 2)
+
+progress: 34/105
+TCGA-FG-A4MU-01Z-00-DX3.C4DF3CCE-61FC-4E79-A1AA-528F55285147
+downsample [1. 1.]
+downsampled_level_dim [107576  81735]
+level_dim [107576  81735]
+name TCGA-FG-A4MU-01Z-00-DX3.C4DF3CCE-61FC-4E79-A1AA-528F55285147
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 134 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MU-01Z-00-DX3.C4DF3CCE-61FC-4E79-A1AA-528F55285147.h5 took 56.596760511398315 s
+features size:  (68171, 1024)
+coordinates size:  (68171, 2)
+
+progress: 35/105
+TCGA-FG-A4MW-01Z-00-DX1.526F910A-096F-44B7-9D7F-04342332CC4B
+downsample [1. 1.]
+downsampled_level_dim [63784 51320]
+level_dim [63784 51320]
+name TCGA-FG-A4MW-01Z-00-DX1.526F910A-096F-44B7-9D7F-04342332CC4B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 49 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MW-01Z-00-DX1.526F910A-096F-44B7-9D7F-04342332CC4B.h5 took 23.384647369384766 s
+features size:  (24945, 1024)
+coordinates size:  (24945, 2)
+
+progress: 36/105
+TCGA-FG-A4MW-01Z-00-DX2.2A441E68-6A73-47F7-A3C8-C5656F9CC658
+downsample [1. 1.]
+downsampled_level_dim [70448 61823]
+level_dim [70448 61823]
+name TCGA-FG-A4MW-01Z-00-DX2.2A441E68-6A73-47F7-A3C8-C5656F9CC658
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 54 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MW-01Z-00-DX2.2A441E68-6A73-47F7-A3C8-C5656F9CC658.h5 took 25.47011089324951 s
+features size:  (27434, 1024)
+coordinates size:  (27434, 2)
+
+progress: 37/105
+TCGA-FG-A4MX-01Z-00-DX1.64CE3174-2194-461A-AD83-D0CF49FD27EF
+downsample [1. 1.]
+downsampled_level_dim [167552  89762]
+level_dim [167552  89762]
+name TCGA-FG-A4MX-01Z-00-DX1.64CE3174-2194-461A-AD83-D0CF49FD27EF
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 133 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MX-01Z-00-DX1.64CE3174-2194-461A-AD83-D0CF49FD27EF.h5 took 55.925575733184814 s
+features size:  (67588, 1024)
+coordinates size:  (67588, 2)
+
+progress: 38/105
+TCGA-FG-A4MY-01Z-00-DX1.EB81EFA3-9B05-4480-8570-8D16B923D655
+downsample [1. 1.]
+downsampled_level_dim [66640 42917]
+level_dim [66640 42917]
+name TCGA-FG-A4MY-01Z-00-DX1.EB81EFA3-9B05-4480-8570-8D16B923D655
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 30 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A4MY-01Z-00-DX1.EB81EFA3-9B05-4480-8570-8D16B923D655.h5 took 15.3888099193573 s
+features size:  (15204, 1024)
+coordinates size:  (15204, 2)
+
+progress: 39/105
+TCGA-FG-A60J-01Z-00-DX1.1A313634-0CA2-40B4-998A-58871CF2A5CE
+downsample [1. 1.]
+downsampled_level_dim [122808  70394]
+level_dim [122808  70394]
+name TCGA-FG-A60J-01Z-00-DX1.1A313634-0CA2-40B4-998A-58871CF2A5CE
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 114 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A60J-01Z-00-DX1.1A313634-0CA2-40B4-998A-58871CF2A5CE.h5 took 49.413880348205566 s
+features size:  (58337, 1024)
+coordinates size:  (58337, 2)
+
+progress: 40/105
+TCGA-FG-A60K-01Z-00-DX1.A5997F67-B39A-477A-BE71-BF72FD9596F8
+downsample [1. 1.]
+downsampled_level_dim [132328  75385]
+level_dim [132328  75385]
+name TCGA-FG-A60K-01Z-00-DX1.A5997F67-B39A-477A-BE71-BF72FD9596F8
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 90 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A60K-01Z-00-DX1.A5997F67-B39A-477A-BE71-BF72FD9596F8.h5 took 39.289952993392944 s
+features size:  (45608, 1024)
+coordinates size:  (45608, 2)
+
+progress: 41/105
+TCGA-FG-A60K-01Z-00-DX2.43CB9666-FF7D-4000-8EF4-C56F1619E56E
+downsample [1. 1.]
+downsampled_level_dim [90440 78536]
+level_dim [90440 78536]
+name TCGA-FG-A60K-01Z-00-DX2.43CB9666-FF7D-4000-8EF4-C56F1619E56E
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 91 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A60K-01Z-00-DX2.43CB9666-FF7D-4000-8EF4-C56F1619E56E.h5 took 40.62983441352844 s
+features size:  (46098, 1024)
+coordinates size:  (46098, 2)
+
+progress: 42/105
+TCGA-FG-A60L-01Z-00-DX1.BE970739-D829-489B-A697-311021B8CD73
+downsample [1. 1.]
+downsampled_level_dim [77112 45610]
+level_dim [77112 45610]
+name TCGA-FG-A60L-01Z-00-DX1.BE970739-D829-489B-A697-311021B8CD73
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 45 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A60L-01Z-00-DX1.BE970739-D829-489B-A697-311021B8CD73.h5 took 22.052637577056885 s
+features size:  (23029, 1024)
+coordinates size:  (23029, 2)
+
+progress: 43/105
+TCGA-FG-A6IZ-01Z-00-DX1.4E27D4BA-5E6C-4E51-97F4-5EE6148A4F29
+downsample [1. 1.]
+downsampled_level_dim [48836 51640]
+level_dim [48836 51640]
+name TCGA-FG-A6IZ-01Z-00-DX1.4E27D4BA-5E6C-4E51-97F4-5EE6148A4F29
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 33 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A6IZ-01Z-00-DX1.4E27D4BA-5E6C-4E51-97F4-5EE6148A4F29.h5 took 16.88737726211548 s
+features size:  (16504, 1024)
+coordinates size:  (16504, 2)
+
+progress: 44/105
+TCGA-FG-A6J1-01Z-00-DX1.F360DE20-12F7-4727-8A21-C3D3F3EA4AF2
+downsample [1. 1.]
+downsampled_level_dim [124486  92261]
+level_dim [124486  92261]
+name TCGA-FG-A6J1-01Z-00-DX1.F360DE20-12F7-4727-8A21-C3D3F3EA4AF2
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 137 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A6J1-01Z-00-DX1.F360DE20-12F7-4727-8A21-C3D3F3EA4AF2.h5 took 58.93049383163452 s
+features size:  (69974, 1024)
+coordinates size:  (69974, 2)
+
+progress: 45/105
+TCGA-FG-A6J3-01Z-00-DX1.AA7E89A2-D29C-4C47-9905-4016302CC92C
+downsample [1. 1.]
+downsampled_level_dim [137448  62887]
+level_dim [137448  62887]
+name TCGA-FG-A6J3-01Z-00-DX1.AA7E89A2-D29C-4C47-9905-4016302CC92C
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 117 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A6J3-01Z-00-DX1.AA7E89A2-D29C-4C47-9905-4016302CC92C.h5 took 53.43849229812622 s
+features size:  (59779, 1024)
+coordinates size:  (59779, 2)
+
+progress: 46/105
+TCGA-FG-A6J3-01Z-00-DX2.623EFD35-6640-4E69-991F-4D02757195C0
+downsample [1. 1.]
+downsampled_level_dim [143424  71101]
+level_dim [143424  71101]
+name TCGA-FG-A6J3-01Z-00-DX2.623EFD35-6640-4E69-991F-4D02757195C0
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 162 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A6J3-01Z-00-DX2.623EFD35-6640-4E69-991F-4D02757195C0.h5 took 68.54518103599548 s
+features size:  (82536, 1024)
+coordinates size:  (82536, 2)
+
+progress: 47/105
+TCGA-FG-A6J3-01Z-00-DX3.76B18CCB-CE54-4A5D-9B74-8E62AE893147
+downsample [1. 1.]
+downsampled_level_dim [149400  75773]
+level_dim [149400  75773]
+name TCGA-FG-A6J3-01Z-00-DX3.76B18CCB-CE54-4A5D-9B74-8E62AE893147
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 148 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A6J3-01Z-00-DX3.76B18CCB-CE54-4A5D-9B74-8E62AE893147.h5 took 63.54816937446594 s
+features size:  (75388, 1024)
+coordinates size:  (75388, 2)
+
+progress: 48/105
+TCGA-FG-A6J3-01Z-00-DX4.FB8C5E32-7F05-42C7-9597-DDFD2B842AC5
+downsample [1. 1.]
+downsampled_level_dim [135456  73333]
+level_dim [135456  73333]
+name TCGA-FG-A6J3-01Z-00-DX4.FB8C5E32-7F05-42C7-9597-DDFD2B842AC5
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 144 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A6J3-01Z-00-DX4.FB8C5E32-7F05-42C7-9597-DDFD2B842AC5.h5 took 61.395904779434204 s
+features size:  (73690, 1024)
+coordinates size:  (73690, 2)
+
+progress: 49/105
+TCGA-FG-A6J3-01Z-00-DX5.533723D7-87B8-4070-931C-64BEB265F9EA
+downsample [1. 1.]
+downsampled_level_dim [145416  78498]
+level_dim [145416  78498]
+name TCGA-FG-A6J3-01Z-00-DX5.533723D7-87B8-4070-931C-64BEB265F9EA
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 177 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A6J3-01Z-00-DX5.533723D7-87B8-4070-931C-64BEB265F9EA.h5 took 74.81352257728577 s
+features size:  (90130, 1024)
+coordinates size:  (90130, 2)
+
+progress: 50/105
+TCGA-FG-A70Y-01Z-00-DX1.9A06E22B-6845-493B-BE36-2FD5A83AF122
+downsample [1. 1.]
+downsampled_level_dim [97607 33553]
+level_dim [97607 33553]
+name TCGA-FG-A70Y-01Z-00-DX1.9A06E22B-6845-493B-BE36-2FD5A83AF122
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 16 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A70Y-01Z-00-DX1.9A06E22B-6845-493B-BE36-2FD5A83AF122.h5 took 9.877907037734985 s
+features size:  (8146, 1024)
+coordinates size:  (8146, 2)
+
+progress: 51/105
+TCGA-FG-A70Z-01Z-00-DX1.ABAF26D5-7AEE-48EE-B13F-0BE7FCEE6280
+downsample [1. 1.]
+downsampled_level_dim [101591  32439]
+level_dim [101591  32439]
+name TCGA-FG-A70Z-01Z-00-DX1.ABAF26D5-7AEE-48EE-B13F-0BE7FCEE6280
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 16 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A70Z-01Z-00-DX1.ABAF26D5-7AEE-48EE-B13F-0BE7FCEE6280.h5 took 9.61672067642212 s
+features size:  (7746, 1024)
+coordinates size:  (7746, 2)
+
+progress: 52/105
+TCGA-FG-A710-01Z-00-DX1.78193C8E-38BE-48FC-A64E-D1935F42069C
+downsample [1. 1.]
+downsampled_level_dim [131471  40807]
+level_dim [131471  40807]
+name TCGA-FG-A710-01Z-00-DX1.78193C8E-38BE-48FC-A64E-D1935F42069C
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 28 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A710-01Z-00-DX1.78193C8E-38BE-48FC-A64E-D1935F42069C.h5 took 14.72931170463562 s
+features size:  (14005, 1024)
+coordinates size:  (14005, 2)
+
+progress: 53/105
+TCGA-FG-A711-01Z-00-DX1.69203ECF-0672-428B-81EA-97B94D90E14F
+downsample [1. 1.]
+downsampled_level_dim [93623 66695]
+level_dim [93623 66695]
+name TCGA-FG-A711-01Z-00-DX1.69203ECF-0672-428B-81EA-97B94D90E14F
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 138 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A711-01Z-00-DX1.69203ECF-0672-428B-81EA-97B94D90E14F.h5 took 59.2649929523468 s
+features size:  (70260, 1024)
+coordinates size:  (70260, 2)
+
+progress: 54/105
+TCGA-FG-A713-01Z-00-DX1.92B1CBC8-BF31-4748-92B6-EA4ACB3366FF
+downsample [1. 1.]
+downsampled_level_dim [141431  31283]
+level_dim [141431  31283]
+name TCGA-FG-A713-01Z-00-DX1.92B1CBC8-BF31-4748-92B6-EA4ACB3366FF
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 19 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A713-01Z-00-DX1.92B1CBC8-BF31-4748-92B6-EA4ACB3366FF.h5 took 11.412073135375977 s
+features size:  (9323, 1024)
+coordinates size:  (9323, 2)
+
+progress: 55/105
+TCGA-FG-A713-01Z-00-DX2.AFC5E32E-29B6-422B-B867-76BE764A3352
+downsample [1. 1.]
+downsampled_level_dim [165335  31730]
+level_dim [165335  31730]
+name TCGA-FG-A713-01Z-00-DX2.AFC5E32E-29B6-422B-B867-76BE764A3352
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 17 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A713-01Z-00-DX2.AFC5E32E-29B6-422B-B867-76BE764A3352.h5 took 10.183065176010132 s
+features size:  (8578, 1024)
+coordinates size:  (8578, 2)
+
+progress: 56/105
+TCGA-FG-A713-01Z-00-DX3.61A211D7-4E07-48F3-BCA4-B05B0EDE5AB3
+downsample [1. 1.]
+downsampled_level_dim [147407  37617]
+level_dim [147407  37617]
+name TCGA-FG-A713-01Z-00-DX3.61A211D7-4E07-48F3-BCA4-B05B0EDE5AB3
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 27 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A713-01Z-00-DX3.61A211D7-4E07-48F3-BCA4-B05B0EDE5AB3.h5 took 14.3168044090271 s
+features size:  (13823, 1024)
+coordinates size:  (13823, 2)
+
+progress: 57/105
+TCGA-FG-A713-01Z-00-DX4.12FA5CBD-8304-414F-99BD-2FDA6F9DAC00
+downsample [1. 1.]
+downsampled_level_dim [139439  34298]
+level_dim [139439  34298]
+name TCGA-FG-A713-01Z-00-DX4.12FA5CBD-8304-414F-99BD-2FDA6F9DAC00
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 33 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A713-01Z-00-DX4.12FA5CBD-8304-414F-99BD-2FDA6F9DAC00.h5 took 16.110981225967407 s
+features size:  (16468, 1024)
+coordinates size:  (16468, 2)
+
+progress: 58/105
+TCGA-FG-A713-01Z-00-DX5.E66E88FF-6B6E-40D2-9F5D-32354198475D
+downsample [1. 1.]
+downsampled_level_dim [195215  90991]
+level_dim [195215  90991]
+name TCGA-FG-A713-01Z-00-DX5.E66E88FF-6B6E-40D2-9F5D-32354198475D
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 179 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A713-01Z-00-DX5.E66E88FF-6B6E-40D2-9F5D-32354198475D.h5 took 74.69174408912659 s
+features size:  (91609, 1024)
+coordinates size:  (91609, 2)
+
+progress: 59/105
+TCGA-FG-A87N-01Z-00-DX1.59E663F0-3B40-4845-A73C-A9E5C0B3955B
+downsample [1. 1.]
+downsampled_level_dim [197207  86074]
+level_dim [197207  86074]
+name TCGA-FG-A87N-01Z-00-DX1.59E663F0-3B40-4845-A73C-A9E5C0B3955B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 224 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A87N-01Z-00-DX1.59E663F0-3B40-4845-A73C-A9E5C0B3955B.h5 took 94.2152099609375 s
+features size:  (114608, 1024)
+coordinates size:  (114608, 2)
+
+progress: 60/105
+TCGA-FG-A87Q-01Z-00-DX1.FF3D3CFD-BBF1-42F4-8CEA-CF06A2CC451B
+downsample [1. 1.]
+downsampled_level_dim [125495  59681]
+level_dim [125495  59681]
+name TCGA-FG-A87Q-01Z-00-DX1.FF3D3CFD-BBF1-42F4-8CEA-CF06A2CC451B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 62 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A87Q-01Z-00-DX1.FF3D3CFD-BBF1-42F4-8CEA-CF06A2CC451B.h5 took 27.670218467712402 s
+features size:  (31352, 1024)
+coordinates size:  (31352, 2)
+
+progress: 61/105
+TCGA-FG-A87Q-01Z-00-DX2.28565DCA-8540-4461-87A4-489A0411DAF2
+downsample [1. 1.]
+downsampled_level_dim [135455  76793]
+level_dim [135455  76793]
+name TCGA-FG-A87Q-01Z-00-DX2.28565DCA-8540-4461-87A4-489A0411DAF2
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 85 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A87Q-01Z-00-DX2.28565DCA-8540-4461-87A4-489A0411DAF2.h5 took 36.71710538864136 s
+features size:  (43010, 1024)
+coordinates size:  (43010, 2)
+
+progress: 62/105
+TCGA-FG-A87Q-01Z-00-DX3.426D47B6-2D6C-4F6E-9546-2E121A9DDAB2
+downsample [1. 1.]
+downsampled_level_dim [143423  92322]
+level_dim [143423  92322]
+name TCGA-FG-A87Q-01Z-00-DX3.426D47B6-2D6C-4F6E-9546-2E121A9DDAB2
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 142 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A87Q-01Z-00-DX3.426D47B6-2D6C-4F6E-9546-2E121A9DDAB2.h5 took 61.716803550720215 s
+features size:  (72640, 1024)
+coordinates size:  (72640, 2)
+
+progress: 63/105
+TCGA-FG-A87Q-01Z-00-DX4.9E73D9CC-BE90-4ED4-8F0A-277B25348827
+downsample [1. 1.]
+downsampled_level_dim [137447  71083]
+level_dim [137447  71083]
+name TCGA-FG-A87Q-01Z-00-DX4.9E73D9CC-BE90-4ED4-8F0A-277B25348827
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Ohio_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 78 batches
+
+computing features for /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-A87Q-01Z-00-DX4.9E73D9CC-BE90-4ED4-8F0A-277B25348827.h5 took 35.40390348434448 s
+features size:  (39559, 1024)
+coordinates size:  (39559, 2)
+
+progress: 64/105
+TCGA-19-0957-01Z-00-DX1.8d965dd2-33a9-4ece-b902-0c4152cb63e8
+initializing dataset
+loading model checkpoint
+TimmCNNEncoder(
+  (model): FeatureListNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act1): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+  )
+  (pool): AdaptiveAvgPool2d(output_size=1)
+)
+
+progress: 0/63
+TCGA-DB-5270-01Z-00-DX1.E0795F24-4D23-408A-8871-2675EC577C23
+downsample [1. 1.]
+downsampled_level_dim [123760  85168]
+level_dim [123760  85168]
+name TCGA-DB-5270-01Z-00-DX1.E0795F24-4D23-408A-8871-2675EC577C23
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 171 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5270-01Z-00-DX1.E0795F24-4D23-408A-8871-2675EC577C23.h5 took 74.5635712146759 s
+features size:  (87232, 1024)
+coordinates size:  (87232, 2)
+
+progress: 1/63
+TCGA-DB-5270-01Z-00-DX2.F5F8D418-C805-4293-9688-1CA899A6D15B
+downsample [1. 1.]
+downsampled_level_dim [113288  86635]
+level_dim [113288  86635]
+name TCGA-DB-5270-01Z-00-DX2.F5F8D418-C805-4293-9688-1CA899A6D15B
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 184 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5270-01Z-00-DX2.F5F8D418-C805-4293-9688-1CA899A6D15B.h5 took 80.78594017028809 s
+features size:  (94100, 1024)
+coordinates size:  (94100, 2)
+
+progress: 2/63
+TCGA-DB-5273-01Z-00-DX1.9E85A2F5-FB10-4C9F-A612-19FFB955C9FF
+downsample [1. 1.]
+downsampled_level_dim [135184  88266]
+level_dim [135184  88266]
+name TCGA-DB-5273-01Z-00-DX1.9E85A2F5-FB10-4C9F-A612-19FFB955C9FF
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 221 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5273-01Z-00-DX1.9E85A2F5-FB10-4C9F-A612-19FFB955C9FF.h5 took 95.262864112854 s
+features size:  (112653, 1024)
+coordinates size:  (112653, 2)
+
+progress: 3/63
+TCGA-DB-5273-01Z-00-DX2.4240617C-BD85-4841-A61E-62EB9C143076
+downsample [1. 1.]
+downsampled_level_dim [87584 83701]
+level_dim [87584 83701]
+name TCGA-DB-5273-01Z-00-DX2.4240617C-BD85-4841-A61E-62EB9C143076
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 137 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5273-01Z-00-DX2.4240617C-BD85-4841-A61E-62EB9C143076.h5 took 59.96126389503479 s
+features size:  (69831, 1024)
+coordinates size:  (69831, 2)
+
+progress: 4/63
+TCGA-DB-5274-01Z-00-DX1.28F042EC-7A2E-4AEC-B67A-EF1684BC1361
+downsample [1. 1.]
+downsampled_level_dim [70448 73918]
+level_dim [70448 73918]
+name TCGA-DB-5274-01Z-00-DX1.28F042EC-7A2E-4AEC-B67A-EF1684BC1361
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 65 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5274-01Z-00-DX1.28F042EC-7A2E-4AEC-B67A-EF1684BC1361.h5 took 30.657772302627563 s
+features size:  (33012, 1024)
+coordinates size:  (33012, 2)
+
+progress: 5/63
+TCGA-DB-5274-01Z-00-DX2.958D3EC3-7E76-4E0D-ACB2-BA67196DAB75
+downsample [1. 1.]
+downsampled_level_dim [158032  84679]
+level_dim [158032  84679]
+name TCGA-DB-5274-01Z-00-DX2.958D3EC3-7E76-4E0D-ACB2-BA67196DAB75
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 180 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5274-01Z-00-DX2.958D3EC3-7E76-4E0D-ACB2-BA67196DAB75.h5 took 75.57657051086426 s
+features size:  (92120, 1024)
+coordinates size:  (92120, 2)
+
+progress: 6/63
+TCGA-DB-5275-01Z-00-DX1.E35FB92E-EAE0-4233-9A21-FAC044F1096B
+downsample [1. 1.]
+downsampled_level_dim [108528  65930]
+level_dim [108528  65930]
+name TCGA-DB-5275-01Z-00-DX1.E35FB92E-EAE0-4233-9A21-FAC044F1096B
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 134 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5275-01Z-00-DX1.E35FB92E-EAE0-4233-9A21-FAC044F1096B.h5 took 55.367427349090576 s
+features size:  (68598, 1024)
+coordinates size:  (68598, 2)
+
+progress: 7/63
+TCGA-DB-5275-01Z-00-DX2.30F63FE2-C9CC-4BBA-B2AB-9D857898397E
+downsample [1. 1.]
+downsampled_level_dim [111384  61854]
+level_dim [111384  61854]
+name TCGA-DB-5275-01Z-00-DX2.30F63FE2-C9CC-4BBA-B2AB-9D857898397E
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 132 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5275-01Z-00-DX2.30F63FE2-C9CC-4BBA-B2AB-9D857898397E.h5 took 58.594215631484985 s
+features size:  (67389, 1024)
+coordinates size:  (67389, 2)
+
+progress: 8/63
+TCGA-DB-5276-01Z-00-DX1.3921BD4C-CC46-43A4-BECF-AAB9A35E6682
+downsample [1. 1.]
+downsampled_level_dim [101864  85983]
+level_dim [101864  85983]
+name TCGA-DB-5276-01Z-00-DX1.3921BD4C-CC46-43A4-BECF-AAB9A35E6682
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 126 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5276-01Z-00-DX1.3921BD4C-CC46-43A4-BECF-AAB9A35E6682.h5 took 58.13764190673828 s
+features size:  (64367, 1024)
+coordinates size:  (64367, 2)
+
+progress: 9/63
+TCGA-DB-5276-01Z-00-DX2.8C3B6948-8814-414C-BE52-B7DECB53E7E3
+downsample [1. 1.]
+downsampled_level_dim [96152 65441]
+level_dim [96152 65441]
+name TCGA-DB-5276-01Z-00-DX2.8C3B6948-8814-414C-BE52-B7DECB53E7E3
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 82 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5276-01Z-00-DX2.8C3B6948-8814-414C-BE52-B7DECB53E7E3.h5 took 36.79301476478577 s
+features size:  (41582, 1024)
+coordinates size:  (41582, 2)
+
+progress: 10/63
+TCGA-DB-5277-01Z-00-DX1.635F8997-B57B-402D-8889-BE84CA858B16
+downsample [1. 1.]
+downsampled_level_dim [87584 76038]
+level_dim [87584 76038]
+name TCGA-DB-5277-01Z-00-DX1.635F8997-B57B-402D-8889-BE84CA858B16
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 113 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5277-01Z-00-DX1.635F8997-B57B-402D-8889-BE84CA858B16.h5 took 49.65267992019653 s
+features size:  (57644, 1024)
+coordinates size:  (57644, 2)
+
+progress: 11/63
+TCGA-DB-5277-01Z-00-DX2.F1B46E37-AC7F-4805-9606-468744147AF8
+downsample [1. 1.]
+downsampled_level_dim [104720  82559]
+level_dim [104720  82559]
+name TCGA-DB-5277-01Z-00-DX2.F1B46E37-AC7F-4805-9606-468744147AF8
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 130 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5277-01Z-00-DX2.F1B46E37-AC7F-4805-9606-468744147AF8.h5 took 57.15596413612366 s
+features size:  (66097, 1024)
+coordinates size:  (66097, 2)
+
+progress: 12/63
+TCGA-DB-5278-01Z-00-DX1.3B0317D3-8C14-4C70-B60B-2153E89056BF
+downsample [1. 1.]
+downsampled_level_dim [95200 66419]
+level_dim [95200 66419]
+name TCGA-DB-5278-01Z-00-DX1.3B0317D3-8C14-4C70-B60B-2153E89056BF
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 100 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5278-01Z-00-DX1.3B0317D3-8C14-4C70-B60B-2153E89056BF.h5 took 45.650606632232666 s
+features size:  (50890, 1024)
+coordinates size:  (50890, 2)
+
+progress: 13/63
+TCGA-DB-5278-01Z-00-DX2.39A970EE-DD46-4766-82BE-6B9DBFE57F3E
+downsample [1. 1.]
+downsampled_level_dim [52360 79625]
+level_dim [52360 79625]
+name TCGA-DB-5278-01Z-00-DX2.39A970EE-DD46-4766-82BE-6B9DBFE57F3E
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 73 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5278-01Z-00-DX2.39A970EE-DD46-4766-82BE-6B9DBFE57F3E.h5 took 33.12904500961304 s
+features size:  (37348, 1024)
+coordinates size:  (37348, 2)
+
+progress: 14/63
+TCGA-DB-5279-01Z-00-DX1.3E13F0B8-ECCE-490F-B035-2A0E9AD632CB
+downsample [1. 1.]
+downsampled_level_dim [84728 76201]
+level_dim [84728 76201]
+name TCGA-DB-5279-01Z-00-DX1.3E13F0B8-ECCE-490F-B035-2A0E9AD632CB
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 120 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5279-01Z-00-DX1.3E13F0B8-ECCE-490F-B035-2A0E9AD632CB.h5 took 52.450966358184814 s
+features size:  (61180, 1024)
+coordinates size:  (61180, 2)
+
+progress: 15/63
+TCGA-DB-5279-01Z-00-DX2.40EBC457-110D-408A-A40D-B51873A28818
+downsample [1. 1.]
+downsampled_level_dim [65688 77016]
+level_dim [65688 77016]
+name TCGA-DB-5279-01Z-00-DX2.40EBC457-110D-408A-A40D-B51873A28818
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 80 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5279-01Z-00-DX2.40EBC457-110D-408A-A40D-B51873A28818.h5 took 36.604262351989746 s
+features size:  (40514, 1024)
+coordinates size:  (40514, 2)
+
+progress: 16/63
+TCGA-DB-5280-01Z-00-DX1.377DED7C-CE43-4735-A6C1-2C2D0A769B18
+downsample [1. 1.]
+downsampled_level_dim [98056 75549]
+level_dim [98056 75549]
+name TCGA-DB-5280-01Z-00-DX1.377DED7C-CE43-4735-A6C1-2C2D0A769B18
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 112 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5280-01Z-00-DX1.377DED7C-CE43-4735-A6C1-2C2D0A769B18.h5 took 48.362380027770996 s
+features size:  (56991, 1024)
+coordinates size:  (56991, 2)
+
+progress: 17/63
+TCGA-DB-5280-01Z-00-DX2.A0AC8AD2-F2A3-477B-970C-71FD6FF7C6F6
+downsample [1. 1.]
+downsampled_level_dim [73304 53376]
+level_dim [73304 53376]
+name TCGA-DB-5280-01Z-00-DX2.A0AC8AD2-F2A3-477B-970C-71FD6FF7C6F6
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 72 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5280-01Z-00-DX2.A0AC8AD2-F2A3-477B-970C-71FD6FF7C6F6.h5 took 32.10568141937256 s
+features size:  (36604, 1024)
+coordinates size:  (36604, 2)
+
+progress: 18/63
+TCGA-DB-5281-01Z-00-DX1.1C19F78D-2E61-41E8-976D-0EC0A2A45031
+downsample [1. 1.]
+downsampled_level_dim [100912  92342]
+level_dim [100912  92342]
+name TCGA-DB-5281-01Z-00-DX1.1C19F78D-2E61-41E8-976D-0EC0A2A45031
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 144 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5281-01Z-00-DX1.1C19F78D-2E61-41E8-976D-0EC0A2A45031.h5 took 61.92625427246094 s
+features size:  (73338, 1024)
+coordinates size:  (73338, 2)
+
+progress: 19/63
+TCGA-DB-5281-01Z-00-DX2.672BE5A5-77AE-4DE2-99AF-5B13532917DF
+downsample [1. 1.]
+downsampled_level_dim [80920 50930]
+level_dim [80920 50930]
+name TCGA-DB-5281-01Z-00-DX2.672BE5A5-77AE-4DE2-99AF-5B13532917DF
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 83 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5281-01Z-00-DX2.672BE5A5-77AE-4DE2-99AF-5B13532917DF.h5 took 37.3201961517334 s
+features size:  (42009, 1024)
+coordinates size:  (42009, 2)
+
+progress: 20/63
+TCGA-DB-A4X9-01Z-00-DX1.D877E4C5-87FA-4289-BDEB-883F6408C094
+downsample [1. 1.]
+downsampled_level_dim [82824 73755]
+level_dim [82824 73755]
+name TCGA-DB-A4X9-01Z-00-DX1.D877E4C5-87FA-4289-BDEB-883F6408C094
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 98 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4X9-01Z-00-DX1.D877E4C5-87FA-4289-BDEB-883F6408C094.h5 took 43.4007785320282 s
+features size:  (50132, 1024)
+coordinates size:  (50132, 2)
+
+progress: 21/63
+TCGA-DB-A4X9-01Z-00-DX2.1C5A66A2-48A5-41B3-98C7-6B668438C4C1
+downsample [1. 1.]
+downsampled_level_dim [99960 63647]
+level_dim [99960 63647]
+name TCGA-DB-A4X9-01Z-00-DX2.1C5A66A2-48A5-41B3-98C7-6B668438C4C1
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 106 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4X9-01Z-00-DX2.1C5A66A2-48A5-41B3-98C7-6B668438C4C1.h5 took 47.72273802757263 s
+features size:  (54116, 1024)
+coordinates size:  (54116, 2)
+
+progress: 22/63
+TCGA-DB-A4XA-01Z-00-DX1.108DC8B4-E6B6-4526-9E9B-B42DCF90FF01
+downsample [1. 1.]
+downsampled_level_dim [93296 58430]
+level_dim [93296 58430]
+name TCGA-DB-A4XA-01Z-00-DX1.108DC8B4-E6B6-4526-9E9B-B42DCF90FF01
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 70 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XA-01Z-00-DX1.108DC8B4-E6B6-4526-9E9B-B42DCF90FF01.h5 took 32.863879919052124 s
+features size:  (35699, 1024)
+coordinates size:  (35699, 2)
+
+progress: 23/63
+TCGA-DB-A4XA-01Z-00-DX2.78A6831F-EA66-4A88-BFEC-C731A00A9C36
+downsample [1. 1.]
+downsampled_level_dim [104720  60060]
+level_dim [104720  60060]
+name TCGA-DB-A4XA-01Z-00-DX2.78A6831F-EA66-4A88-BFEC-C731A00A9C36
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 76 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XA-01Z-00-DX2.78A6831F-EA66-4A88-BFEC-C731A00A9C36.h5 took 34.52465009689331 s
+features size:  (38485, 1024)
+coordinates size:  (38485, 2)
+
+progress: 24/63
+TCGA-DB-A4XB-01Z-00-DX1.FBF60AEC-EF2E-4771-A46C-7ABF60C99D9C
+downsample [1. 1.]
+downsampled_level_dim [140896  87451]
+level_dim [140896  87451]
+name TCGA-DB-A4XB-01Z-00-DX1.FBF60AEC-EF2E-4771-A46C-7ABF60C99D9C
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 143 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XB-01Z-00-DX1.FBF60AEC-EF2E-4771-A46C-7ABF60C99D9C.h5 took 60.77971696853638 s
+features size:  (72828, 1024)
+coordinates size:  (72828, 2)
+
+progress: 25/63
+TCGA-DB-A4XB-01Z-00-DX2.1E0EEB31-AAEE-4F4B-97A9-EA3BCFFDF0C0
+downsample [1. 1.]
+downsampled_level_dim [99008 70984]
+level_dim [99008 70984]
+name TCGA-DB-A4XB-01Z-00-DX2.1E0EEB31-AAEE-4F4B-97A9-EA3BCFFDF0C0
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 118 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XB-01Z-00-DX2.1E0EEB31-AAEE-4F4B-97A9-EA3BCFFDF0C0.h5 took 51.00148797035217 s
+features size:  (60031, 1024)
+coordinates size:  (60031, 2)
+
+progress: 26/63
+TCGA-DB-A4XC-01Z-00-DX1.5768EC5F-D8B2-47B3-A685-059792C8751E
+downsample [1. 1.]
+downsampled_level_dim [64736 57452]
+level_dim [64736 57452]
+name TCGA-DB-A4XC-01Z-00-DX1.5768EC5F-D8B2-47B3-A685-059792C8751E
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 57 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XC-01Z-00-DX1.5768EC5F-D8B2-47B3-A685-059792C8751E.h5 took 27.09823441505432 s
+features size:  (28930, 1024)
+coordinates size:  (28930, 2)
+
+progress: 27/63
+TCGA-DB-A4XC-01Z-00-DX2.7CFAE472-1951-436C-B3E6-F05A96FF5773
+downsample [1. 1.]
+downsampled_level_dim [67592 76527]
+level_dim [67592 76527]
+name TCGA-DB-A4XC-01Z-00-DX2.7CFAE472-1951-436C-B3E6-F05A96FF5773
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 82 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XC-01Z-00-DX2.7CFAE472-1951-436C-B3E6-F05A96FF5773.h5 took 37.73264932632446 s
+features size:  (41854, 1024)
+coordinates size:  (41854, 2)
+
+progress: 28/63
+TCGA-DB-A4XD-01Z-00-DX1.9CEDBD64-B9D3-4F8C-B51F-4E00085742A1
+downsample [1. 1.]
+downsampled_level_dim [63784 42289]
+level_dim [63784 42289]
+name TCGA-DB-A4XD-01Z-00-DX1.9CEDBD64-B9D3-4F8C-B51F-4E00085742A1
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 27 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XD-01Z-00-DX1.9CEDBD64-B9D3-4F8C-B51F-4E00085742A1.h5 took 13.921734094619751 s
+features size:  (13460, 1024)
+coordinates size:  (13460, 2)
+
+progress: 29/63
+TCGA-DB-A4XD-01Z-00-DX2.9533A30E-F199-4241-84BF-13D706B6C4A4
+downsample [1. 1.]
+downsampled_level_dim [126616  61039]
+level_dim [126616  61039]
+name TCGA-DB-A4XD-01Z-00-DX2.9533A30E-F199-4241-84BF-13D706B6C4A4
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 51 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XD-01Z-00-DX2.9533A30E-F199-4241-84BF-13D706B6C4A4.h5 took 23.8659884929657 s
+features size:  (25991, 1024)
+coordinates size:  (25991, 2)
+
+progress: 30/63
+TCGA-DB-A4XE-01Z-00-DX1.C45CDC01-DCE7-404B-88E0-9EAF67E7A26E
+downsample [1. 1.]
+downsampled_level_dim [139944  73103]
+level_dim [139944  73103]
+name TCGA-DB-A4XE-01Z-00-DX1.C45CDC01-DCE7-404B-88E0-9EAF67E7A26E
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 130 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XE-01Z-00-DX1.C45CDC01-DCE7-404B-88E0-9EAF67E7A26E.h5 took 55.66411590576172 s
+features size:  (66131, 1024)
+coordinates size:  (66131, 2)
+
+progress: 31/63
+TCGA-DB-A4XE-01Z-00-DX2.895DAAFB-F994-4D4A-BCD7-30533BF94DC7
+downsample [1. 1.]
+downsampled_level_dim [66640 49463]
+level_dim [66640 49463]
+name TCGA-DB-A4XE-01Z-00-DX2.895DAAFB-F994-4D4A-BCD7-30533BF94DC7
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 53 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XE-01Z-00-DX2.895DAAFB-F994-4D4A-BCD7-30533BF94DC7.h5 took 25.23153066635132 s
+features size:  (26987, 1024)
+coordinates size:  (26987, 2)
+
+progress: 32/63
+TCGA-DB-A4XF-01Z-00-DX1.2E0AFD7A-F00A-4FB1-95E3-F605BC9065DA
+downsample [1. 1.]
+downsampled_level_dim [158032  68538]
+level_dim [158032  68538]
+name TCGA-DB-A4XF-01Z-00-DX1.2E0AFD7A-F00A-4FB1-95E3-F605BC9065DA
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 176 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XF-01Z-00-DX1.2E0AFD7A-F00A-4FB1-95E3-F605BC9065DA.h5 took 69.75522637367249 s
+features size:  (89777, 1024)
+coordinates size:  (89777, 2)
+
+progress: 33/63
+TCGA-DB-A4XF-01Z-00-DX2.EB54301F-63CD-4648-AA38-67332840B8B2
+downsample [1. 1.]
+downsampled_level_dim [158984  65930]
+level_dim [158984  65930]
+name TCGA-DB-A4XF-01Z-00-DX2.EB54301F-63CD-4648-AA38-67332840B8B2
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 160 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XF-01Z-00-DX2.EB54301F-63CD-4648-AA38-67332840B8B2.h5 took 67.6135585308075 s
+features size:  (81651, 1024)
+coordinates size:  (81651, 2)
+
+progress: 34/63
+TCGA-DB-A4XG-01Z-00-DX1.76683FE4-150C-44B9-99C1-DFCCAB337CDE
+downsample [1. 1.]
+downsampled_level_dim [95200 73918]
+level_dim [95200 73918]
+name TCGA-DB-A4XG-01Z-00-DX1.76683FE4-150C-44B9-99C1-DFCCAB337CDE
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 82 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XG-01Z-00-DX1.76683FE4-150C-44B9-99C1-DFCCAB337CDE.h5 took 37.31244969367981 s
+features size:  (41838, 1024)
+coordinates size:  (41838, 2)
+
+progress: 35/63
+TCGA-DB-A4XG-01Z-00-DX2.6EC94BAA-8653-4697-AAAA-0B4AF88A82AE
+downsample [1. 1.]
+downsampled_level_dim [90440 60386]
+level_dim [90440 60386]
+name TCGA-DB-A4XG-01Z-00-DX2.6EC94BAA-8653-4697-AAAA-0B4AF88A82AE
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 111 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XG-01Z-00-DX2.6EC94BAA-8653-4697-AAAA-0B4AF88A82AE.h5 took 49.969844341278076 s
+features size:  (56798, 1024)
+coordinates size:  (56798, 2)
+
+progress: 36/63
+TCGA-DB-A4XH-01Z-00-DX1.56D80999-2AB5-40BB-9326-43B6FF71183A
+downsample [1. 1.]
+downsampled_level_dim [68544 57452]
+level_dim [68544 57452]
+name TCGA-DB-A4XH-01Z-00-DX1.56D80999-2AB5-40BB-9326-43B6FF71183A
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 71 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XH-01Z-00-DX1.56D80999-2AB5-40BB-9326-43B6FF71183A.h5 took 32.22964072227478 s
+features size:  (36019, 1024)
+coordinates size:  (36019, 2)
+
+progress: 37/63
+TCGA-DB-A4XH-01Z-00-DX2.2F6F5DB6-0C6E-4D20-9B72-BB274583DFFB
+downsample [1. 1.]
+downsampled_level_dim [141848  53702]
+level_dim [141848  53702]
+name TCGA-DB-A4XH-01Z-00-DX2.2F6F5DB6-0C6E-4D20-9B72-BB274583DFFB
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 125 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A4XH-01Z-00-DX2.2F6F5DB6-0C6E-4D20-9B72-BB274583DFFB.h5 took 56.93342685699463 s
+features size:  (63757, 1024)
+coordinates size:  (63757, 2)
+
+progress: 38/63
+TCGA-DB-A64L-01Z-00-DX1.95A7A10B-D31F-4A8E-B847-2F43F9DC1C46
+downsample [1. 1.]
+downsampled_level_dim [127487  59520]
+level_dim [127487  59520]
+name TCGA-DB-A64L-01Z-00-DX1.95A7A10B-D31F-4A8E-B847-2F43F9DC1C46
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 148 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64L-01Z-00-DX1.95A7A10B-D31F-4A8E-B847-2F43F9DC1C46.h5 took 117.20095658302307 s
+features size:  (75486, 1024)
+coordinates size:  (75486, 2)
+
+progress: 39/63
+TCGA-DB-A64O-01Z-00-DX1.E143BA84-8D09-4FA0-A58F-AF6BEE4E8451
+downsample [1. 1.]
+downsampled_level_dim [87647 79450]
+level_dim [87647 79450]
+name TCGA-DB-A64O-01Z-00-DX1.E143BA84-8D09-4FA0-A58F-AF6BEE4E8451
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 122 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64O-01Z-00-DX1.E143BA84-8D09-4FA0-A58F-AF6BEE4E8451.h5 took 101.13931345939636 s
+features size:  (62089, 1024)
+coordinates size:  (62089, 2)
+
+progress: 40/63
+TCGA-DB-A64P-01Z-00-DX1.A14552EE-4B33-4839-A733-00302D0BAFBC
+downsample [1. 1.]
+downsampled_level_dim [91631 68394]
+level_dim [91631 68394]
+name TCGA-DB-A64P-01Z-00-DX1.A14552EE-4B33-4839-A733-00302D0BAFBC
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 104 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64P-01Z-00-DX1.A14552EE-4B33-4839-A733-00302D0BAFBC.h5 took 83.23513412475586 s
+features size:  (52743, 1024)
+coordinates size:  (52743, 2)
+
+progress: 41/63
+TCGA-DB-A64Q-01Z-00-DX1.CD3937C2-015A-490D-B6A6-BAEEFFDC0747
+downsample [1. 1.]
+downsampled_level_dim [97607 81671]
+level_dim [97607 81671]
+name TCGA-DB-A64Q-01Z-00-DX1.CD3937C2-015A-490D-B6A6-BAEEFFDC0747
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 147 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64Q-01Z-00-DX1.CD3937C2-015A-490D-B6A6-BAEEFFDC0747.h5 took 117.41148114204407 s
+features size:  (75213, 1024)
+coordinates size:  (75213, 2)
+
+progress: 42/63
+TCGA-DB-A64R-01Z-00-DX1.0A2B114A-F7CA-4D94-A7E4-CA482F92B214
+downsample [1. 1.]
+downsampled_level_dim [89639 52712]
+level_dim [89639 52712]
+name TCGA-DB-A64R-01Z-00-DX1.0A2B114A-F7CA-4D94-A7E4-CA482F92B214
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 77 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64R-01Z-00-DX1.0A2B114A-F7CA-4D94-A7E4-CA482F92B214.h5 took 63.042397260665894 s
+features size:  (39183, 1024)
+coordinates size:  (39183, 2)
+
+progress: 43/63
+TCGA-DB-A64S-01Z-00-DX1.E44CE325-25A2-4669-8843-E7462547C004
+downsample [1. 1.]
+downsampled_level_dim [155375  83956]
+level_dim [155375  83956]
+name TCGA-DB-A64S-01Z-00-DX1.E44CE325-25A2-4669-8843-E7462547C004
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 102 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64S-01Z-00-DX1.E44CE325-25A2-4669-8843-E7462547C004.h5 took 70.19504904747009 s
+features size:  (51952, 1024)
+coordinates size:  (51952, 2)
+
+progress: 44/63
+TCGA-DB-A64S-01Z-00-DX2.FDA93FFC-A258-429A-93B4-B586635F39BC
+downsample [1. 1.]
+downsampled_level_dim [145415  85417]
+level_dim [145415  85417]
+name TCGA-DB-A64S-01Z-00-DX2.FDA93FFC-A258-429A-93B4-B586635F39BC
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 153 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64S-01Z-00-DX2.FDA93FFC-A258-429A-93B4-B586635F39BC.h5 took 122.16532039642334 s
+features size:  (78069, 1024)
+coordinates size:  (78069, 2)
+
+progress: 45/63
+TCGA-DB-A64U-01Z-00-DX1.7E003533-C514-46BA-A934-3D74B19188DE
+downsample [1. 1.]
+downsampled_level_dim [129479  78565]
+level_dim [129479  78565]
+name TCGA-DB-A64U-01Z-00-DX1.7E003533-C514-46BA-A934-3D74B19188DE
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 159 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64U-01Z-00-DX1.7E003533-C514-46BA-A934-3D74B19188DE.h5 took 125.0194354057312 s
+features size:  (81185, 1024)
+coordinates size:  (81185, 2)
+
+progress: 46/63
+TCGA-DB-A64V-01Z-00-DX1.F6D441CA-6613-4F91-9E54-0FBB3F17CE08
+downsample [1. 1.]
+downsampled_level_dim [161351  64254]
+level_dim [161351  64254]
+name TCGA-DB-A64V-01Z-00-DX1.F6D441CA-6613-4F91-9E54-0FBB3F17CE08
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 147 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64V-01Z-00-DX1.F6D441CA-6613-4F91-9E54-0FBB3F17CE08.h5 took 116.40858221054077 s
+features size:  (74836, 1024)
+coordinates size:  (74836, 2)
+
+progress: 47/63
+TCGA-DB-A64W-01Z-00-DX1.25848BE9-A940-4827-88AA-555527EB81AA
+downsample [1. 1.]
+downsampled_level_dim [69719 65398]
+level_dim [69719 65398]
+name TCGA-DB-A64W-01Z-00-DX1.25848BE9-A940-4827-88AA-555527EB81AA
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 69 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64W-01Z-00-DX1.25848BE9-A940-4827-88AA-555527EB81AA.h5 took 56.26866698265076 s
+features size:  (35289, 1024)
+coordinates size:  (35289, 2)
+
+progress: 48/63
+TCGA-DB-A64X-01Z-00-DX1.81333B7A-873F-4CAC-BAF9-E20B0DAC29CA
+downsample [1. 1.]
+downsampled_level_dim [147407  77250]
+level_dim [147407  77250]
+name TCGA-DB-A64X-01Z-00-DX1.81333B7A-873F-4CAC-BAF9-E20B0DAC29CA
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 174 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A64X-01Z-00-DX1.81333B7A-873F-4CAC-BAF9-E20B0DAC29CA.h5 took 138.7428379058838 s
+features size:  (88626, 1024)
+coordinates size:  (88626, 2)
+
+progress: 49/63
+TCGA-DB-A75K-01Z-00-DX1.20780A21-CE9E-4ABB-97E9-3D44D47C6218
+downsample [1. 1.]
+downsampled_level_dim [137447  73905]
+level_dim [137447  73905]
+name TCGA-DB-A75K-01Z-00-DX1.20780A21-CE9E-4ABB-97E9-3D44D47C6218
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 126 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75K-01Z-00-DX1.20780A21-CE9E-4ABB-97E9-3D44D47C6218.h5 took 100.93709063529968 s
+features size:  (64085, 1024)
+coordinates size:  (64085, 2)
+
+progress: 50/63
+TCGA-DB-A75K-01Z-00-DX2.3F9418C2-334D-470A-928E-4D1E80A13978
+downsample [1. 1.]
+downsampled_level_dim [97607 76707]
+level_dim [97607 76707]
+name TCGA-DB-A75K-01Z-00-DX2.3F9418C2-334D-470A-928E-4D1E80A13978
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 130 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75K-01Z-00-DX2.3F9418C2-334D-470A-928E-4D1E80A13978.h5 took 101.89007496833801 s
+features size:  (66331, 1024)
+coordinates size:  (66331, 2)
+
+progress: 51/63
+TCGA-DB-A75L-01Z-00-DX1.132A6368-8624-4091-BCDA-261155BBD426
+downsample [1. 1.]
+downsampled_level_dim [137447  52934]
+level_dim [137447  52934]
+name TCGA-DB-A75L-01Z-00-DX1.132A6368-8624-4091-BCDA-261155BBD426
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 68 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75L-01Z-00-DX1.132A6368-8624-4091-BCDA-261155BBD426.h5 took 58.02745008468628 s
+features size:  (34652, 1024)
+coordinates size:  (34652, 2)
+
+progress: 52/63
+TCGA-DB-A75L-01Z-00-DX2.D7AA483E-9CFB-4357-922F-5C2BFCC6159C
+downsample [1. 1.]
+downsampled_level_dim [149399  54352]
+level_dim [149399  54352]
+name TCGA-DB-A75L-01Z-00-DX2.D7AA483E-9CFB-4357-922F-5C2BFCC6159C
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 86 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75L-01Z-00-DX2.D7AA483E-9CFB-4357-922F-5C2BFCC6159C.h5 took 71.23550963401794 s
+features size:  (43940, 1024)
+coordinates size:  (43940, 2)
+
+progress: 53/63
+TCGA-DB-A75M-01Z-00-DX1.418C4BE6-EDC6-47D1-B3E0-B6B082426D8F
+downsample [1. 1.]
+downsampled_level_dim [99599 50450]
+level_dim [99599 50450]
+name TCGA-DB-A75M-01Z-00-DX1.418C4BE6-EDC6-47D1-B3E0-B6B082426D8F
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 87 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75M-01Z-00-DX1.418C4BE6-EDC6-47D1-B3E0-B6B082426D8F.h5 took 69.60832071304321 s
+features size:  (44268, 1024)
+coordinates size:  (44268, 2)
+
+progress: 54/63
+TCGA-DB-A75O-01Z-00-DX1.10FF7F57-48C0-4668-AE09-A631584EB1ED
+downsample [1. 1.]
+downsampled_level_dim [143423  70214]
+level_dim [143423  70214]
+name TCGA-DB-A75O-01Z-00-DX1.10FF7F57-48C0-4668-AE09-A631584EB1ED
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 126 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75O-01Z-00-DX1.10FF7F57-48C0-4668-AE09-A631584EB1ED.h5 took 103.747318983078 s
+features size:  (64219, 1024)
+coordinates size:  (64219, 2)
+
+progress: 55/63
+TCGA-DB-A75P-01Z-00-DX1.11655479-5A76-4689-B8F6-319F882B5EB7
+downsample [1. 1.]
+downsampled_level_dim [121511  60971]
+level_dim [121511  60971]
+name TCGA-DB-A75P-01Z-00-DX1.11655479-5A76-4689-B8F6-319F882B5EB7
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 94 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75P-01Z-00-DX1.11655479-5A76-4689-B8F6-319F882B5EB7.h5 took 77.00781393051147 s
+features size:  (47683, 1024)
+coordinates size:  (47683, 2)
+
+progress: 56/63
+TCGA-DB-A75P-01Z-00-DX2.81D7ED8E-DB0B-4519-A965-70EF815245D4
+downsample [1. 1.]
+downsampled_level_dim [95615 50458]
+level_dim [95615 50458]
+name TCGA-DB-A75P-01Z-00-DX2.81D7ED8E-DB0B-4519-A965-70EF815245D4
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 93 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-A75P-01Z-00-DX2.81D7ED8E-DB0B-4519-A965-70EF815245D4.h5 took 76.38763737678528 s
+features size:  (47607, 1024)
+coordinates size:  (47607, 2)
+
+progress: 57/63
+TCGA-15-0742-01Z-00-DX1.5a21713f-a918-46ad-b09d-5cfd010384f8
+downsample [1. 1.]
+downsampled_level_dim [30001 18490]
+level_dim [30001 18490]
+name TCGA-15-0742-01Z-00-DX1.5a21713f-a918-46ad-b09d-5cfd010384f8
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 7 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-15-0742-01Z-00-DX1.5a21713f-a918-46ad-b09d-5cfd010384f8.h5 took 6.753782510757446 s
+features size:  (3571, 1024)
+coordinates size:  (3571, 2)
+
+progress: 58/63
+TCGA-15-0742-01Z-00-DX2.9887D468-E71E-4A1D-AC13-EED57D2BD20A
+downsample [1. 1.]
+downsampled_level_dim [99960 64136]
+level_dim [99960 64136]
+name TCGA-15-0742-01Z-00-DX2.9887D468-E71E-4A1D-AC13-EED57D2BD20A
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 65 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-15-0742-01Z-00-DX2.9887D468-E71E-4A1D-AC13-EED57D2BD20A.h5 took 30.491426706314087 s
+features size:  (33140, 1024)
+coordinates size:  (33140, 2)
+
+progress: 59/63
+TCGA-15-1444-01Z-00-DX1.FF2FF962-40EA-4122-B33A-5BF4ED007761
+downsample [1. 1.]
+downsampled_level_dim [68544 78320]
+level_dim [68544 78320]
+name TCGA-15-1444-01Z-00-DX1.FF2FF962-40EA-4122-B33A-5BF4ED007761
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 88 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-15-1444-01Z-00-DX1.FF2FF962-40EA-4122-B33A-5BF4ED007761.h5 took 40.2178475856781 s
+features size:  (45045, 1024)
+coordinates size:  (45045, 2)
+
+progress: 60/63
+TCGA-15-1444-01Z-00-DX2.76CD1F22-4894-4390-ADCC-BC88CB42FD96
+downsample [1. 1.]
+downsampled_level_dim [122808  91690]
+level_dim [122808  91690]
+name TCGA-15-1444-01Z-00-DX2.76CD1F22-4894-4390-ADCC-BC88CB42FD96
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 183 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-15-1444-01Z-00-DX2.76CD1F22-4894-4390-ADCC-BC88CB42FD96.h5 took 79.34659123420715 s
+features size:  (93633, 1024)
+coordinates size:  (93633, 2)
+
+progress: 61/63
+TCGA-15-1446-01Z-00-DX1.24894196-502d-4fc4-a1dc-2a3dc1fcbfba
+downsample [1. 1.]
+downsampled_level_dim [50002 27445]
+level_dim [50002 27445]
+name TCGA-15-1446-01Z-00-DX1.24894196-502d-4fc4-a1dc-2a3dc1fcbfba
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 24 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-15-1446-01Z-00-DX1.24894196-502d-4fc4-a1dc-2a3dc1fcbfba.h5 took 13.766202688217163 s
+features size:  (11965, 1024)
+coordinates size:  (11965, 2)
+
+progress: 62/63
+TCGA-15-1446-01Z-00-DX2.2BBD436C-A472-4B8F-8C15-F5692B05E30B
+downsample [1. 1.]
+downsampled_level_dim [99960 78157]
+level_dim [99960 78157]
+name TCGA-15-1446-01Z-00-DX2.2BBD436C-A472-4B8F-8C15-F5692B05E30B
+patch_level 0
+patch_size 256
+save_path /g/data/au38/yy3740/Eval/Minnesota_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 122 batches
+
+computing features for /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-15-1446-01Z-00-DX2.2BBD436C-A472-4B8F-8C15-F5692B05E30B.h5 took 53.39435577392578 s
+features size:  (62373, 1024)
+coordinates size:  (62373, 2)
+initializing dataset
+loading model checkpoint
+TimmCNNEncoder(
+  (model): FeatureListNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act1): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act1): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (drop_block): Identity()
+        (act2): ReLU(inplace=True)
+        (aa): Identity()
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (act3): ReLU(inplace=True)
+      )
+    )
+  )
+  (pool): AdaptiveAvgPool2d(output_size=1)
+)
+
+progress: 0/61
+TCGA-VM-A8C8-01Z-00-DX1.119D6F8E-6A1D-4FCA-9C2F-75DB418B880B
+downsample [1. 1.]
+downsampled_level_dim [45815 27275]
+level_dim [45815 27275]
+name TCGA-VM-A8C8-01Z-00-DX1.119D6F8E-6A1D-4FCA-9C2F-75DB418B880B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 9 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX1.119D6F8E-6A1D-4FCA-9C2F-75DB418B880B.h5 took 9.68272590637207 s
+features size:  (4124, 1024)
+coordinates size:  (4124, 2)
+
+progress: 1/61
+TCGA-VM-A8C8-01Z-00-DX2.996E1ECF-24B2-4A35-8D00-02BF3C025FC6
+downsample [1. 1.]
+downsampled_level_dim [27887 41248]
+level_dim [27887 41248]
+name TCGA-VM-A8C8-01Z-00-DX2.996E1ECF-24B2-4A35-8D00-02BF3C025FC6
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX2.996E1ECF-24B2-4A35-8D00-02BF3C025FC6.h5 took 6.917260646820068 s
+features size:  (4043, 1024)
+coordinates size:  (4043, 2)
+
+progress: 2/61
+TCGA-VM-A8C8-01Z-00-DX3.505AAA14-DBCC-4554-8A78-E8353B0532CE
+downsample [1. 1.]
+downsampled_level_dim [35855 40446]
+level_dim [35855 40446]
+name TCGA-VM-A8C8-01Z-00-DX3.505AAA14-DBCC-4554-8A78-E8353B0532CE
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX3.505AAA14-DBCC-4554-8A78-E8353B0532CE.h5 took 7.1364829540252686 s
+features size:  (4018, 1024)
+coordinates size:  (4018, 2)
+
+progress: 3/61
+TCGA-VM-A8C8-01Z-00-DX4.980FE353-1CBB-4B38-B26C-F96EFCA462B9
+downsample [1. 1.]
+downsampled_level_dim [23903 32532]
+level_dim [23903 32532]
+name TCGA-VM-A8C8-01Z-00-DX4.980FE353-1CBB-4B38-B26C-F96EFCA462B9
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX4.980FE353-1CBB-4B38-B26C-F96EFCA462B9.h5 took 6.582818269729614 s
+features size:  (4047, 1024)
+coordinates size:  (4047, 2)
+
+progress: 4/61
+TCGA-VM-A8C8-01Z-00-DX5.D23FADC5-5238-499D-9F5C-662A6A226169
+downsample [1. 1.]
+downsampled_level_dim [31871 30621]
+level_dim [31871 30621]
+name TCGA-VM-A8C8-01Z-00-DX5.D23FADC5-5238-499D-9F5C-662A6A226169
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX5.D23FADC5-5238-499D-9F5C-662A6A226169.h5 took 7.370296239852905 s
+features size:  (4063, 1024)
+coordinates size:  (4063, 2)
+
+progress: 5/61
+TCGA-VM-A8C8-01Z-00-DX6.060E0C36-5EDA-476F-8D1F-2959FE993D3A
+downsample [1. 1.]
+downsampled_level_dim [23903 33641]
+level_dim [23903 33641]
+name TCGA-VM-A8C8-01Z-00-DX6.060E0C36-5EDA-476F-8D1F-2959FE993D3A
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX6.060E0C36-5EDA-476F-8D1F-2959FE993D3A.h5 took 6.563787460327148 s
+features size:  (3973, 1024)
+coordinates size:  (3973, 2)
+
+progress: 6/61
+TCGA-VM-A8C8-01Z-00-DX7.614E87B3-E2F0-4977-AE49-1EDBB26F879C
+downsample [1. 1.]
+downsampled_level_dim [29879 29512]
+level_dim [29879 29512]
+name TCGA-VM-A8C8-01Z-00-DX7.614E87B3-E2F0-4977-AE49-1EDBB26F879C
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX7.614E87B3-E2F0-4977-AE49-1EDBB26F879C.h5 took 7.087447643280029 s
+features size:  (4083, 1024)
+coordinates size:  (4083, 2)
+
+progress: 7/61
+TCGA-VM-A8C8-01Z-00-DX8.CFBE7871-B2AD-4D99-8C40-D1EAC34BB272
+downsample [1. 1.]
+downsampled_level_dim [23903 34752]
+level_dim [23903 34752]
+name TCGA-VM-A8C8-01Z-00-DX8.CFBE7871-B2AD-4D99-8C40-D1EAC34BB272
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX8.CFBE7871-B2AD-4D99-8C40-D1EAC34BB272.h5 took 6.704309701919556 s
+features size:  (3935, 1024)
+coordinates size:  (3935, 2)
+
+progress: 8/61
+TCGA-VM-A8C8-01Z-00-DX9.07AAC35A-A609-479F-843E-1E759A922AFA
+downsample [1. 1.]
+downsampled_level_dim [31871 25864]
+level_dim [31871 25864]
+name TCGA-VM-A8C8-01Z-00-DX9.07AAC35A-A609-479F-843E-1E759A922AFA
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 8 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX9.07AAC35A-A609-479F-843E-1E759A922AFA.h5 took 6.502294540405273 s
+features size:  (3868, 1024)
+coordinates size:  (3868, 2)
+
+progress: 9/61
+TCGA-VM-A8C9-01Z-00-DX1.C6DD4520-C460-419A-9DB3-DF34D128CA08
+downsample [1. 1.]
+downsampled_level_dim [145415  92318]
+level_dim [145415  92318]
+name TCGA-VM-A8C9-01Z-00-DX1.C6DD4520-C460-419A-9DB3-DF34D128CA08
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 186 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX1.C6DD4520-C460-419A-9DB3-DF34D128CA08.h5 took 78.48955035209656 s
+features size:  (94723, 1024)
+coordinates size:  (94723, 2)
+
+progress: 10/61
+TCGA-VM-A8C9-01Z-00-DX2.D95CDDEA-8A6D-41D4-B12A-17811CF91CE3
+downsample [1. 1.]
+downsampled_level_dim [149399  94216]
+level_dim [149399  94216]
+name TCGA-VM-A8C9-01Z-00-DX2.D95CDDEA-8A6D-41D4-B12A-17811CF91CE3
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 198 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX2.D95CDDEA-8A6D-41D4-B12A-17811CF91CE3.h5 took 83.81832265853882 s
+features size:  (100961, 1024)
+coordinates size:  (100961, 2)
+
+progress: 11/61
+TCGA-VM-A8C9-01Z-00-DX3.E0BF1E61-5F3C-4E15-8A6A-3E1A351FC0A7
+downsample [1. 1.]
+downsampled_level_dim [143423  86136]
+level_dim [143423  86136]
+name TCGA-VM-A8C9-01Z-00-DX3.E0BF1E61-5F3C-4E15-8A6A-3E1A351FC0A7
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 187 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX3.E0BF1E61-5F3C-4E15-8A6A-3E1A351FC0A7.h5 took 77.50902438163757 s
+features size:  (95529, 1024)
+coordinates size:  (95529, 2)
+
+progress: 12/61
+TCGA-VM-A8C9-01Z-00-DX4.20D5EE02-3CD2-45C4-AF74-539DC859369B
+downsample [1. 1.]
+downsampled_level_dim [145415  89624]
+level_dim [145415  89624]
+name TCGA-VM-A8C9-01Z-00-DX4.20D5EE02-3CD2-45C4-AF74-539DC859369B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 177 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX4.20D5EE02-3CD2-45C4-AF74-539DC859369B.h5 took 74.70859479904175 s
+features size:  (90359, 1024)
+coordinates size:  (90359, 2)
+
+progress: 13/61
+TCGA-VM-A8C9-01Z-00-DX6.4F9BEB00-9BC5-459F-A702-C72583A226ED
+downsample [1. 1.]
+downsampled_level_dim [145415  87244]
+level_dim [145415  87244]
+name TCGA-VM-A8C9-01Z-00-DX6.4F9BEB00-9BC5-459F-A702-C72583A226ED
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 188 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX6.4F9BEB00-9BC5-459F-A702-C72583A226ED.h5 took 79.7252254486084 s
+features size:  (95815, 1024)
+coordinates size:  (95815, 2)
+
+progress: 14/61
+TCGA-VM-A8C9-01Z-00-DX5.F028B05D-0986-42CC-B0AA-F55F9ACE743D
+downsample [1. 1.]
+downsampled_level_dim [145415  93587]
+level_dim [145415  93587]
+name TCGA-VM-A8C9-01Z-00-DX5.F028B05D-0986-42CC-B0AA-F55F9ACE743D
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 184 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX5.F028B05D-0986-42CC-B0AA-F55F9ACE743D.h5 took 78.19635534286499 s
+features size:  (94096, 1024)
+coordinates size:  (94096, 2)
+
+progress: 15/61
+TCGA-VM-A8C9-01Z-00-DX7.95A9AD6B-1293-485E-8A82-7A1939C7B9D4
+downsample [1. 1.]
+downsampled_level_dim [147407  92950]
+level_dim [147407  92950]
+name TCGA-VM-A8C9-01Z-00-DX7.95A9AD6B-1293-485E-8A82-7A1939C7B9D4
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 186 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX7.95A9AD6B-1293-485E-8A82-7A1939C7B9D4.h5 took 79.17046523094177 s
+features size:  (95107, 1024)
+coordinates size:  (95107, 2)
+
+progress: 16/61
+TCGA-VM-A8C9-01Z-00-DX8.BC79D845-2351-4946-9262-C9D4668957BE
+downsample [1. 1.]
+downsampled_level_dim [143423  89466]
+level_dim [143423  89466]
+name TCGA-VM-A8C9-01Z-00-DX8.BC79D845-2351-4946-9262-C9D4668957BE
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 186 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX8.BC79D845-2351-4946-9262-C9D4668957BE.h5 took 78.8308424949646 s
+features size:  (94800, 1024)
+coordinates size:  (94800, 2)
+
+progress: 17/61
+TCGA-VM-A8C9-01Z-00-DX9.DEF6A890-B06E-42BC-A653-A6BF5E324B8D
+downsample [1. 1.]
+downsampled_level_dim [149399  91363]
+level_dim [149399  91363]
+name TCGA-VM-A8C9-01Z-00-DX9.DEF6A890-B06E-42BC-A653-A6BF5E324B8D
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 182 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C9-01Z-00-DX9.DEF6A890-B06E-42BC-A653-A6BF5E324B8D.h5 took 77.26986813545227 s
+features size:  (93066, 1024)
+coordinates size:  (93066, 2)
+
+progress: 18/61
+TCGA-VM-A8CA-01Z-00-DX1.EE06F0BA-445F-4A77-B86C-819BF2CB3223
+downsample [1. 1.]
+downsampled_level_dim [123503  85209]
+level_dim [123503  85209]
+name TCGA-VM-A8CA-01Z-00-DX1.EE06F0BA-445F-4A77-B86C-819BF2CB3223
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 122 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX1.EE06F0BA-445F-4A77-B86C-819BF2CB3223.h5 took 53.79614520072937 s
+features size:  (62451, 1024)
+coordinates size:  (62451, 2)
+
+progress: 19/61
+TCGA-VM-A8CA-01Z-00-DX2.7A15A9CB-AD1E-49B5-81C9-8FFFFEDBDE44
+downsample [1. 1.]
+downsampled_level_dim [119519  84896]
+level_dim [119519  84896]
+name TCGA-VM-A8CA-01Z-00-DX2.7A15A9CB-AD1E-49B5-81C9-8FFFFEDBDE44
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 121 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX2.7A15A9CB-AD1E-49B5-81C9-8FFFFEDBDE44.h5 took 50.87456393241882 s
+features size:  (61776, 1024)
+coordinates size:  (61776, 2)
+
+progress: 20/61
+TCGA-VM-A8CA-01Z-00-DX3.DF5FF5C7-CCF8-41BD-9FF5-3D1185E350B8
+downsample [1. 1.]
+downsampled_level_dim [119519  84104]
+level_dim [119519  84104]
+name TCGA-VM-A8CA-01Z-00-DX3.DF5FF5C7-CCF8-41BD-9FF5-3D1185E350B8
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 128 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX3.DF5FF5C7-CCF8-41BD-9FF5-3D1185E350B8.h5 took 54.56498146057129 s
+features size:  (65214, 1024)
+coordinates size:  (65214, 2)
+
+progress: 21/61
+TCGA-VM-A8CA-01Z-00-DX4.BC66C522-E26A-47AC-BD7E-79C8BB81C853
+downsample [1. 1.]
+downsampled_level_dim [115535  84425]
+level_dim [115535  84425]
+name TCGA-VM-A8CA-01Z-00-DX4.BC66C522-E26A-47AC-BD7E-79C8BB81C853
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 133 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX4.BC66C522-E26A-47AC-BD7E-79C8BB81C853.h5 took 56.66451549530029 s
+features size:  (67649, 1024)
+coordinates size:  (67649, 2)
+
+progress: 22/61
+TCGA-VM-A8CA-01Z-00-DX5.424C74A2-33EE-4C5B-9D9B-630CC5D59A9F
+downsample [1. 1.]
+downsampled_level_dim [117527  87119]
+level_dim [117527  87119]
+name TCGA-VM-A8CA-01Z-00-DX5.424C74A2-33EE-4C5B-9D9B-630CC5D59A9F
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 128 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX5.424C74A2-33EE-4C5B-9D9B-630CC5D59A9F.h5 took 52.86450242996216 s
+features size:  (65055, 1024)
+coordinates size:  (65055, 2)
+
+progress: 23/61
+TCGA-VM-A8CA-01Z-00-DX6.07221643-D7F3-4E38-9A63-C7B3B46E570B
+downsample [1. 1.]
+downsampled_level_dim [117527  89974]
+level_dim [117527  89974]
+name TCGA-VM-A8CA-01Z-00-DX6.07221643-D7F3-4E38-9A63-C7B3B46E570B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 130 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX6.07221643-D7F3-4E38-9A63-C7B3B46E570B.h5 took 54.65182566642761 s
+features size:  (66496, 1024)
+coordinates size:  (66496, 2)
+
+progress: 24/61
+TCGA-VM-A8CA-01Z-00-DX7.4C172C51-63E5-44DE-978E-DE3BBA23B24E
+downsample [1. 1.]
+downsampled_level_dim [119519  85848]
+level_dim [119519  85848]
+name TCGA-VM-A8CA-01Z-00-DX7.4C172C51-63E5-44DE-978E-DE3BBA23B24E
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 133 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX7.4C172C51-63E5-44DE-978E-DE3BBA23B24E.h5 took 56.37706398963928 s
+features size:  (68094, 1024)
+coordinates size:  (68094, 2)
+
+progress: 25/61
+TCGA-VM-A8CA-01Z-00-DX8.CB8BF849-9C5E-4145-ACFA-48DE2F83FB51
+downsample [1. 1.]
+downsampled_level_dim [117527  86801]
+level_dim [117527  86801]
+name TCGA-VM-A8CA-01Z-00-DX8.CB8BF849-9C5E-4145-ACFA-48DE2F83FB51
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 129 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX8.CB8BF849-9C5E-4145-ACFA-48DE2F83FB51.h5 took 54.55837798118591 s
+features size:  (65729, 1024)
+coordinates size:  (65729, 2)
+
+progress: 26/61
+TCGA-VM-A8CA-01Z-00-DX9.357E0311-D1A7-4369-A626-383E6F9B3F83
+downsample [1. 1.]
+downsampled_level_dim [119519  87594]
+level_dim [119519  87594]
+name TCGA-VM-A8CA-01Z-00-DX9.357E0311-D1A7-4369-A626-383E6F9B3F83
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 131 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CA-01Z-00-DX9.357E0311-D1A7-4369-A626-383E6F9B3F83.h5 took 55.53179335594177 s
+features size:  (66720, 1024)
+coordinates size:  (66720, 2)
+
+progress: 27/61
+TCGA-VM-A8CB-01Z-00-DX1.A33B1EC5-D489-4520-8ADA-D18AD0FB115B
+downsample [1. 1.]
+downsampled_level_dim [129479  85202]
+level_dim [129479  85202]
+name TCGA-VM-A8CB-01Z-00-DX1.A33B1EC5-D489-4520-8ADA-D18AD0FB115B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 185 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX1.A33B1EC5-D489-4520-8ADA-D18AD0FB115B.h5 took 76.31544423103333 s
+features size:  (94277, 1024)
+coordinates size:  (94277, 2)
+
+progress: 28/61
+TCGA-VM-A8CB-01Z-00-DX2.FF7BED61-5947-4261-8B9F-054B3E997B18
+downsample [1. 1.]
+downsampled_level_dim [133463  93283]
+level_dim [133463  93283]
+name TCGA-VM-A8CB-01Z-00-DX2.FF7BED61-5947-4261-8B9F-054B3E997B18
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 187 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX2.FF7BED61-5947-4261-8B9F-054B3E997B18.h5 took 78.87216448783875 s
+features size:  (95710, 1024)
+coordinates size:  (95710, 2)
+
+progress: 29/61
+TCGA-VM-A8CB-01Z-00-DX3.4DAB7FB0-0C2E-43D8-9E4F-F5C1720AA78F
+downsample [1. 1.]
+downsampled_level_dim [131471  93127]
+level_dim [131471  93127]
+name TCGA-VM-A8CB-01Z-00-DX3.4DAB7FB0-0C2E-43D8-9E4F-F5C1720AA78F
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 179 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX3.4DAB7FB0-0C2E-43D8-9E4F-F5C1720AA78F.h5 took 74.46130228042603 s
+features size:  (91368, 1024)
+coordinates size:  (91368, 2)
+
+progress: 30/61
+TCGA-VM-A8CB-01Z-00-DX4.D26731C6-9C13-40B6-9CB1-432249EF4F94
+downsample [1. 1.]
+downsampled_level_dim [125495  88060]
+level_dim [125495  88060]
+name TCGA-VM-A8CB-01Z-00-DX4.D26731C6-9C13-40B6-9CB1-432249EF4F94
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 185 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX4.D26731C6-9C13-40B6-9CB1-432249EF4F94.h5 took 77.79065275192261 s
+features size:  (94716, 1024)
+coordinates size:  (94716, 2)
+
+progress: 31/61
+TCGA-VM-A8CB-01Z-00-DX5.E3E9FD68-DDFE-4AC2-B898-B888E4E127FF
+downsample [1. 1.]
+downsampled_level_dim [139439  94069]
+level_dim [139439  94069]
+name TCGA-VM-A8CB-01Z-00-DX5.E3E9FD68-DDFE-4AC2-B898-B888E4E127FF
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 189 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX5.E3E9FD68-DDFE-4AC2-B898-B888E4E127FF.h5 took 78.33412742614746 s
+features size:  (96312, 1024)
+coordinates size:  (96312, 2)
+
+progress: 32/61
+TCGA-VM-A8CB-01Z-00-DX6.E15B7AA1-ACA5-4959-9581-3EDDE6FACCC0
+downsample [1. 1.]
+downsampled_level_dim [125495  89963]
+level_dim [125495  89963]
+name TCGA-VM-A8CB-01Z-00-DX6.E15B7AA1-ACA5-4959-9581-3EDDE6FACCC0
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 178 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX6.E15B7AA1-ACA5-4959-9581-3EDDE6FACCC0.h5 took 73.04226875305176 s
+features size:  (91064, 1024)
+coordinates size:  (91064, 2)
+
+progress: 33/61
+TCGA-VM-A8CB-01Z-00-DX7.E1F6875A-18A8-4696-AC98-383E476ABE97
+downsample [1. 1.]
+downsampled_level_dim [135455  92331]
+level_dim [135455  92331]
+name TCGA-VM-A8CB-01Z-00-DX7.E1F6875A-18A8-4696-AC98-383E476ABE97
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 175 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX7.E1F6875A-18A8-4696-AC98-383E476ABE97.h5 took 73.72539234161377 s
+features size:  (89472, 1024)
+coordinates size:  (89472, 2)
+
+progress: 34/61
+TCGA-VM-A8CB-01Z-00-DX8.824FCA58-A9DE-4E3F-8DBC-B38C85A34375
+downsample [1. 1.]
+downsampled_level_dim [125495  90123]
+level_dim [125495  90123]
+name TCGA-VM-A8CB-01Z-00-DX8.824FCA58-A9DE-4E3F-8DBC-B38C85A34375
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 178 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX8.824FCA58-A9DE-4E3F-8DBC-B38C85A34375.h5 took 75.01038861274719 s
+features size:  (90763, 1024)
+coordinates size:  (90763, 2)
+
+progress: 35/61
+TCGA-VM-A8CB-01Z-00-DX9.8A7428DE-8450-4967-B777-AAD21A5AA36F
+downsample [1. 1.]
+downsampled_level_dim [133463  93602]
+level_dim [133463  93602]
+name TCGA-VM-A8CB-01Z-00-DX9.8A7428DE-8450-4967-B777-AAD21A5AA36F
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 176 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CB-01Z-00-DX9.8A7428DE-8450-4967-B777-AAD21A5AA36F.h5 took 73.07295775413513 s
+features size:  (89677, 1024)
+coordinates size:  (89677, 2)
+
+progress: 36/61
+TCGA-VM-A8CD-01Z-00-DX1.F33FFB83-3DC7-4543-A496-1EC738188DE0
+downsample [1. 1.]
+downsampled_level_dim [125495  84574]
+level_dim [125495  84574]
+name TCGA-VM-A8CD-01Z-00-DX1.F33FFB83-3DC7-4543-A496-1EC738188DE0
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 91 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX1.F33FFB83-3DC7-4543-A496-1EC738188DE0.h5 took 39.59684181213379 s
+features size:  (46366, 1024)
+coordinates size:  (46366, 2)
+
+progress: 37/61
+TCGA-VM-A8CD-01Z-00-DX2.355165A0-D1C3-4345-B151-B94591102389
+downsample [1. 1.]
+downsampled_level_dim [127487  81875]
+level_dim [127487  81875]
+name TCGA-VM-A8CD-01Z-00-DX2.355165A0-D1C3-4345-B151-B94591102389
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 93 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX2.355165A0-D1C3-4345-B151-B94591102389.h5 took 40.67651605606079 s
+features size:  (47123, 1024)
+coordinates size:  (47123, 2)
+
+progress: 38/61
+TCGA-VM-A8CD-01Z-00-DX3.E93E4734-17DD-40F9-AE98-3E2146E6F9F8
+downsample [1. 1.]
+downsampled_level_dim [131471  83774]
+level_dim [131471  83774]
+name TCGA-VM-A8CD-01Z-00-DX3.E93E4734-17DD-40F9-AE98-3E2146E6F9F8
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 93 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX3.E93E4734-17DD-40F9-AE98-3E2146E6F9F8.h5 took 41.82103133201599 s
+features size:  (47231, 1024)
+coordinates size:  (47231, 2)
+
+progress: 39/61
+TCGA-VM-A8CD-01Z-00-DX4.504C4EEF-6491-4A03-9A81-03259714F5BB
+downsample [1. 1.]
+downsampled_level_dim [127487  85838]
+level_dim [127487  85838]
+name TCGA-VM-A8CD-01Z-00-DX4.504C4EEF-6491-4A03-9A81-03259714F5BB
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 92 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX4.504C4EEF-6491-4A03-9A81-03259714F5BB.h5 took 41.317463636398315 s
+features size:  (46665, 1024)
+coordinates size:  (46665, 2)
+
+progress: 40/61
+TCGA-VM-A8CD-01Z-00-DX5.E980653F-1D60-41E6-B0D1-FD95B4EE5643
+downsample [1. 1.]
+downsampled_level_dim [123503  83466]
+level_dim [123503  83466]
+name TCGA-VM-A8CD-01Z-00-DX5.E980653F-1D60-41E6-B0D1-FD95B4EE5643
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 97 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX5.E980653F-1D60-41E6-B0D1-FD95B4EE5643.h5 took 43.103296756744385 s
+features size:  (49158, 1024)
+coordinates size:  (49158, 2)
+
+progress: 41/61
+TCGA-VM-A8CD-01Z-00-DX6.965345AB-3591-48B4-8663-CC9361BEAE99
+downsample [1. 1.]
+downsampled_level_dim [115535  82842]
+level_dim [115535  82842]
+name TCGA-VM-A8CD-01Z-00-DX6.965345AB-3591-48B4-8663-CC9361BEAE99
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 97 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX6.965345AB-3591-48B4-8663-CC9361BEAE99.h5 took 42.310829877853394 s
+features size:  (49332, 1024)
+coordinates size:  (49332, 2)
+
+progress: 42/61
+TCGA-VM-A8CD-01Z-00-DX7.7B78F014-39DE-4CD6-B09C-6081407E5CDB
+downsample [1. 1.]
+downsampled_level_dim [121511  82994]
+level_dim [121511  82994]
+name TCGA-VM-A8CD-01Z-00-DX7.7B78F014-39DE-4CD6-B09C-6081407E5CDB
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 100 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX7.7B78F014-39DE-4CD6-B09C-6081407E5CDB.h5 took 43.90200996398926 s
+features size:  (50768, 1024)
+coordinates size:  (50768, 2)
+
+progress: 43/61
+TCGA-VM-A8CD-01Z-00-DX8.030EF5DE-845F-4134-B26D-66EA5F2F1668
+downsample [1. 1.]
+downsampled_level_dim [121511  82359]
+level_dim [121511  82359]
+name TCGA-VM-A8CD-01Z-00-DX8.030EF5DE-845F-4134-B26D-66EA5F2F1668
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 95 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX8.030EF5DE-845F-4134-B26D-66EA5F2F1668.h5 took 42.11634612083435 s
+features size:  (48552, 1024)
+coordinates size:  (48552, 2)
+
+progress: 44/61
+TCGA-VM-A8CD-01Z-00-DX9.389ED5EC-ECA4-4C4C-ADF8-2458338C807B
+downsample [1. 1.]
+downsampled_level_dim [121511  83626]
+level_dim [121511  83626]
+name TCGA-VM-A8CD-01Z-00-DX9.389ED5EC-ECA4-4C4C-ADF8-2458338C807B
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 95 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CD-01Z-00-DX9.389ED5EC-ECA4-4C4C-ADF8-2458338C807B.h5 took 41.88539934158325 s
+features size:  (48205, 1024)
+coordinates size:  (48205, 2)
+
+progress: 45/61
+TCGA-VM-A8CE-01Z-00-DX1.E3381301-A47E-4838-B680-9EF799520140
+downsample [1. 1.]
+downsampled_level_dim [119519  64444]
+level_dim [119519  64444]
+name TCGA-VM-A8CE-01Z-00-DX1.E3381301-A47E-4838-B680-9EF799520140
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 80 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX1.E3381301-A47E-4838-B680-9EF799520140.h5 took 35.50291609764099 s
+features size:  (40914, 1024)
+coordinates size:  (40914, 2)
+
+progress: 46/61
+TCGA-VM-A8CE-01Z-00-DX2.87CC9777-EAD4-4BAC-AAFA-0485E04DAB7F
+downsample [1. 1.]
+downsampled_level_dim [121511  70784]
+level_dim [121511  70784]
+name TCGA-VM-A8CE-01Z-00-DX2.87CC9777-EAD4-4BAC-AAFA-0485E04DAB7F
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 76 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX2.87CC9777-EAD4-4BAC-AAFA-0485E04DAB7F.h5 took 37.1527373790741 s
+features size:  (38549, 1024)
+coordinates size:  (38549, 2)
+
+progress: 47/61
+TCGA-VM-A8CE-01Z-00-DX3.EB6DA6B8-B95B-4385-A942-0E258CE453FE
+downsample [1. 1.]
+downsampled_level_dim [119519  62858]
+level_dim [119519  62858]
+name TCGA-VM-A8CE-01Z-00-DX3.EB6DA6B8-B95B-4385-A942-0E258CE453FE
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 77 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX3.EB6DA6B8-B95B-4385-A942-0E258CE453FE.h5 took 34.592819690704346 s
+features size:  (39366, 1024)
+coordinates size:  (39366, 2)
+
+progress: 48/61
+TCGA-VM-A8CE-01Z-00-DX4.C89ACFB4-EEA1-4104-8765-7712E9B7EE3C
+downsample [1. 1.]
+downsampled_level_dim [127487  67448]
+level_dim [127487  67448]
+name TCGA-VM-A8CE-01Z-00-DX4.C89ACFB4-EEA1-4104-8765-7712E9B7EE3C
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 73 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX4.C89ACFB4-EEA1-4104-8765-7712E9B7EE3C.h5 took 33.27967047691345 s
+features size:  (37281, 1024)
+coordinates size:  (37281, 2)
+
+progress: 49/61
+TCGA-VM-A8CE-01Z-00-DX5.4EA336FC-AA5F-4267-91E1-4919F43B88DD
+downsample [1. 1.]
+downsampled_level_dim [125495  67450]
+level_dim [125495  67450]
+name TCGA-VM-A8CE-01Z-00-DX5.4EA336FC-AA5F-4267-91E1-4919F43B88DD
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 72 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX5.4EA336FC-AA5F-4267-91E1-4919F43B88DD.h5 took 32.094507455825806 s
+features size:  (36652, 1024)
+coordinates size:  (36652, 2)
+
+progress: 50/61
+TCGA-VM-A8CE-01Z-00-DX6.E5A828E7-0B84-4EE6-9337-99608E269886
+downsample [1. 1.]
+downsampled_level_dim [125495  69035]
+level_dim [125495  69035]
+name TCGA-VM-A8CE-01Z-00-DX6.E5A828E7-0B84-4EE6-9337-99608E269886
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 72 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX6.E5A828E7-0B84-4EE6-9337-99608E269886.h5 took 32.41039180755615 s
+features size:  (36755, 1024)
+coordinates size:  (36755, 2)
+
+progress: 51/61
+TCGA-VM-A8CE-01Z-00-DX7.016DD6CE-4B9B-45A1-B94C-27C11EBF5575
+downsample [1. 1.]
+downsampled_level_dim [119519  66980]
+level_dim [119519  66980]
+name TCGA-VM-A8CE-01Z-00-DX7.016DD6CE-4B9B-45A1-B94C-27C11EBF5575
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 68 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX7.016DD6CE-4B9B-45A1-B94C-27C11EBF5575.h5 took 30.558528661727905 s
+features size:  (34704, 1024)
+coordinates size:  (34704, 2)
+
+progress: 52/61
+TCGA-VM-A8CE-01Z-00-DX8.94355113-F8C2-401E-988C-B3112B054186
+downsample [1. 1.]
+downsampled_level_dim [117527  59216]
+level_dim [117527  59216]
+name TCGA-VM-A8CE-01Z-00-DX8.94355113-F8C2-401E-988C-B3112B054186
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 65 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX8.94355113-F8C2-401E-988C-B3112B054186.h5 took 29.499601125717163 s
+features size:  (33027, 1024)
+coordinates size:  (33027, 2)
+
+progress: 53/61
+TCGA-VM-A8CE-01Z-00-DX9.31516257-7E21-4797-ACCE-084FB67D82AA
+downsample [1. 1.]
+downsampled_level_dim [127487  74742]
+level_dim [127487  74742]
+name TCGA-VM-A8CE-01Z-00-DX9.31516257-7E21-4797-ACCE-084FB67D82AA
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 63 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CE-01Z-00-DX9.31516257-7E21-4797-ACCE-084FB67D82AA.h5 took 28.063024520874023 s
+features size:  (31894, 1024)
+coordinates size:  (31894, 2)
+
+progress: 54/61
+TCGA-VM-A8CH-01Z-00-DX1.5CCB3B5B-AE36-47E0-91F6-0DF95BB43A2D
+downsample [1. 1.]
+downsampled_level_dim [135455  69498]
+level_dim [135455  69498]
+name TCGA-VM-A8CH-01Z-00-DX1.5CCB3B5B-AE36-47E0-91F6-0DF95BB43A2D
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 150 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CH-01Z-00-DX1.5CCB3B5B-AE36-47E0-91F6-0DF95BB43A2D.h5 took 63.766202449798584 s
+features size:  (76519, 1024)
+coordinates size:  (76519, 2)
+
+progress: 55/61
+TCGA-VM-A8CH-01Z-00-DX2.DC834C4C-ADA5-436C-80DD-303E45917C35
+downsample [1. 1.]
+downsampled_level_dim [137447  64106]
+level_dim [137447  64106]
+name TCGA-VM-A8CH-01Z-00-DX2.DC834C4C-ADA5-436C-80DD-303E45917C35
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 146 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CH-01Z-00-DX2.DC834C4C-ADA5-436C-80DD-303E45917C35.h5 took 61.18076992034912 s
+features size:  (74243, 1024)
+coordinates size:  (74243, 2)
+
+progress: 56/61
+TCGA-VM-A8CH-01Z-00-DX3.B0A4A9A2-14B8-4080-8DF8-B2055EFFFDF8
+downsample [1. 1.]
+downsampled_level_dim [139439  75678]
+level_dim [139439  75678]
+name TCGA-VM-A8CH-01Z-00-DX3.B0A4A9A2-14B8-4080-8DF8-B2055EFFFDF8
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 147 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CH-01Z-00-DX3.B0A4A9A2-14B8-4080-8DF8-B2055EFFFDF8.h5 took 62.58442401885986 s
+features size:  (75260, 1024)
+coordinates size:  (75260, 2)
+
+progress: 57/61
+TCGA-VM-A8CH-01Z-00-DX4.E0A57F2D-B9E0-4423-8920-8A99CFEC4CE9
+downsample [1. 1.]
+downsampled_level_dim [139439  64420]
+level_dim [139439  64420]
+name TCGA-VM-A8CH-01Z-00-DX4.E0A57F2D-B9E0-4423-8920-8A99CFEC4CE9
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 151 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CH-01Z-00-DX4.E0A57F2D-B9E0-4423-8920-8A99CFEC4CE9.h5 took 64.38281440734863 s
+features size:  (76909, 1024)
+coordinates size:  (76909, 2)
+
+progress: 58/61
+TCGA-VM-A8CH-01Z-00-DX5.992B2EBF-4B11-441E-97DE-9167BDBF797D
+downsample [1. 1.]
+downsampled_level_dim [139439  70288]
+level_dim [139439  70288]
+name TCGA-VM-A8CH-01Z-00-DX5.992B2EBF-4B11-441E-97DE-9167BDBF797D
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 148 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CH-01Z-00-DX5.992B2EBF-4B11-441E-97DE-9167BDBF797D.h5 took 63.901252031326294 s
+features size:  (75428, 1024)
+coordinates size:  (75428, 2)
+
+progress: 59/61
+TCGA-VM-A8CH-01Z-00-DX6.284D2734-21E1-4C09-9578-6BFE42131D43
+downsample [1. 1.]
+downsampled_level_dim [133463  71722]
+level_dim [133463  71722]
+name TCGA-VM-A8CH-01Z-00-DX6.284D2734-21E1-4C09-9578-6BFE42131D43
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 145 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CH-01Z-00-DX6.284D2734-21E1-4C09-9578-6BFE42131D43.h5 took 61.783424377441406 s
+features size:  (73905, 1024)
+coordinates size:  (73905, 2)
+
+progress: 60/61
+TCGA-VM-A8CH-01Z-00-DX7.8A5184E2-AEAF-4665-A09C-044D2B21EDD5
+downsample [1. 1.]
+downsampled_level_dim [135455  67915]
+level_dim [135455  67915]
+name TCGA-VM-A8CH-01Z-00-DX7.8A5184E2-AEAF-4665-A09C-044D2B21EDD5
+patch_level 0
+patch_size 256
+save_path /scratch/au38/yy3740/Eval/Utah_feats/patches
+
+feature extraction settings
+transformations:  Compose(
+    Resize(size=224, interpolation=bilinear, max_size=None, antialias=True)
+    ToTensor()
+    Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+)
+processing a total of 150 batches
+
+computing features for /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8CH-01Z-00-DX7.8A5184E2-AEAF-4665-A09C-044D2B21EDD5.h5 took 63.39130663871765 s
+features size:  (76329, 1024)
+coordinates size:  (76329, 2)
+
+======================================================================================
+                  Resource Usage on 2024-10-08 20:16:11:
+   Job Id:             126421100.gadi-pbs
+   Project:            au38
+   Exit Status:        0
+   Service Units:      101.92
+   NCPUs Requested:    12                     NCPUs Used: 12              
+                                           CPU Time Used: 21:15:09        
+   Memory Requested:   64.0GB                Memory Used: 64.0GB          
+   NGPUs Requested:    1                 GPU Utilisation: 65%             
+                                         GPU Memory Used: 6.81GB          
+   Walltime requested: 12:00:00            Walltime Used: 02:49:52        
+   JobFS requested:    100.0MB                JobFS used: 0B              
+======================================================================================

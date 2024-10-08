@@ -1,0 +1,182 @@
+{'task': 'task_3_tgca', 'split': 'all', 'save_dir': './eval_results/EVAL_Minnesota_eval_run', 'models_dir': '/g/data/au38/yy3740/results/task_3_tgca_clam_sb_k3_lr1e-4/task_3_tgca_clam_sb_s1', 'model_type': 'clam_sb', 'drop_out': 0.25, 'model_size': 'small'}
+Filtered dataset size: 63
+label column: label
+label dictionary: {0: 0, 1: 1}
+number of classes: 2
+slide-level counts:  
+ label
+1    56
+0     7
+Name: count, dtype: int64
+Slide-LVL; Number of samples registered in class 0: 7
+Slide-LVL; Number of samples registered in class 1: 56
+Data directory: /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files
+Initializing dataset with 63 entries
+Filtered initial_len=63
+Filtered filtered_len=63
+Filtered 0 entries without corresponding .h5 files.
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 63
+Loader contains 63 batches
+Loader length after enter summary: 63
+Loader length: 63
+slide_id=TCGA-DB-5270-01Z-00-DX1.E0795F24-4D23-408A-8871-2675EC577C23
+Attempting to load file: /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5270-01Z-00-DX1.E0795F24-4D23-408A-8871-2675EC577C23.h5
+slide_id=TCGA-DB-5270-01Z-00-DX2.F5F8D418-C805-4293-9688-1CA899A6D15B
+Attempting to load file: /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5270-01Z-00-DX2.F5F8D418-C805-4293-9688-1CA899A6D15B.h5
+slide_id=TCGA-DB-5273-01Z-00-DX1.9E85A2F5-FB10-4C9F-A612-19FFB955C9FF
+Attempting to load file: /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files/TCGA-DB-5273-01Z-00-DX1.9E85A2F5-FB10-4C9F-A612-19FFB955C9FF.h5
+Batch 0: Data shape: torch.Size([87232, 1024]), Label: tensor([1])
+{'task': 'task_3_tgca', 'split': 'all', 'save_dir': './eval_results/EVAL_Ohio_eval_run', 'models_dir': '/g/data/au38/yy3740/results/task_3_tgca_clam_sb_k3_lr1e-4/task_3_tgca_clam_sb_s1', 'model_type': 'clam_sb', 'drop_out': 0.25, 'model_size': 'small'}
+Filtered dataset size: 105
+label column: label
+label dictionary: {0: 0, 1: 1}
+number of classes: 2
+slide-level counts:  
+ label
+1.0    56
+0.0    49
+Name: count, dtype: int64
+Slide-LVL; Number of samples registered in class 0: 49
+Slide-LVL; Number of samples registered in class 1: 56
+Data directory: /g/data/au38/yy3740/Eval/Ohio_feats/h5_files
+Initializing dataset with 105 entries
+Filtered initial_len=105
+Filtered filtered_len=64
+Filtered 41 entries without corresponding .h5 files.
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 64
+Loader contains 64 batches
+Loader length after enter summary: 64
+Loader length: 64
+slide_id=TCGA-FG-5962-01Z-00-DX1.3df4ee8a-9be3-482e-a0d6-4e4d9c3c9f54
+Attempting to load file: /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-5962-01Z-00-DX1.3df4ee8a-9be3-482e-a0d6-4e4d9c3c9f54.h5
+slide_id=TCGA-FG-5963-01Z-00-DX1.7bcacb10-cec1-4397-9c3a-bf08cab7d63d
+Attempting to load file: /g/data/au38/yy3740/Eval/Ohio_feats/h5_files/TCGA-FG-5963-01Z-00-DX1.7bcacb10-cec1-4397-9c3a-bf08cab7d63d.h5
+Batch 0: Data shape: torch.Size([78712, 1024]), Label: tensor([1])
+{'task': 'task_3_tgca', 'split': 'all', 'save_dir': './eval_results/EVAL_Utah_eval_run', 'models_dir': '/g/data/au38/yy3740/results/task_3_tgca_clam_sb_k3_lr1e-4/task_3_tgca_clam_sb_s1', 'model_type': 'clam_sb', 'drop_out': 0.25, 'model_size': 'small'}
+Filtered dataset size: 61
+label column: label
+label dictionary: {0: 0, 1: 1}
+number of classes: 2
+slide-level counts:  
+ label
+1    43
+0    18
+Name: count, dtype: int64
+Slide-LVL; Number of samples registered in class 0: 18
+Slide-LVL; Number of samples registered in class 1: 43
+Data directory: /g/data/au38/yy3740/Eval/Utah_feats/h5_files
+Initializing dataset with 61 entries
+Filtered initial_len=61
+Filtered filtered_len=61
+Filtered 0 entries without corresponding .h5 files.
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 61
+Loader contains 61 batches
+Loader length after enter summary: 61
+Loader length: 61
+slide_id=TCGA-VM-A8C8-01Z-00-DX1.119D6F8E-6A1D-4FCA-9C2F-75DB418B880B
+Attempting to load file: /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX1.119D6F8E-6A1D-4FCA-9C2F-75DB418B880B.h5
+slide_id=TCGA-VM-A8C8-01Z-00-DX2.996E1ECF-24B2-4A35-8D00-02BF3C025FC6
+Attempting to load file: /g/data/au38/yy3740/Eval/Utah_feats/h5_files/TCGA-VM-A8C8-01Z-00-DX2.996E1ECF-24B2-4A35-8D00-02BF3C025FC6.h5
+Batch 0: Data shape: torch.Size([4124, 1024]), Label: tensor([1])
+
+======================================================================================
+                  Resource Usage on 2024-10-08 21:36:54:
+   Job Id:             126437841.gadi-pbs
+   Project:            au38
+   Exit Status:        1
+   Service Units:      1.23
+   NCPUs Requested:    12                     NCPUs Used: 12              
+                                           CPU Time Used: 00:00:32        
+   Memory Requested:   64.0GB                Memory Used: 4.66GB          
+   NGPUs Requested:    1                 GPU Utilisation: 0%              
+                                         GPU Memory Used: 0B              
+   Walltime requested: 12:00:00            Walltime Used: 00:02:03        
+   JobFS requested:    100.0MB                JobFS used: 0B              
+======================================================================================

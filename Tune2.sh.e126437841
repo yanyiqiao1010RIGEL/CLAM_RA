@@ -1,0 +1,84 @@
+/g/data/au38/CLAM/utils/eval_utils.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
+Traceback (most recent call last):
+  File "/g/data/au38/CLAM/eval.py", line 160, in <module>
+    model, patient_results, test_error, auc, df, f1 = eval(split_dataset, args, ckpt_paths[ckpt_idx])
+  File "/g/data/au38/CLAM/utils/eval_utils.py", line 64, in eval
+    patient_results, test_error, auc, df, acc_logger, f1 = summary(model, loader, args)
+  File "/g/data/au38/CLAM/utils/eval_utils.py", line 91, in summary
+    logits, Y_prob, Y_hat, _, results_dict = model(data)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/CLAM/models/model_clam.py", line 139, in forward
+    A, h = self.attention_net(h)  # NxK        
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)
+/g/data/au38/CLAM/utils/eval_utils.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
+Traceback (most recent call last):
+  File "/g/data/au38/CLAM/eval.py", line 160, in <module>
+    model, patient_results, test_error, auc, df, f1 = eval(split_dataset, args, ckpt_paths[ckpt_idx])
+  File "/g/data/au38/CLAM/utils/eval_utils.py", line 64, in eval
+    patient_results, test_error, auc, df, acc_logger, f1 = summary(model, loader, args)
+  File "/g/data/au38/CLAM/utils/eval_utils.py", line 91, in summary
+    logits, Y_prob, Y_hat, _, results_dict = model(data)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/CLAM/models/model_clam.py", line 139, in forward
+    A, h = self.attention_net(h)  # NxK        
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)
+/g/data/au38/CLAM/utils/eval_utils.py:41: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
+Traceback (most recent call last):
+  File "/g/data/au38/CLAM/eval.py", line 160, in <module>
+    model, patient_results, test_error, auc, df, f1 = eval(split_dataset, args, ckpt_paths[ckpt_idx])
+  File "/g/data/au38/CLAM/utils/eval_utils.py", line 64, in eval
+    patient_results, test_error, auc, df, acc_logger, f1 = summary(model, loader, args)
+  File "/g/data/au38/CLAM/utils/eval_utils.py", line 91, in summary
+    logits, Y_prob, Y_hat, _, results_dict = model(data)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/CLAM/models/model_clam.py", line 139, in forward
+    A, h = self.attention_net(h)  # NxK        
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)

@@ -1,0 +1,7 @@
+#!/bin/bash
+#PBS -P au38
+#PBS -q express
+#PBS -l walltime=00:30:00
+#PBS -l ncpu=1
+#PBS -l mem=2GB
+
