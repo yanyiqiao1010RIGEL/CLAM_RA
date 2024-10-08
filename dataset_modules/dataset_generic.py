@@ -399,6 +399,8 @@ class Generic_Split(Generic_MIL_Dataset):
 			self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
 
 	def __len__(self):
+		###test
+		print(f"Dataset length: {len(self.slide_data)}")
 		return len(self.slide_data)
 		
 
