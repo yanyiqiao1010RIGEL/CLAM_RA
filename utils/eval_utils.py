@@ -67,6 +67,7 @@ def summary(model, loader, args):
     model.eval()
     test_loss = 0.
     test_error = 0.
+    print(f"Loader length after enter summary: {len(loader)}")
 
     all_probs = np.zeros((len(loader), args.n_classes))
     all_labels = np.zeros(len(loader))

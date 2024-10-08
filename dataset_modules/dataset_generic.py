@@ -334,15 +334,30 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 	def __init__(self,
-		data_dir, 
+		data_dir,
 		**kwargs):
 	
 		super(Generic_MIL_Dataset, self).__init__(**kwargs)
+		print(f"Data directory: {data_dir}")
 		self.data_dir = data_dir
 		self.use_h5 = True
 
+		### slide_id fliter
+		self.filter_invalid_h5_files()
+
 	def load_from_h5(self, toggle):
 		self.use_h5 = toggle
+
+	def filter_invalid_h5_files(self):
+
+		existing_files = set([f.split('.h5')[0] for f in os.listdir(self.data_dir)])
+
+		# filter
+		initial_len = len(self.slide_data)
+		self.slide_data = self.slide_data[self.slide_data['slide_id'].isin(existing_files)]
+		self.slide_data.reset_index(drop=True, inplace=True)
+		filtered_len = len(self.slide_data)
+		print(f"Filtered {initial_len - filtered_len} entries without corresponding .h5 files.")
 
 	def __getitem__(self, idx):
 		print(f"Use h5: {self.use_h5}")
