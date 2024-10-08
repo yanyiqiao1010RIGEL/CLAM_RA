@@ -55,6 +55,9 @@ def eval(dataset, args, ckpt_path):
     model = initiate_model(args, ckpt_path)
     
     print('Init Loaders')
+    ###test
+    print(f"Dataset length: {len(dataset)}")
+
     loader = get_simple_loader(dataset)
     ###test
     print(f"Loader contains {len(loader)} batches")
