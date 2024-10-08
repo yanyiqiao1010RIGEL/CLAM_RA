@@ -38,7 +38,7 @@ def initiate_model(args, ckpt_path, device='cuda'):
     if device is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
+    ckpt = torch.load(ckpt_path, map_location=device)
     ckpt_clean = {}
     for key in ckpt.keys():
         if 'instance_loss_fn' in key:
