@@ -173,7 +173,7 @@ if __name__ == "__main__":
         df.to_csv(os.path.join(args.save_dir, 'fold_{}.csv'.format(folds[ckpt_idx])), index=False)
 
     ### Major voting
-    all_predictions = np.array(all_predictions)
+    all_predictions = np.array(all_predictions).astype(int)
     majority_vote_predictions = np.apply_along_axis(lambda x: np.bincount(x).argmax(), axis=0, arr=all_predictions)
 
     # Save file
