@@ -345,6 +345,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		self.use_h5 = toggle
 
 	def __getitem__(self, idx):
+		print(f"Use h5: {self.use_h5}")
 		slide_id = self.slide_data['slide_id'][idx]
 		label = self.slide_data['label'][idx]
 		if type(self.data_dir) == dict:
