@@ -144,6 +144,8 @@ class Generic_WSI_Classification_Dataset(Dataset):
 				mask = df[key].isin(val)
 				filter_mask = np.logical_and(filter_mask, mask)
 			df = df[filter_mask]
+		###filter test
+		print(f"Filtered dataset size: {len(df)}")
 		return df
 
 	def __len__(self):
