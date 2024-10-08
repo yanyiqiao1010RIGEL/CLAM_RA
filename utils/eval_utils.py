@@ -16,7 +16,7 @@ from sklearn.metrics import f1_score
 from sklearn.preprocessing import label_binarize
 import matplotlib.pyplot as plt
 
-def initiate_model(args, ckpt_path, device='cpu'):
+def initiate_model(args, ckpt_path, device='cuda'):
     print('Init Model')    
     model_dict = {"dropout": args.drop_out, 'n_classes': args.n_classes, "embed_dim": args.embed_dim}
     
@@ -38,7 +38,7 @@ def initiate_model(args, ckpt_path, device='cpu'):
     if device is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    ckpt = torch.load(ckpt_path, map_location=torch.device('cpu'))
+    ckpt = torch.load(ckpt_path)
     ckpt_clean = {}
     for key in ckpt.keys():
         if 'instance_loss_fn' in key:

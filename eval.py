@@ -148,6 +148,10 @@ if __name__ == "__main__":
     all_auc = []
     all_acc = []
     all_f1 = []
+###ensemble
+    all_predictions = []
+    sample_ids = []
+
     for ckpt_idx in range(len(ckpt_paths)):
         if datasets_id[args.split] < 0:
             split_dataset = dataset
@@ -158,11 +162,23 @@ if __name__ == "__main__":
 
 
         model, patient_results, test_error, auc, df, f1 = eval(split_dataset, args, ckpt_paths[ckpt_idx])
+        ### ensemble
+        all_predictions.append(df['prediction'].values)
+        sample_ids = df['sample_id'].values
+
         all_results.append(all_results)
         all_auc.append(auc)
         all_acc.append(1-test_error)
         all_f1.append(f1)
         df.to_csv(os.path.join(args.save_dir, 'fold_{}.csv'.format(folds[ckpt_idx])), index=False)
+
+    ### Major voting
+    all_predictions = np.array(all_predictions)
+    majority_vote_predictions = np.apply_along_axis(lambda x: np.bincount(x).argmax(), axis=0, arr=all_predictions)
+
+    # Save file
+    ensemble_df = pd.DataFrame({'sample_id': sample_ids, 'ensemble_prediction': majority_vote_predictions})
+    ensemble_df.to_csv(os.path.join(args.save_dir, 'ensemble_predictions.csv'), index=False)
 
     final_df = pd.DataFrame({'folds': folds, 'test_auc': all_auc, 'test_acc': all_acc, 'test_f1': all_f1})
     if len(folds) != args.k:
