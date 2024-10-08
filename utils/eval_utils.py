@@ -134,5 +134,8 @@ def summary(model, loader, args):
     results_dict = {'slide_id': slide_ids, 'Y': all_labels, 'Y_hat': all_preds}
     for c in range(args.n_classes):
         results_dict.update({'p_{}'.format(c): all_probs[:,c]})
+
+    ###Add prediction
+    results_dict.update({'prediction': all_preds})
     df = pd.DataFrame(results_dict)
     return patient_results, test_error, auc_score, df, acc_logger, f1
