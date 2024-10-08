@@ -56,6 +56,8 @@ def eval(dataset, args, ckpt_path):
     
     print('Init Loaders')
     loader = get_simple_loader(dataset)
+    ###test
+    print(f"Loader contains {len(loader)} batches")
     patient_results, test_error, auc, df, acc_logger, f1 = summary(model, loader, args)
     print('test_error: ', test_error)
     print('auc: ', auc)
