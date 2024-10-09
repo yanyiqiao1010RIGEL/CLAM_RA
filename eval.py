@@ -192,9 +192,13 @@ if __name__ == "__main__":
 
     final_df = pd.DataFrame({'folds': folds, 'test_auc': all_auc, 'test_acc': all_acc, 'test_f1': all_f1})
     ### ensemble line
-    final_df = final_df.append(
-        {'folds': 'ensemble', 'test_auc': ensemble_auc, 'test_acc': ensemble_acc, 'test_f1': ensemble_f1},
-        ignore_index=True)
+    ensemble_result = pd.DataFrame([{
+        'folds': 'ensemble',
+        'test_auc': ensemble_auc,
+        'test_acc': ensemble_acc,
+        'test_f1': ensemble_f1
+    }])
+    final_df = pd.concat([final_df, ensemble_result], ignore_index=True)
 
     if len(folds) != args.k:
         save_name = 'summary_partial_{}_{}.csv'.format(folds[0], folds[-1])
