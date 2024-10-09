@@ -1,0 +1,954 @@
+{'task': 'task_3_tgca', 'split': 'all', 'save_dir': './eval_results/EVAL_Minnesota_eval_run', 'models_dir': '/g/data/au38/yy3740/results/task_3_tgca_clam_sb_k3_lr1e-4/task_3_tgca_clam_sb_s1', 'model_type': 'clam_sb', 'drop_out': 0.25, 'model_size': 'small'}
+Filtered dataset size: 63
+label column: label
+label dictionary: {0: 0, 1: 1}
+number of classes: 2
+slide-level counts:  
+ label
+1    56
+0     7
+Name: count, dtype: int64
+Slide-LVL; Number of samples registered in class 0: 7
+Slide-LVL; Number of samples registered in class 1: 56
+Data directory: /g/data/au38/yy3740/Eval/Minnesota_feats/h5_files
+Initializing dataset with 63 entries
+Filtered initial_len=63
+Filtered filtered_len=63
+Filtered 0 entries without corresponding .h5 files.
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 63
+Loader contains 63 batches
+Loader length after enter summary: 63
+Loader length: 63
+Batch 0: Data shape: torch.Size([87232, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([94100, 1024]), Label: tensor([1])
+Batch 2: Data shape: torch.Size([112653, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([69831, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([33012, 1024]), Label: tensor([1])
+Batch 5: Data shape: torch.Size([92120, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([68598, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([67389, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([64367, 1024]), Label: tensor([1])
+Batch 9: Data shape: torch.Size([41582, 1024]), Label: tensor([1])
+Batch 10: Data shape: torch.Size([57644, 1024]), Label: tensor([1])
+Batch 11: Data shape: torch.Size([66097, 1024]), Label: tensor([1])
+Batch 12: Data shape: torch.Size([50890, 1024]), Label: tensor([1])
+Batch 13: Data shape: torch.Size([37348, 1024]), Label: tensor([1])
+Batch 14: Data shape: torch.Size([61180, 1024]), Label: tensor([1])
+Batch 15: Data shape: torch.Size([40514, 1024]), Label: tensor([1])
+Batch 16: Data shape: torch.Size([56991, 1024]), Label: tensor([1])
+Batch 17: Data shape: torch.Size([36604, 1024]), Label: tensor([1])
+Batch 18: Data shape: torch.Size([73338, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([42009, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([50132, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([54116, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([35699, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([38485, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([72828, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([60031, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([28930, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([41854, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([13460, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([25991, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([66131, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([26987, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([89777, 1024]), Label: tensor([1])
+Batch 33: Data shape: torch.Size([81651, 1024]), Label: tensor([1])
+Batch 34: Data shape: torch.Size([41838, 1024]), Label: tensor([1])
+Batch 35: Data shape: torch.Size([56798, 1024]), Label: tensor([1])
+Batch 36: Data shape: torch.Size([36019, 1024]), Label: tensor([1])
+Batch 37: Data shape: torch.Size([63757, 1024]), Label: tensor([1])
+Batch 38: Data shape: torch.Size([75486, 1024]), Label: tensor([1])
+Batch 39: Data shape: torch.Size([62089, 1024]), Label: tensor([0])
+Batch 40: Data shape: torch.Size([52743, 1024]), Label: tensor([1])
+Batch 41: Data shape: torch.Size([75213, 1024]), Label: tensor([1])
+Batch 42: Data shape: torch.Size([39183, 1024]), Label: tensor([1])
+Batch 43: Data shape: torch.Size([51952, 1024]), Label: tensor([1])
+Batch 44: Data shape: torch.Size([78069, 1024]), Label: tensor([1])
+Batch 45: Data shape: torch.Size([81185, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([74836, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([35289, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([88626, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([64085, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([66331, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([34652, 1024]), Label: tensor([1])
+Batch 52: Data shape: torch.Size([43940, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([44268, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([64219, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([47683, 1024]), Label: tensor([0])
+Batch 56: Data shape: torch.Size([47607, 1024]), Label: tensor([0])
+Batch 57: Data shape: torch.Size([3571, 1024]), Label: tensor([0])
+Batch 58: Data shape: torch.Size([33140, 1024]), Label: tensor([0])
+Batch 59: Data shape: torch.Size([45045, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([93633, 1024]), Label: tensor([1])
+Batch 61: Data shape: torch.Size([11965, 1024]), Label: tensor([0])
+Batch 62: Data shape: torch.Size([62373, 1024]), Label: tensor([0])
+test_error:  0.1111111111111111
+auc:  0.8507653061224489
+f1 score:  0.8920920920920921
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 63
+Loader contains 63 batches
+Loader length after enter summary: 63
+Loader length: 63
+Batch 0: Data shape: torch.Size([87232, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([94100, 1024]), Label: tensor([1])
+Batch 2: Data shape: torch.Size([112653, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([69831, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([33012, 1024]), Label: tensor([1])
+Batch 5: Data shape: torch.Size([92120, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([68598, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([67389, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([64367, 1024]), Label: tensor([1])
+Batch 9: Data shape: torch.Size([41582, 1024]), Label: tensor([1])
+Batch 10: Data shape: torch.Size([57644, 1024]), Label: tensor([1])
+Batch 11: Data shape: torch.Size([66097, 1024]), Label: tensor([1])
+Batch 12: Data shape: torch.Size([50890, 1024]), Label: tensor([1])
+Batch 13: Data shape: torch.Size([37348, 1024]), Label: tensor([1])
+Batch 14: Data shape: torch.Size([61180, 1024]), Label: tensor([1])
+Batch 15: Data shape: torch.Size([40514, 1024]), Label: tensor([1])
+Batch 16: Data shape: torch.Size([56991, 1024]), Label: tensor([1])
+Batch 17: Data shape: torch.Size([36604, 1024]), Label: tensor([1])
+Batch 18: Data shape: torch.Size([73338, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([42009, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([50132, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([54116, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([35699, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([38485, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([72828, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([60031, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([28930, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([41854, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([13460, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([25991, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([66131, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([26987, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([89777, 1024]), Label: tensor([1])
+Batch 33: Data shape: torch.Size([81651, 1024]), Label: tensor([1])
+Batch 34: Data shape: torch.Size([41838, 1024]), Label: tensor([1])
+Batch 35: Data shape: torch.Size([56798, 1024]), Label: tensor([1])
+Batch 36: Data shape: torch.Size([36019, 1024]), Label: tensor([1])
+Batch 37: Data shape: torch.Size([63757, 1024]), Label: tensor([1])
+Batch 38: Data shape: torch.Size([75486, 1024]), Label: tensor([1])
+Batch 39: Data shape: torch.Size([62089, 1024]), Label: tensor([0])
+Batch 40: Data shape: torch.Size([52743, 1024]), Label: tensor([1])
+Batch 41: Data shape: torch.Size([75213, 1024]), Label: tensor([1])
+Batch 42: Data shape: torch.Size([39183, 1024]), Label: tensor([1])
+Batch 43: Data shape: torch.Size([51952, 1024]), Label: tensor([1])
+Batch 44: Data shape: torch.Size([78069, 1024]), Label: tensor([1])
+Batch 45: Data shape: torch.Size([81185, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([74836, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([35289, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([88626, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([64085, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([66331, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([34652, 1024]), Label: tensor([1])
+Batch 52: Data shape: torch.Size([43940, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([44268, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([64219, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([47683, 1024]), Label: tensor([0])
+Batch 56: Data shape: torch.Size([47607, 1024]), Label: tensor([0])
+Batch 57: Data shape: torch.Size([3571, 1024]), Label: tensor([0])
+Batch 58: Data shape: torch.Size([33140, 1024]), Label: tensor([0])
+Batch 59: Data shape: torch.Size([45045, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([93633, 1024]), Label: tensor([1])
+Batch 61: Data shape: torch.Size([11965, 1024]), Label: tensor([0])
+Batch 62: Data shape: torch.Size([62373, 1024]), Label: tensor([0])
+test_error:  0.2222222222222222
+auc:  0.8596938775510204
+f1 score:  0.8157264957264957
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 63
+Loader contains 63 batches
+Loader length after enter summary: 63
+Loader length: 63
+Batch 0: Data shape: torch.Size([87232, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([94100, 1024]), Label: tensor([1])
+Batch 2: Data shape: torch.Size([112653, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([69831, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([33012, 1024]), Label: tensor([1])
+Batch 5: Data shape: torch.Size([92120, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([68598, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([67389, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([64367, 1024]), Label: tensor([1])
+Batch 9: Data shape: torch.Size([41582, 1024]), Label: tensor([1])
+Batch 10: Data shape: torch.Size([57644, 1024]), Label: tensor([1])
+Batch 11: Data shape: torch.Size([66097, 1024]), Label: tensor([1])
+Batch 12: Data shape: torch.Size([50890, 1024]), Label: tensor([1])
+Batch 13: Data shape: torch.Size([37348, 1024]), Label: tensor([1])
+Batch 14: Data shape: torch.Size([61180, 1024]), Label: tensor([1])
+Batch 15: Data shape: torch.Size([40514, 1024]), Label: tensor([1])
+Batch 16: Data shape: torch.Size([56991, 1024]), Label: tensor([1])
+Batch 17: Data shape: torch.Size([36604, 1024]), Label: tensor([1])
+Batch 18: Data shape: torch.Size([73338, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([42009, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([50132, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([54116, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([35699, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([38485, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([72828, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([60031, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([28930, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([41854, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([13460, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([25991, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([66131, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([26987, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([89777, 1024]), Label: tensor([1])
+Batch 33: Data shape: torch.Size([81651, 1024]), Label: tensor([1])
+Batch 34: Data shape: torch.Size([41838, 1024]), Label: tensor([1])
+Batch 35: Data shape: torch.Size([56798, 1024]), Label: tensor([1])
+Batch 36: Data shape: torch.Size([36019, 1024]), Label: tensor([1])
+Batch 37: Data shape: torch.Size([63757, 1024]), Label: tensor([1])
+Batch 38: Data shape: torch.Size([75486, 1024]), Label: tensor([1])
+Batch 39: Data shape: torch.Size([62089, 1024]), Label: tensor([0])
+Batch 40: Data shape: torch.Size([52743, 1024]), Label: tensor([1])
+Batch 41: Data shape: torch.Size([75213, 1024]), Label: tensor([1])
+Batch 42: Data shape: torch.Size([39183, 1024]), Label: tensor([1])
+Batch 43: Data shape: torch.Size([51952, 1024]), Label: tensor([1])
+Batch 44: Data shape: torch.Size([78069, 1024]), Label: tensor([1])
+Batch 45: Data shape: torch.Size([81185, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([74836, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([35289, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([88626, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([64085, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([66331, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([34652, 1024]), Label: tensor([1])
+Batch 52: Data shape: torch.Size([43940, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([44268, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([64219, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([47683, 1024]), Label: tensor([0])
+Batch 56: Data shape: torch.Size([47607, 1024]), Label: tensor([0])
+Batch 57: Data shape: torch.Size([3571, 1024]), Label: tensor([0])
+Batch 58: Data shape: torch.Size([33140, 1024]), Label: tensor([0])
+Batch 59: Data shape: torch.Size([45045, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([93633, 1024]), Label: tensor([1])
+Batch 61: Data shape: torch.Size([11965, 1024]), Label: tensor([0])
+Batch 62: Data shape: torch.Size([62373, 1024]), Label: tensor([0])
+test_error:  0.20634920634920634
+auc:  0.7576530612244897
+f1 score:  0.8211640211640211
+{'task': 'task_3_tgca', 'split': 'all', 'save_dir': './eval_results/EVAL_Ohio_eval_run', 'models_dir': '/g/data/au38/yy3740/results/task_3_tgca_clam_sb_k3_lr1e-4/task_3_tgca_clam_sb_s1', 'model_type': 'clam_sb', 'drop_out': 0.25, 'model_size': 'small'}
+Filtered dataset size: 105
+label column: label
+label dictionary: {0: 0, 1: 1}
+number of classes: 2
+slide-level counts:  
+ label
+1.0    56
+0.0    49
+Name: count, dtype: int64
+Slide-LVL; Number of samples registered in class 0: 49
+Slide-LVL; Number of samples registered in class 1: 56
+Data directory: /g/data/au38/yy3740/Eval/Ohio_feats/h5_files
+Initializing dataset with 105 entries
+Filtered initial_len=105
+Filtered filtered_len=64
+Filtered 41 entries without corresponding .h5 files.
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 64
+Loader contains 64 batches
+Loader length after enter summary: 64
+Loader length: 64
+Batch 0: Data shape: torch.Size([78712, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([107664, 1024]), Label: tensor([0])
+Batch 2: Data shape: torch.Size([29114, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([106222, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([89527, 1024]), Label: tensor([0])
+Batch 5: Data shape: torch.Size([100260, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([29250, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([84353, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([12083, 1024]), Label: tensor([0])
+Batch 9: Data shape: torch.Size([12882, 1024]), Label: tensor([1])
+Batch 10: Data shape: torch.Size([49640, 1024]), Label: tensor([1])
+Batch 11: Data shape: torch.Size([112761, 1024]), Label: tensor([1])
+Batch 12: Data shape: torch.Size([40594, 1024]), Label: tensor([1])
+Batch 13: Data shape: torch.Size([31165, 1024]), Label: tensor([1])
+Batch 14: Data shape: torch.Size([39176, 1024]), Label: tensor([0])
+Batch 15: Data shape: torch.Size([16592, 1024]), Label: tensor([0])
+Batch 16: Data shape: torch.Size([13546, 1024]), Label: tensor([1])
+Batch 17: Data shape: torch.Size([65665, 1024]), Label: tensor([1])
+Batch 18: Data shape: torch.Size([73652, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([14992, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([20867, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([53426, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([20901, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([24358, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([80124, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([15384, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([73342, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([69768, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([80466, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([73776, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([67396, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([63243, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([44673, 1024]), Label: tensor([0])
+Batch 33: Data shape: torch.Size([25814, 1024]), Label: tensor([0])
+Batch 34: Data shape: torch.Size([68171, 1024]), Label: tensor([0])
+Batch 35: Data shape: torch.Size([24945, 1024]), Label: tensor([0])
+Batch 36: Data shape: torch.Size([27434, 1024]), Label: tensor([0])
+Batch 37: Data shape: torch.Size([67588, 1024]), Label: tensor([1])
+Batch 38: Data shape: torch.Size([15204, 1024]), Label: tensor([1])
+Batch 39: Data shape: torch.Size([58337, 1024]), Label: tensor([1])
+Batch 40: Data shape: torch.Size([45608, 1024]), Label: tensor([1])
+Batch 41: Data shape: torch.Size([46098, 1024]), Label: tensor([1])
+Batch 42: Data shape: torch.Size([23029, 1024]), Label: tensor([1])
+Batch 43: Data shape: torch.Size([16504, 1024]), Label: tensor([1])
+Batch 44: Data shape: torch.Size([69974, 1024]), Label: tensor([1])
+Batch 45: Data shape: torch.Size([59779, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([82536, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([75388, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([73690, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([90130, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([8146, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([7746, 1024]), Label: tensor([0])
+Batch 52: Data shape: torch.Size([14005, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([70260, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([9323, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([8578, 1024]), Label: tensor([1])
+Batch 56: Data shape: torch.Size([13823, 1024]), Label: tensor([1])
+Batch 57: Data shape: torch.Size([16468, 1024]), Label: tensor([1])
+Batch 58: Data shape: torch.Size([91609, 1024]), Label: tensor([1])
+Batch 59: Data shape: torch.Size([114608, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([31352, 1024]), Label: tensor([0])
+Batch 61: Data shape: torch.Size([43010, 1024]), Label: tensor([0])
+Batch 62: Data shape: torch.Size([72640, 1024]), Label: tensor([0])
+Batch 63: Data shape: torch.Size([39559, 1024]), Label: tensor([0])
+test_error:  0.296875
+auc:  0.5435374149659864
+f1 score:  0.6519943257676902
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 64
+Loader contains 64 batches
+Loader length after enter summary: 64
+Loader length: 64
+Batch 0: Data shape: torch.Size([78712, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([107664, 1024]), Label: tensor([0])
+Batch 2: Data shape: torch.Size([29114, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([106222, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([89527, 1024]), Label: tensor([0])
+Batch 5: Data shape: torch.Size([100260, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([29250, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([84353, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([12083, 1024]), Label: tensor([0])
+Batch 9: Data shape: torch.Size([12882, 1024]), Label: tensor([1])
+Batch 10: Data shape: torch.Size([49640, 1024]), Label: tensor([1])
+Batch 11: Data shape: torch.Size([112761, 1024]), Label: tensor([1])
+Batch 12: Data shape: torch.Size([40594, 1024]), Label: tensor([1])
+Batch 13: Data shape: torch.Size([31165, 1024]), Label: tensor([1])
+Batch 14: Data shape: torch.Size([39176, 1024]), Label: tensor([0])
+Batch 15: Data shape: torch.Size([16592, 1024]), Label: tensor([0])
+Batch 16: Data shape: torch.Size([13546, 1024]), Label: tensor([1])
+Batch 17: Data shape: torch.Size([65665, 1024]), Label: tensor([1])
+Batch 18: Data shape: torch.Size([73652, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([14992, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([20867, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([53426, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([20901, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([24358, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([80124, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([15384, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([73342, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([69768, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([80466, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([73776, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([67396, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([63243, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([44673, 1024]), Label: tensor([0])
+Batch 33: Data shape: torch.Size([25814, 1024]), Label: tensor([0])
+Batch 34: Data shape: torch.Size([68171, 1024]), Label: tensor([0])
+Batch 35: Data shape: torch.Size([24945, 1024]), Label: tensor([0])
+Batch 36: Data shape: torch.Size([27434, 1024]), Label: tensor([0])
+Batch 37: Data shape: torch.Size([67588, 1024]), Label: tensor([1])
+Batch 38: Data shape: torch.Size([15204, 1024]), Label: tensor([1])
+Batch 39: Data shape: torch.Size([58337, 1024]), Label: tensor([1])
+Batch 40: Data shape: torch.Size([45608, 1024]), Label: tensor([1])
+Batch 41: Data shape: torch.Size([46098, 1024]), Label: tensor([1])
+Batch 42: Data shape: torch.Size([23029, 1024]), Label: tensor([1])
+Batch 43: Data shape: torch.Size([16504, 1024]), Label: tensor([1])
+Batch 44: Data shape: torch.Size([69974, 1024]), Label: tensor([1])
+Batch 45: Data shape: torch.Size([59779, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([82536, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([75388, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([73690, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([90130, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([8146, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([7746, 1024]), Label: tensor([0])
+Batch 52: Data shape: torch.Size([14005, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([70260, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([9323, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([8578, 1024]), Label: tensor([1])
+Batch 56: Data shape: torch.Size([13823, 1024]), Label: tensor([1])
+Batch 57: Data shape: torch.Size([16468, 1024]), Label: tensor([1])
+Batch 58: Data shape: torch.Size([91609, 1024]), Label: tensor([1])
+Batch 59: Data shape: torch.Size([114608, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([31352, 1024]), Label: tensor([0])
+Batch 61: Data shape: torch.Size([43010, 1024]), Label: tensor([0])
+Batch 62: Data shape: torch.Size([72640, 1024]), Label: tensor([0])
+Batch 63: Data shape: torch.Size([39559, 1024]), Label: tensor([0])
+test_error:  0.375
+auc:  0.6204081632653061
+f1 score:  0.6478070175438596
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 64
+Loader contains 64 batches
+Loader length after enter summary: 64
+Loader length: 64
+Batch 0: Data shape: torch.Size([78712, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([107664, 1024]), Label: tensor([0])
+Batch 2: Data shape: torch.Size([29114, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([106222, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([89527, 1024]), Label: tensor([0])
+Batch 5: Data shape: torch.Size([100260, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([29250, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([84353, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([12083, 1024]), Label: tensor([0])
+Batch 9: Data shape: torch.Size([12882, 1024]), Label: tensor([1])
+Batch 10: Data shape: torch.Size([49640, 1024]), Label: tensor([1])
+Batch 11: Data shape: torch.Size([112761, 1024]), Label: tensor([1])
+Batch 12: Data shape: torch.Size([40594, 1024]), Label: tensor([1])
+Batch 13: Data shape: torch.Size([31165, 1024]), Label: tensor([1])
+Batch 14: Data shape: torch.Size([39176, 1024]), Label: tensor([0])
+Batch 15: Data shape: torch.Size([16592, 1024]), Label: tensor([0])
+Batch 16: Data shape: torch.Size([13546, 1024]), Label: tensor([1])
+Batch 17: Data shape: torch.Size([65665, 1024]), Label: tensor([1])
+Batch 18: Data shape: torch.Size([73652, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([14992, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([20867, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([53426, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([20901, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([24358, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([80124, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([15384, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([73342, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([69768, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([80466, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([73776, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([67396, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([63243, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([44673, 1024]), Label: tensor([0])
+Batch 33: Data shape: torch.Size([25814, 1024]), Label: tensor([0])
+Batch 34: Data shape: torch.Size([68171, 1024]), Label: tensor([0])
+Batch 35: Data shape: torch.Size([24945, 1024]), Label: tensor([0])
+Batch 36: Data shape: torch.Size([27434, 1024]), Label: tensor([0])
+Batch 37: Data shape: torch.Size([67588, 1024]), Label: tensor([1])
+Batch 38: Data shape: torch.Size([15204, 1024]), Label: tensor([1])
+Batch 39: Data shape: torch.Size([58337, 1024]), Label: tensor([1])
+Batch 40: Data shape: torch.Size([45608, 1024]), Label: tensor([1])
+Batch 41: Data shape: torch.Size([46098, 1024]), Label: tensor([1])
+Batch 42: Data shape: torch.Size([23029, 1024]), Label: tensor([1])
+Batch 43: Data shape: torch.Size([16504, 1024]), Label: tensor([1])
+Batch 44: Data shape: torch.Size([69974, 1024]), Label: tensor([1])
+Batch 45: Data shape: torch.Size([59779, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([82536, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([75388, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([73690, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([90130, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([8146, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([7746, 1024]), Label: tensor([0])
+Batch 52: Data shape: torch.Size([14005, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([70260, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([9323, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([8578, 1024]), Label: tensor([1])
+Batch 56: Data shape: torch.Size([13823, 1024]), Label: tensor([1])
+Batch 57: Data shape: torch.Size([16468, 1024]), Label: tensor([1])
+Batch 58: Data shape: torch.Size([91609, 1024]), Label: tensor([1])
+Batch 59: Data shape: torch.Size([114608, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([31352, 1024]), Label: tensor([0])
+Batch 61: Data shape: torch.Size([43010, 1024]), Label: tensor([0])
+Batch 62: Data shape: torch.Size([72640, 1024]), Label: tensor([0])
+Batch 63: Data shape: torch.Size([39559, 1024]), Label: tensor([0])
+test_error:  0.34375
+auc:  0.5442176870748299
+f1 score:  0.6474107142857143
+{'task': 'task_3_tgca', 'split': 'all', 'save_dir': './eval_results/EVAL_Utah_eval_run', 'models_dir': '/g/data/au38/yy3740/results/task_3_tgca_clam_sb_k3_lr1e-4/task_3_tgca_clam_sb_s1', 'model_type': 'clam_sb', 'drop_out': 0.25, 'model_size': 'small'}
+Filtered dataset size: 61
+label column: label
+label dictionary: {0: 0, 1: 1}
+number of classes: 2
+slide-level counts:  
+ label
+1    43
+0    18
+Name: count, dtype: int64
+Slide-LVL; Number of samples registered in class 0: 18
+Slide-LVL; Number of samples registered in class 1: 43
+Data directory: /g/data/au38/yy3740/Eval/Utah_feats/h5_files
+Initializing dataset with 61 entries
+Filtered initial_len=61
+Filtered filtered_len=61
+Filtered 0 entries without corresponding .h5 files.
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 61
+Loader contains 61 batches
+Loader length after enter summary: 61
+Loader length: 61
+Batch 0: Data shape: torch.Size([4124, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([4043, 1024]), Label: tensor([1])
+Batch 2: Data shape: torch.Size([4018, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([4047, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([4063, 1024]), Label: tensor([1])
+Batch 5: Data shape: torch.Size([3973, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([4083, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([3935, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([3868, 1024]), Label: tensor([1])
+Batch 9: Data shape: torch.Size([94723, 1024]), Label: tensor([0])
+Batch 10: Data shape: torch.Size([100961, 1024]), Label: tensor([0])
+Batch 11: Data shape: torch.Size([95529, 1024]), Label: tensor([0])
+Batch 12: Data shape: torch.Size([90359, 1024]), Label: tensor([0])
+Batch 13: Data shape: torch.Size([95815, 1024]), Label: tensor([0])
+Batch 14: Data shape: torch.Size([94096, 1024]), Label: tensor([0])
+Batch 15: Data shape: torch.Size([95107, 1024]), Label: tensor([0])
+Batch 16: Data shape: torch.Size([94800, 1024]), Label: tensor([0])
+Batch 17: Data shape: torch.Size([93066, 1024]), Label: tensor([0])
+Batch 18: Data shape: torch.Size([62451, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([61776, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([65214, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([67649, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([65055, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([66496, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([68094, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([65729, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([66720, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([94277, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([95710, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([91368, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([94716, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([96312, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([91064, 1024]), Label: tensor([1])
+Batch 33: Data shape: torch.Size([89472, 1024]), Label: tensor([1])
+Batch 34: Data shape: torch.Size([90763, 1024]), Label: tensor([1])
+Batch 35: Data shape: torch.Size([89677, 1024]), Label: tensor([1])
+Batch 36: Data shape: torch.Size([46366, 1024]), Label: tensor([0])
+Batch 37: Data shape: torch.Size([47123, 1024]), Label: tensor([0])
+Batch 38: Data shape: torch.Size([47231, 1024]), Label: tensor([0])
+Batch 39: Data shape: torch.Size([46665, 1024]), Label: tensor([0])
+Batch 40: Data shape: torch.Size([49158, 1024]), Label: tensor([0])
+Batch 41: Data shape: torch.Size([49332, 1024]), Label: tensor([0])
+Batch 42: Data shape: torch.Size([50768, 1024]), Label: tensor([0])
+Batch 43: Data shape: torch.Size([48552, 1024]), Label: tensor([0])
+Batch 44: Data shape: torch.Size([48205, 1024]), Label: tensor([0])
+Batch 45: Data shape: torch.Size([40914, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([38549, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([39366, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([37281, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([36652, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([36755, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([34704, 1024]), Label: tensor([1])
+Batch 52: Data shape: torch.Size([33027, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([31894, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([76519, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([74243, 1024]), Label: tensor([1])
+Batch 56: Data shape: torch.Size([75260, 1024]), Label: tensor([1])
+Batch 57: Data shape: torch.Size([76909, 1024]), Label: tensor([1])
+Batch 58: Data shape: torch.Size([75428, 1024]), Label: tensor([1])
+Batch 59: Data shape: torch.Size([73905, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([76329, 1024]), Label: tensor([1])
+test_error:  0.11475409836065574
+auc:  0.9108527131782945
+f1 score:  0.8791441239881219
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 61
+Loader contains 61 batches
+Loader length after enter summary: 61
+Loader length: 61
+Batch 0: Data shape: torch.Size([4124, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([4043, 1024]), Label: tensor([1])
+Batch 2: Data shape: torch.Size([4018, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([4047, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([4063, 1024]), Label: tensor([1])
+Batch 5: Data shape: torch.Size([3973, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([4083, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([3935, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([3868, 1024]), Label: tensor([1])
+Batch 9: Data shape: torch.Size([94723, 1024]), Label: tensor([0])
+Batch 10: Data shape: torch.Size([100961, 1024]), Label: tensor([0])
+Batch 11: Data shape: torch.Size([95529, 1024]), Label: tensor([0])
+Batch 12: Data shape: torch.Size([90359, 1024]), Label: tensor([0])
+Batch 13: Data shape: torch.Size([95815, 1024]), Label: tensor([0])
+Batch 14: Data shape: torch.Size([94096, 1024]), Label: tensor([0])
+Batch 15: Data shape: torch.Size([95107, 1024]), Label: tensor([0])
+Batch 16: Data shape: torch.Size([94800, 1024]), Label: tensor([0])
+Batch 17: Data shape: torch.Size([93066, 1024]), Label: tensor([0])
+Batch 18: Data shape: torch.Size([62451, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([61776, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([65214, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([67649, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([65055, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([66496, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([68094, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([65729, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([66720, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([94277, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([95710, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([91368, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([94716, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([96312, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([91064, 1024]), Label: tensor([1])
+Batch 33: Data shape: torch.Size([89472, 1024]), Label: tensor([1])
+Batch 34: Data shape: torch.Size([90763, 1024]), Label: tensor([1])
+Batch 35: Data shape: torch.Size([89677, 1024]), Label: tensor([1])
+Batch 36: Data shape: torch.Size([46366, 1024]), Label: tensor([0])
+Batch 37: Data shape: torch.Size([47123, 1024]), Label: tensor([0])
+Batch 38: Data shape: torch.Size([47231, 1024]), Label: tensor([0])
+Batch 39: Data shape: torch.Size([46665, 1024]), Label: tensor([0])
+Batch 40: Data shape: torch.Size([49158, 1024]), Label: tensor([0])
+Batch 41: Data shape: torch.Size([49332, 1024]), Label: tensor([0])
+Batch 42: Data shape: torch.Size([50768, 1024]), Label: tensor([0])
+Batch 43: Data shape: torch.Size([48552, 1024]), Label: tensor([0])
+Batch 44: Data shape: torch.Size([48205, 1024]), Label: tensor([0])
+Batch 45: Data shape: torch.Size([40914, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([38549, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([39366, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([37281, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([36652, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([36755, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([34704, 1024]), Label: tensor([1])
+Batch 52: Data shape: torch.Size([33027, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([31894, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([76519, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([74243, 1024]), Label: tensor([1])
+Batch 56: Data shape: torch.Size([75260, 1024]), Label: tensor([1])
+Batch 57: Data shape: torch.Size([76909, 1024]), Label: tensor([1])
+Batch 58: Data shape: torch.Size([75428, 1024]), Label: tensor([1])
+Batch 59: Data shape: torch.Size([73905, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([76329, 1024]), Label: tensor([1])
+test_error:  0.2459016393442623
+auc:  0.896640826873385
+f1 score:  0.764284841158814
+Init Model
+CLAM_SB(
+  (attention_net): Sequential(
+    (0): Linear(in_features=1024, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.25, inplace=False)
+    (3): Attn_Net_Gated(
+      (attention_a): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Tanh()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_b): Sequential(
+        (0): Linear(in_features=512, out_features=256, bias=True)
+        (1): Sigmoid()
+        (2): Dropout(p=0.25, inplace=False)
+      )
+      (attention_c): Linear(in_features=256, out_features=1, bias=True)
+    )
+  )
+  (classifiers): Linear(in_features=512, out_features=2, bias=True)
+  (instance_classifiers): ModuleList(
+    (0-1): 2 x Linear(in_features=512, out_features=2, bias=True)
+  )
+  (instance_loss_fn): CrossEntropyLoss()
+)
+Total number of parameters: 790791
+Total number of trainable parameters: 790791
+Init Loaders
+Dataset length: 61
+Loader contains 61 batches
+Loader length after enter summary: 61
+Loader length: 61
+Batch 0: Data shape: torch.Size([4124, 1024]), Label: tensor([1])
+Batch 1: Data shape: torch.Size([4043, 1024]), Label: tensor([1])
+Batch 2: Data shape: torch.Size([4018, 1024]), Label: tensor([1])
+Batch 3: Data shape: torch.Size([4047, 1024]), Label: tensor([1])
+Batch 4: Data shape: torch.Size([4063, 1024]), Label: tensor([1])
+Batch 5: Data shape: torch.Size([3973, 1024]), Label: tensor([1])
+Batch 6: Data shape: torch.Size([4083, 1024]), Label: tensor([1])
+Batch 7: Data shape: torch.Size([3935, 1024]), Label: tensor([1])
+Batch 8: Data shape: torch.Size([3868, 1024]), Label: tensor([1])
+Batch 9: Data shape: torch.Size([94723, 1024]), Label: tensor([0])
+Batch 10: Data shape: torch.Size([100961, 1024]), Label: tensor([0])
+Batch 11: Data shape: torch.Size([95529, 1024]), Label: tensor([0])
+Batch 12: Data shape: torch.Size([90359, 1024]), Label: tensor([0])
+Batch 13: Data shape: torch.Size([95815, 1024]), Label: tensor([0])
+Batch 14: Data shape: torch.Size([94096, 1024]), Label: tensor([0])
+Batch 15: Data shape: torch.Size([95107, 1024]), Label: tensor([0])
+Batch 16: Data shape: torch.Size([94800, 1024]), Label: tensor([0])
+Batch 17: Data shape: torch.Size([93066, 1024]), Label: tensor([0])
+Batch 18: Data shape: torch.Size([62451, 1024]), Label: tensor([1])
+Batch 19: Data shape: torch.Size([61776, 1024]), Label: tensor([1])
+Batch 20: Data shape: torch.Size([65214, 1024]), Label: tensor([1])
+Batch 21: Data shape: torch.Size([67649, 1024]), Label: tensor([1])
+Batch 22: Data shape: torch.Size([65055, 1024]), Label: tensor([1])
+Batch 23: Data shape: torch.Size([66496, 1024]), Label: tensor([1])
+Batch 24: Data shape: torch.Size([68094, 1024]), Label: tensor([1])
+Batch 25: Data shape: torch.Size([65729, 1024]), Label: tensor([1])
+Batch 26: Data shape: torch.Size([66720, 1024]), Label: tensor([1])
+Batch 27: Data shape: torch.Size([94277, 1024]), Label: tensor([1])
+Batch 28: Data shape: torch.Size([95710, 1024]), Label: tensor([1])
+Batch 29: Data shape: torch.Size([91368, 1024]), Label: tensor([1])
+Batch 30: Data shape: torch.Size([94716, 1024]), Label: tensor([1])
+Batch 31: Data shape: torch.Size([96312, 1024]), Label: tensor([1])
+Batch 32: Data shape: torch.Size([91064, 1024]), Label: tensor([1])
+Batch 33: Data shape: torch.Size([89472, 1024]), Label: tensor([1])
+Batch 34: Data shape: torch.Size([90763, 1024]), Label: tensor([1])
+Batch 35: Data shape: torch.Size([89677, 1024]), Label: tensor([1])
+Batch 36: Data shape: torch.Size([46366, 1024]), Label: tensor([0])
+Batch 37: Data shape: torch.Size([47123, 1024]), Label: tensor([0])
+Batch 38: Data shape: torch.Size([47231, 1024]), Label: tensor([0])
+Batch 39: Data shape: torch.Size([46665, 1024]), Label: tensor([0])
+Batch 40: Data shape: torch.Size([49158, 1024]), Label: tensor([0])
+Batch 41: Data shape: torch.Size([49332, 1024]), Label: tensor([0])
+Batch 42: Data shape: torch.Size([50768, 1024]), Label: tensor([0])
+Batch 43: Data shape: torch.Size([48552, 1024]), Label: tensor([0])
+Batch 44: Data shape: torch.Size([48205, 1024]), Label: tensor([0])
+Batch 45: Data shape: torch.Size([40914, 1024]), Label: tensor([1])
+Batch 46: Data shape: torch.Size([38549, 1024]), Label: tensor([1])
+Batch 47: Data shape: torch.Size([39366, 1024]), Label: tensor([1])
+Batch 48: Data shape: torch.Size([37281, 1024]), Label: tensor([1])
+Batch 49: Data shape: torch.Size([36652, 1024]), Label: tensor([1])
+Batch 50: Data shape: torch.Size([36755, 1024]), Label: tensor([1])
+Batch 51: Data shape: torch.Size([34704, 1024]), Label: tensor([1])
+Batch 52: Data shape: torch.Size([33027, 1024]), Label: tensor([1])
+Batch 53: Data shape: torch.Size([31894, 1024]), Label: tensor([1])
+Batch 54: Data shape: torch.Size([76519, 1024]), Label: tensor([1])
+Batch 55: Data shape: torch.Size([74243, 1024]), Label: tensor([1])
+Batch 56: Data shape: torch.Size([75260, 1024]), Label: tensor([1])
+Batch 57: Data shape: torch.Size([76909, 1024]), Label: tensor([1])
+Batch 58: Data shape: torch.Size([75428, 1024]), Label: tensor([1])
+Batch 59: Data shape: torch.Size([73905, 1024]), Label: tensor([1])
+Batch 60: Data shape: torch.Size([76329, 1024]), Label: tensor([1])
+test_error:  0.22950819672131148
+auc:  0.8242894056847545
+f1 score:  0.7737992522289331
+
+======================================================================================
+                  Resource Usage on 2024-10-09 11:05:02:
+   Job Id:             126458998.gadi-pbs
+   Project:            au38
+   Exit Status:        0
+   Service Units:      2.57
+   NCPUs Requested:    12                     NCPUs Used: 12              
+                                           CPU Time Used: 00:05:52        
+   Memory Requested:   64.0GB                Memory Used: 43.3GB          
+   NGPUs Requested:    1                 GPU Utilisation: 8%              
+                                         GPU Memory Used: 1.83GB          
+   Walltime requested: 12:00:00            Walltime Used: 00:04:17        
+   JobFS requested:    100.0MB                JobFS used: 0B              
+======================================================================================
