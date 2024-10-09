@@ -176,12 +176,14 @@ if __name__ == "__main__":
 
     ### Major voting
     all_predictions = np.array(all_predictions).astype(int)
-    all_true_labels = np.concatenate(all_true_labels)
     majority_vote_predictions = np.apply_along_axis(lambda x: np.bincount(x).argmax(), axis=0, arr=all_predictions)
 
-    ensemble_acc = np.mean(majority_vote_predictions == all_true_labels)  # 集成准确率
-    ensemble_auc = roc_auc_score(all_true_labels, majority_vote_predictions)  # 集成AUC
-    ensemble_f1 = f1_score(all_true_labels, majority_vote_predictions)  # 集成F1
+    _, unique_indices = np.unique(sample_ids, return_index=True)
+    all_true_labels = np.concatenate(all_true_labels)[unique_indices]
+
+    ensemble_acc = np.mean(majority_vote_predictions == all_true_labels)
+    ensemble_auc = roc_auc_score(all_true_labels, majority_vote_predictions)
+    ensemble_f1 = f1_score(all_true_labels, majority_vote_predictions)
     print(f"Ensemble Acc: {ensemble_acc}, AUC: {ensemble_auc}, F1: {ensemble_f1}")
 
     # Save file
