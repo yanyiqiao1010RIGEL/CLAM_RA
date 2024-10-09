@@ -151,6 +151,7 @@ if __name__ == "__main__":
 ###ensemble
     all_predictions = []
     sample_ids = []
+    all_true_labels = []
 
     for ckpt_idx in range(len(ckpt_paths)):
         if datasets_id[args.split] < 0:
@@ -164,6 +165,7 @@ if __name__ == "__main__":
         model, patient_results, test_error, auc, df, f1 = eval(split_dataset, args, ckpt_paths[ckpt_idx])
         ### ensemble
         all_predictions.append(df['prediction'].values)
+        all_true_labels.append(df['Y'].values)
         sample_ids = df['slide_id'].values
 
         all_results.append(all_results)
@@ -174,13 +176,24 @@ if __name__ == "__main__":
 
     ### Major voting
     all_predictions = np.array(all_predictions).astype(int)
+    all_true_labels = np.concatenate(all_true_labels)
     majority_vote_predictions = np.apply_along_axis(lambda x: np.bincount(x).argmax(), axis=0, arr=all_predictions)
 
+    ensemble_acc = np.mean(majority_vote_predictions == all_true_labels)  # 集成准确率
+    ensemble_auc = roc_auc_score(all_true_labels, majority_vote_predictions)  # 集成AUC
+    ensemble_f1 = f1_score(all_true_labels, majority_vote_predictions)  # 集成F1
+    print(f"Ensemble Acc: {ensemble_acc}, AUC: {ensemble_auc}, F1: {ensemble_f1}")
+
     # Save file
-    ensemble_df = pd.DataFrame({'slide_id': sample_ids, 'ensemble_prediction': majority_vote_predictions})
+    ensemble_df = pd.DataFrame({'slide_id': sample_ids, 'ensemble_prediction': majority_vote_predictions, 'true_label': all_true_labels})
     ensemble_df.to_csv(os.path.join(args.save_dir, 'ensemble_predictions.csv'), index=False)
 
     final_df = pd.DataFrame({'folds': folds, 'test_auc': all_auc, 'test_acc': all_acc, 'test_f1': all_f1})
+    ### ensemble line
+    final_df = final_df.append(
+        {'folds': 'ensemble', 'test_auc': ensemble_auc, 'test_acc': ensemble_acc, 'test_f1': ensemble_f1},
+        ignore_index=True)
+
     if len(folds) != args.k:
         save_name = 'summary_partial_{}_{}.csv'.format(folds[0], folds[-1])
     else:
