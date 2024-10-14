@@ -10,11 +10,12 @@
 
 source /g/data/au38/yy3740/miniconda3/bin/activate clam_latest
 
+
 # Extract features for Georgia
 python3 /g/data/au38/CLAM/extract_features_fp.py \
 --data_h5_dir /g/data/au38/yy3740/Eval/Georgia_feats \
 --data_slide_dir /g/data/au38/yy3740/Eval/Georgia \
---csv_path /g/data/au38/yy3740/Labels/Georgia.csv \
+--csv_path /g/data/au38/CLAM/Labels/Georgia.csv \
 --feat_dir /g/data/au38/yy3740/Eval/Georgia_feats \
 --batch_size 512 --slide_ext .svs
 
@@ -22,15 +23,6 @@ python3 /g/data/au38/CLAM/extract_features_fp.py \
 python3 /g/data/au38/CLAM/extract_features_fp.py \
 --data_h5_dir /g/data/au38/yy3740/Eval/Carolina_feats \
 --data_slide_dir /g/data/au38/yy3740/Eval/Carolina \
---csv_path /g/data/au38/yy3740/Labels/Carolina.csv \
+--csv_path /g/data/au38/CLAM/Labels/Carolina.csv \
 --feat_dir /g/data/au38/yy3740/Eval/Carolina_feats \
 --batch_size 512 --slide_ext .svs
-
-# Extract features for Florida_26
-python3 /g/data/au38/CLAM/extract_features_fp.py \
---data_h5_dir /g/data/au38/yy3740/Eval/Florida_26_feats \
---data_slide_dir /g/data/au38/yy3740/Eval/Florida_26 \
---csv_path /g/data/au38/yy3740/Labels/lorrida.csv \
---feat_dir /g/data/au38/yy3740/Eval/Florida_26_feats \
---batch_size 512 --slide_ext .svs
-
