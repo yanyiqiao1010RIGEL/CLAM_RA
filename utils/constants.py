@@ -17,5 +17,9 @@ MODEL2CONSTANTS = {
 	{
 		"mean": OPENAI_MEAN,
 		"std": OPENAI_STD
-	}
+	},
+	'resnet50_7channel':{
+		"mean": IMAGENET_MEAN,
+		"std": IMAGENET_STD
+	},
 }

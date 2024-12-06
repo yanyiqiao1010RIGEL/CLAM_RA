@@ -51,10 +51,12 @@ def compute_w_loader(output_path, loader, model, verbose = 0):
 parser = argparse.ArgumentParser(description='Feature Extraction')
 parser.add_argument('--data_h5_dir', type=str, default=None)
 parser.add_argument('--data_slide_dir', type=str, default=None)
-parser.add_argument('--slide_ext', type=str, default= '.svs')
+######Changed svs to tif
+parser.add_argument('--slide_ext', type=str, default= '.tif')
 parser.add_argument('--csv_path', type=str, default=None)
 parser.add_argument('--feat_dir', type=str, default=None)
-parser.add_argument('--model_name', type=str, default='resnet50_trunc', choices=['resnet50_trunc', 'uni_v1', 'conch_v1'])
+#####Rigel add 7channel model
+parser.add_argument('--model_name', type=str, default='resnet50_trunc', choices=['resnet50_trunc', 'uni_v1', 'conch_v1', 'resnet50_7channel'])
 parser.add_argument('--batch_size', type=int, default=256)
 parser.add_argument('--no_auto_skip', default=False, action='store_true')
 parser.add_argument('--target_patch_size', type=int, default=224)
@@ -75,7 +77,7 @@ if __name__ == '__main__':
 	dest_files = os.listdir(os.path.join(args.feat_dir, 'pt_files'))
 
 	model, img_transforms = get_encoder(args.model_name, target_img_size=args.target_patch_size)
-			
+
 	_ = model.eval()
 	model = model.to(device)
 	total = len(bags_dataset)
@@ -97,8 +99,8 @@ if __name__ == '__main__':
 		output_path = os.path.join(args.feat_dir, 'h5_files', bag_name)
 		time_start = time.time()
 		wsi = openslide.open_slide(slide_file_path)
-		dataset = Whole_Slide_Bag_FP(file_path=h5_file_path, 
-							   		 wsi=wsi, 
+		dataset = Whole_Slide_Bag_FP(file_path=h5_file_path,
+							   		 wsi=wsi,
 									 img_transforms=img_transforms)
 
 		loader = DataLoader(dataset=dataset, batch_size=args.batch_size, **loader_kwargs)

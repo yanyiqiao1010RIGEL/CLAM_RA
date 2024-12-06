@@ -20,7 +20,7 @@ data_arguments:
   # preset file for segmentation/patching
   preset: presets/bwh_biopsy.csv
   # file extention for slides
-  slide_ext: .svs
+  slide_ext: .tif
   # label dictionary for str: interger mapping (optional)
   label_dict:
     LUAD: 0

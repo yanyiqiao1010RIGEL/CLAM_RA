@@ -6,6 +6,10 @@ import torch
 from utils.constants import MODEL2CONSTANTS
 from utils.transform_utils import get_eval_transforms
 
+###Rigel add new
+from .resnet50_7channel import get_resnet50_
+
+
 def has_CONCH():
     HAS_CONCH = False
     CONCH_CKPT_PATH = ''
@@ -54,9 +58,14 @@ def get_encoder(model_name, target_img_size=224):
         from conch.open_clip_custom import create_model_from_pretrained
         model, _ = create_model_from_pretrained("conch_ViT-B-16", CONCH_CKPT_PATH)
         model.forward = partial(model.encode_image, proj_contrast=False, normalize=False)
+
+######Rigel add model
+    elif model_name == 'resnet50_7channel':
+        model = get_resnet50_(pretrained=True)  # 调用 7 通道 ResNet50 模型
+
     else:
         raise NotImplementedError('model {} not implemented'.format(model_name))
-    
+
     print(model)
     constants = MODEL2CONSTANTS[model_name]
     img_transforms = get_eval_transforms(mean=constants['mean'],
