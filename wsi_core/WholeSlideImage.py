@@ -42,7 +42,7 @@ class WholeSlideImage(object):
         self.hdf5_file = None
 
         #Rigel want to skip seg so add below
-        self.holes_tissue = []
+        self.holes_tissue = [[]]
 
     def getOpenSlide(self):
         return self.wsi
