@@ -1,0 +1,2 @@
+/g/data/au38/CLAM/stack4channel.py:50: DeprecationWarning: <tifffile.imsave> is deprecated. Use tifffile.imwrite
+  tiff.imsave(save_path, stacked_image)

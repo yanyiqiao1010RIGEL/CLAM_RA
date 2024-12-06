@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -P au38
+#PBS -q normal
+#PBS -l ncpus=8          
+#PBS -l mem=64GB      
+#PBS -l walltime=05:00:00  
+#PBS -l storage=gdata/au38
+#PBS -N StackImages      
+#PBS -o stack_images.out    
+#PBS -e stack_images.err  
+
+
+source /g/data/au38/yy3740/miniconda3/bin/activate clam_latest
+
+python3 /g/data/au38/CLAM/stack4channel.py
+
