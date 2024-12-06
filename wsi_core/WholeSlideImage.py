@@ -33,8 +33,10 @@ class WholeSlideImage(object):
         self.level_downsamples = self._assertLevelDownsamples()
         self.level_dim = self.wsi.level_dimensions
     
-        self.contours_tissue = None
-        self.contours_tumor = None
+        #self.contours_tissue = None
+        self.contours_tissue = []
+        #self.contours_tumor = None
+        self.contours_tumor = []
         self.hdf5_file = None
 
     def getOpenSlide(self):
