@@ -245,8 +245,13 @@ class WholeSlideImage(object):
 
 
     def createPatches_bag_hdf5(self, save_path, patch_level=0, patch_size=256, step_size=256, save_coord=True, **kwargs):
-        contours = self.contours_tissue
-        contour_holes = self.holes_tissue
+        #contours = self.contours_tissue
+        ####Rigel changed the contour logic
+        # 如果跳过分割，直接生成整个图像的边界框作为轮廓
+        w, h = self.level_dim[patch_level]  # 获取当前层级图像的宽和高
+        contours = [np.array([[0, 0], [w, 0], [w, h], [0, h]])]  # 单个矩形轮廓，覆盖整个图像
+        contour_holes = []  # 荧光图像不需要处理孔洞
+        #contour_holes = self.holes_tissue
 
         print("Creating patches for: ", self.name, "...",)
         elapsed = time.time()
