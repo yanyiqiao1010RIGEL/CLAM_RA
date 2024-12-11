@@ -192,7 +192,9 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		print("Slide-LVL; Number of samples registered in each class:")
 		class_counts = np.zeros(self.num_classes, dtype=int)
 		for labels in self.slide_data['label']:
-			class_counts[labels] += 1  # 统计每个类别的样本数量
+			for i, is_present in enumerate(labels):  # 遍历独热编码
+				if is_present == 1:
+					class_counts[i] += 1
 		for i, count in enumerate(class_counts):
 			print(f'Class {i}: {count} samples')
 
@@ -224,8 +226,9 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		# 统计每个标签的样本索引
 		label_indices = {i: [] for i in range(self.num_classes)}
 		for idx, labels in enumerate(self.slide_data['label']):
-			for label in labels:
-				label_indices[label].append(idx)
+			for i, is_present in enumerate(labels):
+				if is_present == 1:
+					label_indices[i].append(idx)
 
 		# 根据每个标签的索引进行分层抽样
 		splits = {'train': [], 'val': [], 'test': []}
