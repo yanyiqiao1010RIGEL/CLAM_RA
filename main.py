@@ -198,7 +198,7 @@ elif args.task == 'task_3_tgca':
 ###Rigel add task 4
 elif args.task == 'task_4_hpa':
     args.n_classes=28##########
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/train_hpa_onehot.csv.csv',
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/train_hpa_onehot.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False,
                             seed = args.seed,
