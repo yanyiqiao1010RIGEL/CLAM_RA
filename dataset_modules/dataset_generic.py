@@ -34,12 +34,14 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		shuffle = False, 
 		seed = 7, 
 		print_info = True,
-		label_dict = {},
+		#label_dict = {},
 		filter_dict = {},
 		ignore=[],
 		patient_strat=False,
 		#label_col = None,
 		patient_voting = 'max',
+		#######Rigel exp2
+		num_classes=28  #
 		):
 		"""
 		Args:
@@ -50,8 +52,9 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			label_dict (dict): Dictionary with key, value pairs for converting str labels to int
 			ignore (list): List containing class labels to ignore
 		"""
-		self.label_dict = label_dict
-		self.num_classes = len(set(self.label_dict.values()))
+		#self.label_dict = label_dict
+		#self.num_classes = len(set(self.label_dict.values()))
+		self.num_classes = num_classes
 		self.seed = seed
 		self.print_info = print_info
 		self.patient_strat = patient_strat
@@ -71,38 +74,50 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			self.label_col = 'label'
 		else:
 			raise ValueError("Neither 'IDH' nor 'label' column found in CSV.")
+#########Rigel exp2
+		#slide_data = self.filter_df(slide_data, filter_dict)
+		#slide_data = self.df_prep(slide_data, self.label_dict, ignore, self.label_col)
+		slide_data['label'] = slide_data['label'].apply(
+			lambda x: np.array(list(map(int, x.split(' '))), dtype=np.int32))
 
 		slide_data = self.filter_df(slide_data, filter_dict)
-		slide_data = self.df_prep(slide_data, self.label_dict, ignore, self.label_col)
+		self.slide_data = slide_data
 
 		###shuffle data
 		if shuffle:
 			np.random.seed(seed)
-			np.random.shuffle(slide_data)
+			#np.random.shuffle(slide_data)
+			self.slide_data = self.slide_data.sample(frac=1).reset_index(drop=True)
 
-		self.slide_data = slide_data
+		#self.slide_data = slide_data
 
-### Rigel add one if condition
-		if self.patient_strat:
-			self.patient_data_prep(patient_voting)
-
-		self.cls_ids_prep()
+# ### Rigel add one if condition
+# 		if self.patient_strat:
+# 			self.patient_data_prep(patient_voting)
+#
+# 		self.cls_ids_prep()
 
 		if print_info:
 			self.summarize()
 
+	# def cls_ids_prep(self):
+	# 	# store ids corresponding each class at the patient or case level
+	# 	### Rigel add one if condition
+	# 	if self.patient_strat:
+	# 		self.patient_cls_ids = [[] for i in range(self.num_classes)]
+	# 		for i in range(self.num_classes):
+	# 			self.patient_cls_ids[i] = np.where(self.patient_data['label'] == i)[0]
+	#
+	# 	# store ids corresponding each class at the slide level
+	# 	self.slide_cls_ids = [[] for i in range(self.num_classes)]
+	# 	for i in range(self.num_classes):
+	# 		self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
 	def cls_ids_prep(self):
-		# store ids corresponding each class at the patient or case level
-		### Rigel add one if condition
-		if self.patient_strat:
-			self.patient_cls_ids = [[] for i in range(self.num_classes)]
-			for i in range(self.num_classes):
-				self.patient_cls_ids[i] = np.where(self.patient_data['label'] == i)[0]
-
-		# store ids corresponding each class at the slide level
-		self.slide_cls_ids = [[] for i in range(self.num_classes)]
-		for i in range(self.num_classes):
-			self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
+		# 初始化类别计数器
+		self.slide_cls_ids = [[] for _ in range(self.num_classes)]
+		for i, labels in enumerate(self.slide_data['label']):
+			for label in labels:  # 每个样本可能属于多个类别
+				self.slide_cls_ids[label].append(i)
 
 	def patient_data_prep(self, patient_voting='max'):
 		patients = np.unique(np.array(self.slide_data['case_id'])) # get unique patients
@@ -122,17 +137,28 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		
 		self.patient_data = {'case_id':patients, 'label':np.array(patient_labels)}
 
+	#@staticmethod
+	# def df_prep(data, label_dict, ignore, label_col):
+	# 	#if label_col != 'label':
+	# 	#	data['label'] = data[label_col].copy()
+	#
+	# 	mask = data['label'].isin(ignore)
+	# 	data = data[~mask]
+	# 	data.reset_index(drop=True, inplace=True)
+	# 	for i in data.index:
+	# 		key = data.loc[i, 'label']
+	# 		data.at[i, 'label'] = label_dict[key]
+	#
+	# 	return data
 	@staticmethod
 	def df_prep(data, label_dict, ignore, label_col):
-		#if label_col != 'label':
-		#	data['label'] = data[label_col].copy()
-
-		mask = data['label'].isin(ignore)
+		# 如果忽略某些标签，过滤掉相关行
+		mask = data[label_col].apply(lambda x: any([int(l) in ignore for l in x.split(' ')]))
 		data = data[~mask]
 		data.reset_index(drop=True, inplace=True)
-		for i in data.index:
-			key = data.loc[i, 'label']
-			data.at[i, 'label'] = label_dict[key]
+
+		# 确保标签转换为整数列表
+		data['label'] = data[label_col].apply(lambda x: np.array(list(map(int, x.split(' '))), dtype=np.int32))
 
 		return data
 
@@ -155,19 +181,29 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		else:
 			return len(self.slide_data)
 
+	# def summarize(self):
+	# 	print("label column: {}".format(self.label_col))
+	# 	print("label dictionary: {}".format(self.label_dict))
+	# 	print("number of classes: {}".format(self.num_classes))
+	# 	print("slide-level counts: ", '\n', self.slide_data['label'].value_counts(sort = False))
 	def summarize(self):
 		print("label column: {}".format(self.label_col))
-		print("label dictionary: {}".format(self.label_dict))
 		print("number of classes: {}".format(self.num_classes))
-		print("slide-level counts: ", '\n', self.slide_data['label'].value_counts(sort = False))
+		print("Slide-LVL; Number of samples registered in each class:")
+		class_counts = np.zeros(self.num_classes, dtype=int)
+		for labels in self.slide_data['label']:
+			class_counts[labels] += 1  # 统计每个类别的样本数量
+		for i, count in enumerate(class_counts):
+			print(f'Class {i}: {count} samples')
 
-		### Rigel add one if condition
-		if self.patient_strat:
-			for i in range(self.num_classes):
-				print('Patient-LVL; Number of samples registered in class %d: %d' % (i, self.patient_cls_ids[i].shape[0]))
 
-		for i in range(self.num_classes):
-			print('Slide-LVL; Number of samples registered in class %d: %d' % (i, self.slide_cls_ids[i].shape[0]))
+		# ### Rigel add one if condition
+		# if self.patient_strat:
+		# 	for i in range(self.num_classes):
+		# 		print('Patient-LVL; Number of samples registered in class %d: %d' % (i, self.patient_cls_ids[i].shape[0]))
+		#
+		# for i in range(self.num_classes):
+		# 	print('Slide-LVL; Number of samples registered in class %d: %d' % (i, self.slide_cls_ids[i].shape[0]))
 
 	def create_splits(self, k = 3, val_num = (25, 25), test_num = (40, 40), label_frac = 1.0, custom_test_ids = None):
 		settings = {
@@ -179,12 +215,39 @@ class Generic_WSI_Classification_Dataset(Dataset):
 					'custom_test_ids': custom_test_ids
 					}
 
-		if self.patient_strat:
-			settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data['case_id'])})
-		else:
-			settings.update({'cls_ids' : self.slide_cls_ids, 'samples': len(self.slide_data)})
+		# if self.patient_strat:
+		# 	settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data['case_id'])})
+		# else:
+		# 	settings.update({'cls_ids' : self.slide_cls_ids, 'samples': len(self.slide_data)})
+		#
+		# self.split_gen = generate_split(**settings)
+		# 统计每个标签的样本索引
+		label_indices = {i: [] for i in range(self.num_classes)}
+		for idx, labels in enumerate(self.slide_data['label']):
+			for label in labels:
+				label_indices[label].append(idx)
 
-		self.split_gen = generate_split(**settings)
+		# 根据每个标签的索引进行分层抽样
+		splits = {'train': [], 'val': [], 'test': []}
+		for label, indices in label_indices.items():
+			np.random.seed(self.seed)
+			np.random.shuffle(indices)
+
+			num_train = int(len(indices) * label_frac)
+			num_val = val_num[0] if len(indices) >= sum(val_num) else len(indices) // 2
+			num_test = test_num[0] if len(indices) >= sum(test_num) else len(indices) - num_train - num_val
+
+			train_indices = indices[:num_train]
+			val_indices = indices[num_train:num_train + num_val]
+			test_indices = indices[num_train + num_val:num_train + num_val + num_test]
+
+			splits['train'].extend(train_indices)
+			splits['val'].extend(val_indices)
+			splits['test'].extend(test_indices)
+
+		# 去重并保存
+		splits = {key: list(set(indices)) for key, indices in splits.items()}
+		self.train_ids, self.val_ids, self.test_ids = splits['train'], splits['val'], splits['test']
 
 	def set_splits(self,start_from=None):
 		if start_from:
@@ -193,19 +256,26 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		else:
 			ids = next(self.split_gen)
 
-		if self.patient_strat:
-			slide_ids = [[] for i in range(len(ids))] 
+		self.train_ids, self.val_ids, self.test_ids = ids
 
-			for split in range(len(ids)): 
-				for idx in ids[split]:
-					case_id = self.patient_data['case_id'][idx]
-					slide_indices = self.slide_data[self.slide_data['case_id'] == case_id].index.tolist()
-					slide_ids[split].extend(slide_indices)
+		# 确保多标签样本的完整性
+		self.train_ids = list(set(self.train_ids))
+		self.val_ids = list(set(self.val_ids))
+		self.test_ids = list(set(self.test_ids))
 
-			self.train_ids, self.val_ids, self.test_ids = slide_ids[0], slide_ids[1], slide_ids[2]
-
-		else:
-			self.train_ids, self.val_ids, self.test_ids = ids
+		# if self.patient_strat:
+		# 	slide_ids = [[] for i in range(len(ids))]
+		#
+		# 	for split in range(len(ids)):
+		# 		for idx in ids[split]:
+		# 			case_id = self.patient_data['case_id'][idx]
+		# 			slide_indices = self.slide_data[self.slide_data['case_id'] == case_id].index.tolist()
+		# 			slide_ids[split].extend(slide_indices)
+		#
+		# 	self.train_ids, self.val_ids, self.test_ids = slide_ids[0], slide_ids[1], slide_ids[2]
+		#
+		# else:
+		# 	self.train_ids, self.val_ids, self.test_ids = ids
 
 	def get_split_from_df(self, all_splits, split_key='train'):
 		split = all_splits[split_key]
@@ -368,41 +438,72 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 	def __getitem__(self, idx):
 		slide_id = self.slide_data['slide_id'][idx]
 		label = self.slide_data['label'][idx]
-		if type(self.data_dir) == dict:
-			source = self.slide_data['source'][idx]
-			data_dir = self.data_dir[source]
-		else:
-			data_dir = self.data_dir
+		# if type(self.data_dir) == dict:
+		# 	source = self.slide_data['source'][idx]
+		# 	data_dir = self.data_dir[source]
+		# else:
+		# 	data_dir = self.data_dir
+		#####Rigel exp2
+		one_hot_label = np.zeros(self.num_classes, dtype=np.float32)
+		one_hot_label[label] = 1.0  # 将对应索引位置设置为 1
 
-		if not self.use_h5:
-			if self.data_dir:
-				full_path = os.path.join(data_dir, '{}.pt'.format(slide_id))
-				features = torch.load(full_path)
-				return features, label
-			
-			else:
-				return slide_id, label
-
-		else:
-			full_path = os.path.join(data_dir, '{}.h5'.format(slide_id))
-
-			with h5py.File(full_path,'r') as hdf5_file:
+		if self.use_h5:
+			full_path = os.path.join(self.data_dir, f'{slide_id}.h5')
+			with h5py.File(full_path, 'r') as hdf5_file:
 				features = hdf5_file['features'][:]
 				coords = hdf5_file['coords'][:]
 
 			features = torch.from_numpy(features)
-			return features, label, coords
+			return features, torch.tensor(one_hot_label), coords
+
+		else:
+			if self.data_dir:
+				full_path = os.path.join(self.data_dir, f'{slide_id}.pt')
+				features = torch.load(full_path)
+				return features, torch.tensor(one_hot_label)
+
+			return slide_id, torch.tensor(one_hot_label)
+
+
+		# if not self.use_h5:
+		# 	if self.data_dir:
+		# 		full_path = os.path.join(data_dir, '{}.pt'.format(slide_id))
+		# 		features = torch.load(full_path)
+		# 		return features, label
+		#
+		# 	else:
+		# 		return slide_id, label
+		#
+		# else:
+		# 	full_path = os.path.join(data_dir, '{}.h5'.format(slide_id))
+		#
+		# 	with h5py.File(full_path,'r') as hdf5_file:
+		# 		features = hdf5_file['features'][:]
+		# 		coords = hdf5_file['coords'][:]
+		#
+		# 	features = torch.from_numpy(features)
+		# 	return features, label, coords
 
 
 class Generic_Split(Generic_MIL_Dataset):
-	def __init__(self, slide_data, data_dir=None, num_classes=2):
+	def __init__(self, slide_data, data_dir=None, num_classes=28):
+		super().__init__(
+			data_dir=data_dir,
+			csv_path=None,  # 不需要 CSV 路径，直接从 DataFrame 初始化
+			num_classes=num_classes,
+			shuffle=False,
+			print_info=False
+		)
 		self.use_h5 = False
 		self.slide_data = slide_data
 		self.data_dir = data_dir
 		self.num_classes = num_classes
 		self.slide_cls_ids = [[] for i in range(self.num_classes)]
-		for i in range(self.num_classes):
-			self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
+		for idx, labels in enumerate(self.slide_data['label']):
+			for label in labels:  # 多标签中每个标签都需要记录
+				self.slide_cls_ids[label].append(idx)
+		# for i in range(self.num_classes):
+		# 	self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
 
 	def __len__(self):
 		return len(self.slide_data)

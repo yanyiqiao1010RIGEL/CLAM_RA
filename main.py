@@ -197,14 +197,12 @@ elif args.task == 'task_3_tgca':
                             ignore=[])
 ###Rigel add task 4
 elif args.task == 'task_4_hpa':
-    args.n_classes=26##########
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/train_hpa.csv.csv',
+    args.n_classes=28##########
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/train_hpa_onehot.csv.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False,
                             seed = args.seed,
                             print_info = True,
-                            label_dict = {'subtype_1':0, 'subtype_2':1, 'subtype_3':2},########
-                            patient_strat= False,
                             ignore=[])
 
     if args.model_type in ['clam_sb', 'clam_mb']:

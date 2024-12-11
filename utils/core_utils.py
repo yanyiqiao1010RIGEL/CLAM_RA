@@ -122,7 +122,8 @@ def train(datasets, cur, args):
         if device.type == 'cuda':
             loss_fn = loss_fn.cuda()
     else:
-        loss_fn = nn.CrossEntropyLoss()
+        #loss_fn = nn.CrossEntropyLoss()
+        loss_fn = nn.BCEWithLogitsLoss()
     print('Done!')
     
     print('\nInit Model...', end=' ')
@@ -146,7 +147,8 @@ def train(datasets, cur, args):
             if device.type == 'cuda':
                 instance_loss_fn = instance_loss_fn.cuda()
         else:
-            instance_loss_fn = nn.CrossEntropyLoss()
+            #instance_loss_fn = nn.CrossEntropyLoss()
+            instance_loss_fn = nn.BCEWithLogitsLoss()
         
         if args.model_type =='clam_sb':
             model = CLAM_SB(**model_dict, instance_loss_fn=instance_loss_fn)
