@@ -13,7 +13,7 @@ parser.add_argument('--seed', type=int, default=1,
 parser.add_argument('--k', type=int, default=10,
                     help='number of splits (default: 10)')
 ### Rigel added 1 task for tgca
-parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal', 'task_2_tumor_subtyping', 'task_3_tgca'])
+parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal', 'task_2_tumor_subtyping', 'task_3_tgca', 'task_4_hpa'])
 parser.add_argument('--val_frac', type=float, default= 0.1,
                     help='fraction of labels for validation (default: 0.1)')
 parser.add_argument('--test_frac', type=float, default= 0.1,
@@ -51,6 +51,15 @@ elif args.task == 'task_3_tgca':
                             print_info = True,
                             label_dict = {0:0, 1:1},
                             patient_strat= False,
+                            ignore=[])
+
+elif args.task == 'task_4_hpa':
+    args.n_classes=28##########
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/train_hpa_onehot.csv',
+                            data_dir= args.data_root_dir,
+                            shuffle = False,
+                            seed = args.seed,
+                            print_info = True,
                             ignore=[])
 
 else:
