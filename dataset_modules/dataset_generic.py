@@ -357,7 +357,8 @@ class Generic_WSI_Classification_Dataset(Dataset):
 	def test_split_gen(self, return_descriptor=False):
 
 		if return_descriptor:
-			index = [list(self.label_dict.keys())[list(self.label_dict.values()).index(i)] for i in range(self.num_classes)]
+			# index = [list(self.label_dict.keys())[list(self.label_dict.values()).index(i)] for i in range(self.num_classes)]
+			index = [i for i in range(self.num_classes)]
 			columns = ['train', 'val', 'test']
 			df = pd.DataFrame(np.full((len(index), len(columns)), 0, dtype=np.int32), index= index,
 							columns= columns)
