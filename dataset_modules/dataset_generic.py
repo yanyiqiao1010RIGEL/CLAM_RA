@@ -367,28 +367,56 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		print('\nnumber of training samples: {}'.format(count))
 		labels = self.getlabel(self.train_ids)
 		unique, counts = np.unique(labels, return_counts=True)
-		for u in range(len(unique)):
-			print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
+		# for u in range(len(unique)):
+		# 	print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
+		# 	if return_descriptor:
+		# 		df.loc[index[u], 'train'] = counts[u]
+		label_count = np.zeros(self.num_classes, dtype=int)
+		for i, label in enumerate(labels):
+			for l in label:  # 每个样本可能属于多个标签
+				label_count[l] += 1
+
+		for i, count in enumerate(label_count):
+			print(f'Number of samples in class {i}: {count}')
 			if return_descriptor:
-				df.loc[index[u], 'train'] = counts[u]
+				df.loc[i, 'train'] = count
 		
 		count = len(self.val_ids)
 		print('\nnumber of val samples: {}'.format(count))
 		labels = self.getlabel(self.val_ids)
 		unique, counts = np.unique(labels, return_counts=True)
-		for u in range(len(unique)):
-			print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
+		# for u in range(len(unique)):
+		# 	print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
+		# 	if return_descriptor:
+		# 		df.loc[index[u], 'val'] = counts[u]
+		label_count = np.zeros(self.num_classes, dtype=int)
+		for i, label in enumerate(labels):
+			for l in label:
+				label_count[l] += 1
+
+		for i, count in enumerate(label_count):
+			print(f'Number of samples in class {i}: {count}')
 			if return_descriptor:
-				df.loc[index[u], 'val'] = counts[u]
+				df.loc[i, 'val'] = count
+
 
 		count = len(self.test_ids)
 		print('\nnumber of test samples: {}'.format(count))
 		labels = self.getlabel(self.test_ids)
 		unique, counts = np.unique(labels, return_counts=True)
-		for u in range(len(unique)):
-			print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
+		# for u in range(len(unique)):
+		# 	print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
+		# 	if return_descriptor:
+		# 		df.loc[index[u], 'test'] = counts[u]
+		label_count = np.zeros(self.num_classes, dtype=int)
+		for i, label in enumerate(labels):
+			for l in label:
+				label_count[l] += 1
+
+		for i, count in enumerate(label_count):
+			print(f'Number of samples in class {i}: {count}')
 			if return_descriptor:
-				df.loc[index[u], 'test'] = counts[u]
+				df.loc[i, 'test'] = count
 
 		assert len(np.intersect1d(self.train_ids, self.test_ids)) == 0
 		assert len(np.intersect1d(self.train_ids, self.val_ids)) == 0
