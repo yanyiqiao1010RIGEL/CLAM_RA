@@ -200,12 +200,12 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 
 		# ### Rigel add one if condition
-		# if self.patient_strat:
-		# 	for i in range(self.num_classes):
-		# 		print('Patient-LVL; Number of samples registered in class %d: %d' % (i, self.patient_cls_ids[i].shape[0]))
-		#
-		# for i in range(self.num_classes):
-		# 	print('Slide-LVL; Number of samples registered in class %d: %d' % (i, self.slide_cls_ids[i].shape[0]))
+		if self.patient_strat:
+			for i in range(self.num_classes):
+				print('Patient-LVL; Number of samples registered in class %d: %d' % (i, self.patient_cls_ids[i].shape[0]))
+
+		for i in range(self.num_classes):
+			print('Slide-LVL; Number of samples registered in class %d: %d' % (i, self.slide_cls_ids[i].shape[0]))
 
 	def create_splits(self, k = 3, val_num = (25, 25), test_num = (40, 40), label_frac = 1.0, custom_test_ids = None):
 		settings = {
@@ -217,12 +217,12 @@ class Generic_WSI_Classification_Dataset(Dataset):
 					'custom_test_ids': custom_test_ids
 					}
 
-		# if self.patient_strat:
-		# 	settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data['case_id'])})
-		# else:
-		# 	settings.update({'cls_ids' : self.slide_cls_ids, 'samples': len(self.slide_data)})
-		#
-		# self.split_gen = generate_split(**settings)
+		if self.patient_strat:
+			settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data['case_id'])})
+		else:
+			settings.update({'cls_ids' : self.slide_cls_ids, 'samples': len(self.slide_data)})
+
+		self.split_gen = generate_split(**settings)
 		# 统计每个标签的样本索引
 		label_indices = {i: [] for i in range(self.num_classes)}
 		for idx, labels in enumerate(self.slide_data['label']):
