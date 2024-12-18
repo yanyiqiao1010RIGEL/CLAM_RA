@@ -366,7 +366,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		count = len(self.train_ids)
 		print('\nnumber of training samples: {}'.format(count))
 		labels = self.getlabel(self.train_ids)
-		unique, counts = np.unique(labels, return_counts=True)
+		# unique, counts = np.unique(labels, return_counts=True)
 		# for u in range(len(unique)):
 		# 	print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
 		# 	if return_descriptor:
@@ -384,7 +384,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		count = len(self.val_ids)
 		print('\nnumber of val samples: {}'.format(count))
 		labels = self.getlabel(self.val_ids)
-		unique, counts = np.unique(labels, return_counts=True)
+		# unique, counts = np.unique(labels, return_counts=True)
 		# for u in range(len(unique)):
 		# 	print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
 		# 	if return_descriptor:
@@ -403,7 +403,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		count = len(self.test_ids)
 		print('\nnumber of test samples: {}'.format(count))
 		labels = self.getlabel(self.test_ids)
-		unique, counts = np.unique(labels, return_counts=True)
+		# unique, counts = np.unique(labels, return_counts=True)
 		# for u in range(len(unique)):
 		# 	print('number of samples in cls {}: {}'.format(unique[u], counts[u]))
 		# 	if return_descriptor:
