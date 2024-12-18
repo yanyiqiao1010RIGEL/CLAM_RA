@@ -373,13 +373,17 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		# 		df.loc[index[u], 'train'] = counts[u]
 		label_count = np.zeros(self.num_classes, dtype=int)
 		for i, label in enumerate(labels):
-			for l in label:  # 每个样本可能属于多个标签
-				label_count[l] += 1
+			for l in range(self.num_classes):  # 遍历所有类别
+				if label[l] == 1:  # 如果该类别的标签为 1，才计数
+					label_count[l] += 1
 
-		for i, count in enumerate(label_count):
+		# 打印每个类别的样本数，并确保计数与类别正确对应
+		for i in range(self.num_classes):
+			count = label_count[i]
 			print(f'Number of samples in class {i}: {count}')
+
 			if return_descriptor:
-				df.loc[i, 'train'] = count
+				df.loc[i, 'train'] = count  # 如果需要在 dataframe 中记录
 		
 		count = len(self.val_ids)
 		print('\nnumber of val samples: {}'.format(count))
@@ -391,13 +395,17 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		# 		df.loc[index[u], 'val'] = counts[u]
 		label_count = np.zeros(self.num_classes, dtype=int)
 		for i, label in enumerate(labels):
-			for l in label:
-				label_count[l] += 1
+			for l in range(self.num_classes):  # 遍历所有类别
+				if label[l] == 1:  # 如果该类别的标签为 1，才计数
+					label_count[l] += 1
 
-		for i, count in enumerate(label_count):
+		# 打印每个类别的样本数，并确保计数与类别正确对应
+		for i in range(self.num_classes):
+			count = label_count[i]
 			print(f'Number of samples in class {i}: {count}')
+
 			if return_descriptor:
-				df.loc[i, 'val'] = count
+				df.loc[i, 'val'] = count  # 如果需要在 dataframe 中记录
 
 
 		count = len(self.test_ids)
@@ -410,13 +418,17 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		# 		df.loc[index[u], 'test'] = counts[u]
 		label_count = np.zeros(self.num_classes, dtype=int)
 		for i, label in enumerate(labels):
-			for l in label:
-				label_count[l] += 1
+			for l in range(self.num_classes):  # 遍历所有类别
+				if label[l] == 1:  # 如果该类别的标签为 1，才计数
+					label_count[l] += 1
 
-		for i, count in enumerate(label_count):
+		# 打印每个类别的样本数，并确保计数与类别正确对应
+		for i in range(self.num_classes):
+			count = label_count[i]
 			print(f'Number of samples in class {i}: {count}')
+
 			if return_descriptor:
-				df.loc[i, 'test'] = count
+				df.loc[i, 'test'] = count  # 如果需要在 dataframe 中记录
 
 		assert len(np.intersect1d(self.train_ids, self.test_ids)) == 0
 		assert len(np.intersect1d(self.train_ids, self.val_ids)) == 0
