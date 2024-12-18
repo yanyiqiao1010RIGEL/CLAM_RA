@@ -217,10 +217,10 @@ class Generic_WSI_Classification_Dataset(Dataset):
 					'custom_test_ids': custom_test_ids
 					}
 
-		# if self.patient_strat:
-		# 	settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data['case_id'])})
-		# else:
-		# 	settings.update({'cls_ids' : self.slide_cls_ids, 'samples': len(self.slide_data)})
+		if self.patient_strat:
+			settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data['case_id'])})
+		else:
+			settings.update({'cls_ids' : self.slide_cls_ids, 'samples': len(self.slide_data)})
 
 		self.split_gen = generate_split(**settings)
 		# 统计每个标签的样本索引
