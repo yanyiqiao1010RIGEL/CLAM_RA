@@ -95,7 +95,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 # 		if self.patient_strat:
 # 			self.patient_data_prep(patient_voting)
 #
-# 		self.cls_ids_prep()
+		self.cls_ids_prep()
 
 		if print_info:
 			self.summarize()
