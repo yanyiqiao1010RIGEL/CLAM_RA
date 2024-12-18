@@ -430,9 +430,21 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			if return_descriptor:
 				df.loc[i, 'test'] = count  # 如果需要在 dataframe 中记录
 
+
+
+		#assert len(np.intersect1d(self.train_ids, self.test_ids)) == 0
+		#assert len(np.intersect1d(self.train_ids, self.val_ids)) == 0
+		#assert len(np.intersect1d(self.val_ids, self.test_ids)) == 0
+		# 确保train_ids和test_ids没有交集
+		train_ids_set = set(self.train_ids)
+		test_ids_set = set(self.test_ids)
+		val_ids_set = set(self.val_ids)
+
+		# 打印交集
+		print(f"Intersection between train and test: {train_ids_set & test_ids_set}")
+		print(f"Intersection between train and test: {train_ids_set & val_ids_set}")
+		print(f"Intersection between train and test: {val_ids_set & test_ids_set}")
 		assert len(np.intersect1d(self.train_ids, self.test_ids)) == 0
-		assert len(np.intersect1d(self.train_ids, self.val_ids)) == 0
-		assert len(np.intersect1d(self.val_ids, self.test_ids)) == 0
 
 		if return_descriptor:
 			return df
