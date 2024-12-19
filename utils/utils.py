@@ -111,14 +111,14 @@ def generate_split(cls_ids, val_num, test_num, samples, n_splits = 5,
 
 		for c in range(len(val_num)):
 			possible_indices = np.intersect1d(cls_ids[c], indices) #all indices of this class
-			val_ids = np.random.choice(possible_indices, val_num[c], replace = True) # validation ids
+			val_ids = np.random.choice(possible_indices, val_num[c], replace = False) # validation ids
 
 			remaining_ids = np.setdiff1d(possible_indices, val_ids) #indices of this class left after validation
 			all_val_ids.extend(val_ids)
 
 			if custom_test_ids is None: # sample test split
 
-				test_ids = np.random.choice(remaining_ids, test_num[c], replace = True)
+				test_ids = np.random.choice(remaining_ids, test_num[c], replace = False)
 				remaining_ids = np.setdiff1d(remaining_ids, test_ids)
 				all_test_ids.extend(test_ids)
 

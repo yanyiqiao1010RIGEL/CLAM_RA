@@ -230,9 +230,23 @@ class Generic_WSI_Classification_Dataset(Dataset):
 				if is_present == 1:
 					label_indices[i].append(idx)
 
+		# 统计每个标签的样本数量
+		label_counts = {label: len(indices) for label, indices in label_indices.items()}
+
+		# 筛选出样本数 >= 10 的标签
+		valid_labels = [label for label, count in label_counts.items() if count >= 10]
+		excluded_labels = [label for label, count in label_counts.items() if count < 10]
+
+		print(f"Valid labels for stratification: {valid_labels}")
+		print(f"Excluded labels (fewer than 10 samples): {excluded_labels}")
+
 		# 根据每个标签的索引进行分层抽样
 		splits = {'train': [], 'val': [], 'test': []}
-		for label, indices in label_indices.items():
+		# for label, indices in label_indices.items():
+		# 	np.random.seed(self.seed)
+		# 	np.random.shuffle(indices)
+		for label in valid_labels:
+			indices = label_indices[label]
 			np.random.seed(self.seed)
 			np.random.shuffle(indices)
 
@@ -247,6 +261,10 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			splits['train'].extend(train_indices)
 			splits['val'].extend(val_indices)
 			splits['test'].extend(test_indices)
+
+		# 对于被排除的标签，直接将样本加入训练集
+		for label in excluded_labels:
+			splits['train'].extend(label_indices[label])
 
 		# 去重并保存
 		splits = {key: list(set(indices)) for key, indices in splits.items()}
@@ -442,8 +460,8 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 		# 打印交集
 		print(f"Intersection between train and test: {train_ids_set & test_ids_set}")
-		print(f"Intersection between train and test: {train_ids_set & val_ids_set}")
-		print(f"Intersection between train and test: {val_ids_set & test_ids_set}")
+		print(f"Intersection between train and val: {train_ids_set & val_ids_set}")
+		print(f"Intersection between val and test: {val_ids_set & test_ids_set}")
 		assert len(np.intersect1d(self.train_ids, self.test_ids)) == 0
 
 		if return_descriptor:
