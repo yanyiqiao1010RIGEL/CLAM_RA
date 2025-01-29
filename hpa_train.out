@@ -1,0 +1,53 @@
+
+Load Dataset
+Filtered dataset size: 8480
+label column: label
+number of classes: 28
+Slide-LVL; Number of samples registered in each class:
+Class 0: 3538 samples
+Class 1: 358 samples
+Class 2: 967 samples
+Class 3: 425 samples
+Class 4: 486 samples
+Class 5: 669 samples
+Class 6: 298 samples
+Class 7: 727 samples
+Class 8: 10 samples
+Class 9: 14 samples
+Class 10: 8 samples
+Class 11: 291 samples
+Class 12: 194 samples
+Class 13: 132 samples
+Class 14: 304 samples
+Class 15: 1 samples
+Class 16: 156 samples
+Class 17: 62 samples
+Class 18: 249 samples
+Class 19: 391 samples
+Class 20: 45 samples
+Class 21: 1076 samples
+Class 22: 227 samples
+Class 23: 786 samples
+Class 24: 84 samples
+Class 25: 2309 samples
+Class 26: 84 samples
+Class 27: 6 samples
+Data directory: /g/data/au38/yy3740/hpa_train_full_feats/h5_files
+Initializing dataset with 8480 entries
+Filtered initial_len=8480
+Filtered filtered_len=8480
+Filtered 0 entries without corresponding .h5 files.
+split_dir:  splits/task_4_hpa_85
+
+======================================================================================
+                  Resource Usage on 2024-12-19 19:49:42:
+   Job Id:             131159151.gadi-pbs
+   Project:            au38
+   Exit Status:        1
+   Service Units:      0.25
+   NCPUs Requested:    8                      NCPUs Used: 8               
+                                           CPU Time Used: 00:00:10        
+   Memory Requested:   64.0GB                Memory Used: 2.0GB           
+   Walltime requested: 05:00:00            Walltime Used: 00:00:28        
+   JobFS requested:    100.0MB                JobFS used: 0B              
+======================================================================================

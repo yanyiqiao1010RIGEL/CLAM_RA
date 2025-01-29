@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/g/data/au38/CLAM/main.py", line 226, in <module>
+    assert os.path.isdir(args.split_dir)
+AssertionError
