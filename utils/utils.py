@@ -39,7 +39,7 @@ def collate_MIL(batch):
 	img = torch.cat([item[0] for item in batch], dim = 0)
 	#label = torch.LongTensor([item[1] for item in batch])
 	######Rigel changed multilabel type
-	label = torch.tensor([item[1] for item in batch], dtype=torch.float)
+	label = torch.stack([item[1] for item in batch])
 	print(f"Labels tensor: {label}")
 
 	return [img, label]
