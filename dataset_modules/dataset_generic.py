@@ -315,10 +315,16 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		print(f"Number of test ids found in slide_data: {test_ids_in_slide_data}")
 
 		split = split.dropna().reset_index(drop=True)
+		print(f"Number of train ids found in slide_data: {train_ids_in_slide_data}")
+		print(f"Number of val ids found in slide_data: {val_ids_in_slide_data}")
+		print(f"Number of test ids found in slide_data: {test_ids_in_slide_data}")
 
 		if len(split) > 0:
 			mask = self.slide_data['slide_id'].isin(split.tolist())
 			df_slice = self.slide_data[mask].reset_index(drop=True)
+			print(f"Split for {split_key} contains {len(df_slice)} items.")
+			print(f"First few rows in df_slice for {split_key}:")
+			print(df_slice.head())
 			split = Generic_Split(df_slice, data_dir=self.data_dir, num_classes=self.num_classes)
 		else:
 			split = None
