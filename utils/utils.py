@@ -33,10 +33,14 @@ class SubsetSequentialSampler(Sampler):
 		return len(self.indices)
 
 def collate_MIL(batch):
+	for item in batch:
+		print(f"Item: {item}")
+		print(f"Label (item[1]): {item[1]}")
 	img = torch.cat([item[0] for item in batch], dim = 0)
 	#label = torch.LongTensor([item[1] for item in batch])
 	######Rigel changed multilabel type
-	label = torch.tensor([item[1] for item in batch], dtype=torch.float)  # 使用 tensor() 来处理多标签
+	label = torch.tensor([item[1] for item in batch], dtype=torch.float)
+	print(f"Labels tensor: {label}")
 
 	return [img, label]
 
