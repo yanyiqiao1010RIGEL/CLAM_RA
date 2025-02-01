@@ -586,7 +586,7 @@ class Generic_Split(Generic_MIL_Dataset):
 		print(f"First few rows of slide_data:\n{slide_data.head()}")
 
 
-		self.use_h5 = False
+		self.use_h5 = True
 		self.slide_data = slide_data
 		self.data_dir = data_dir
 		print(f"datadir after init:{self.data_dir}")
