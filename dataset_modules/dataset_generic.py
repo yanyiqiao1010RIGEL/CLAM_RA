@@ -585,26 +585,7 @@ class Generic_Split(Generic_MIL_Dataset):
 		print(f"Initializing Generic_Split with slide_data of size {len(slide_data)}")
 		print(f"First few rows of slide_data:\n{slide_data.head()}")
 
-		# super().__init__(
-		# 	data_dir=data_dir,
-		# 	csv_path=None,  # 不需要 CSV 路径，直接从 DataFrame 初始化
-		# 	num_classes=num_classes,
-		# 	shuffle=False,
-		# 	print_info=False
-		# )
-		try:
-			super().__init__(
-				data_dir=data_dir,
-				csv_path=None,  # 不需要 CSV 路径，直接从 DataFrame 初始化
-				num_classes=num_classes,
-				shuffle=False,
-				print_info=False
-			)
-		except Exception as e:
-			print(f"Error during super().__init__(): {e}")
-			raise  # 重新抛出异常，停止执行
 
-		print(f"datadir after init:{self.data_dir}")
 		self.use_h5 = False
 		self.slide_data = slide_data
 		self.data_dir = data_dir
