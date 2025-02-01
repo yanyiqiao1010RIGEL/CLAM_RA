@@ -595,9 +595,11 @@ class Generic_Split(Generic_MIL_Dataset):
 		self.use_h5 = False
 		self.slide_data = slide_data
 		self.data_dir = data_dir
-		self.num_classes = num_classes
-		self.slide_cls_ids = [[] for i in range(self.num_classes)]
 		print(f"datadir after init:{self.data_dir}")
+		self.num_classes = num_classes
+		print(f"Num class={self.num_classes}")
+		self.slide_cls_ids = [[] for i in range(self.num_classes)]
+
 		for idx, labels in enumerate(self.slide_data['label']):
 			for label in labels:  # 多标签中每个标签都需要记录
 				self.slide_cls_ids[label].append(idx)
