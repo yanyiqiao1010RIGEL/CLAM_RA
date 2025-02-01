@@ -246,8 +246,11 @@ class CLAM_MB(CLAM_SB):
         for c in range(self.n_classes):
             logits[0, c] = self.classifiers[c](M[c])
 
-        Y_hat = torch.topk(logits, 1, dim = 1)[1]
-        Y_prob = F.softmax(logits, dim = 1)
+        # Y_hat = torch.topk(logits, 1, dim = 1)[1]
+        # Y_prob = F.softmax(logits, dim = 1)
+        Y_prob = torch.sigmoid(logits)  # 每个标签的概率
+        Y_hat = (Y_prob > 0.5).float()  # 使用阈值0.5来确定预测标签
+
         if instance_eval:
             results_dict = {'instance_loss': total_inst_loss, 'inst_labels': np.array(all_targets), 
             'inst_preds': np.array(all_preds)}
