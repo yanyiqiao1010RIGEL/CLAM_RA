@@ -305,7 +305,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		print(f"Columns in all_splits: {all_splits.columns}")
 		print(f"Content of '{split_key}' column: {all_splits[split_key].head()}")
 		print(f"slide_id dtype: {self.slide_data['slide_id'].dtype}")
-		print(f"Sample slide_id values: {self.slide_data['slide_id'].head()}")
+
 		# 检查所有的 slide_id 是否在 train、val 和 test 列中
 		train_ids_in_slide_data = all_splits['train'].isin(self.slide_data['slide_id']).sum()
 		val_ids_in_slide_data = all_splits['val'].isin(self.slide_data['slide_id']).sum()
@@ -321,8 +321,8 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			mask = self.slide_data['slide_id'].isin(split.tolist())
 			df_slice = self.slide_data[mask].reset_index(drop=True)
 			print(f"Split for {split_key} contains {len(df_slice)} items.")
-			print(f"First few rows in df_slice for {split_key}:")
-			print(df_slice.head())
+
+
 			split = Generic_Split(df_slice, data_dir=self.data_dir, num_classes=self.num_classes)
 		else:
 			split = None

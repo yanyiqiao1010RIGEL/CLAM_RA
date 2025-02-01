@@ -215,11 +215,16 @@ class CLAM_MB(CLAM_SB):
             total_inst_loss = 0.0
             all_preds = []
             all_targets = []
-            inst_labels = F.one_hot(label, num_classes=self.n_classes).squeeze() #binarize label
+
+        #####Rigel changed logic for multilabel
+            #inst_labels = F.one_hot(label, num_classes=self.n_classes).squeeze() #binarize label
+            inst_labels = label.long()
             for i in range(len(self.instance_classifiers)):
-                inst_label = inst_labels[i].item()
+                #inst_label = inst_labels[i].item()
+                inst_label = inst_labels[:, i]
                 classifier = self.instance_classifiers[i]
-                if inst_label == 1: #in-the-class:
+                # if inst_label == 1: #in-the-class:
+                if inst_label.sum() > 0:
                     instance_loss, preds, targets = self.inst_eval(A[i], h, classifier)
                     all_preds.extend(preds.cpu().numpy())
                     all_targets.extend(targets.cpu().numpy())
