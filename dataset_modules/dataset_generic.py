@@ -593,13 +593,14 @@ class Generic_Split(Generic_MIL_Dataset):
 		self.num_classes = num_classes
 		print(f"Num class={self.num_classes}")
 		self.slide_cls_ids = [[] for i in range(self.num_classes)]
+		for i in range(self.num_classes):
+			self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
 		print(f"slide_cls_ids={self.slide_cls_ids}")
 
 		for idx, labels in enumerate(self.slide_data['label']):
 			for label in labels:  # 多标签中每个标签都需要记录
 				self.slide_cls_ids[label].append(idx)
-		# for i in range(self.num_classes):
-		# 	self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
+
 
 	def __len__(self):
 		return len(self.slide_data)
