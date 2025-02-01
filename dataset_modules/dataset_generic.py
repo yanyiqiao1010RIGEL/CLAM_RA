@@ -305,6 +305,14 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		print(f"Content of '{split_key}' column: {all_splits[split_key].head()}")
 		print(f"slide_id dtype: {self.slide_data['slide_id'].dtype}")
 		print(f"Sample slide_id values: {self.slide_data['slide_id'].head()}")
+		# 检查所有的 slide_id 是否在 train、val 和 test 列中
+		train_ids_in_slide_data = all_splits['train'].isin(self.slide_data['slide_id']).sum()
+		val_ids_in_slide_data = all_splits['val'].isin(self.slide_data['slide_id']).sum()
+		test_ids_in_slide_data = all_splits['test'].isin(self.slide_data['slide_id']).sum()
+
+		print(f"Number of train ids found in slide_data: {train_ids_in_slide_data}")
+		print(f"Number of val ids found in slide_data: {val_ids_in_slide_data}")
+		print(f"Number of test ids found in slide_data: {test_ids_in_slide_data}")
 
 		split = split.dropna().reset_index(drop=True)
 
