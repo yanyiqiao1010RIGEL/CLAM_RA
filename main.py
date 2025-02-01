@@ -43,8 +43,15 @@ def main(args):
     folds = np.arange(start, end)
     for i in folds:
         seed_torch(args.seed)
-        train_dataset, val_dataset, test_dataset = dataset.return_splits(from_id=False, 
-                csv_path='{}/splits_{}.csv'.format(args.split_dir, i))
+        ##########Rigel add base path
+        csv_path = '/g/data/au38/CLAM/{}'.format(args.split_dir)
+        csv_path = '{}/splits_{}.csv'.format(csv_path, i)
+        print(f"Using CSV file at: {csv_path}")
+
+        train_dataset, val_dataset, test_dataset = dataset.return_splits(from_id=False, csv_path=csv_path)
+
+        # train_dataset, val_dataset, test_dataset = dataset.return_splits(from_id=False,
+        #         csv_path='{}/splits_{}.csv'.format(args.split_dir, i))
         
         datasets = (train_dataset, val_dataset, test_dataset)
         results, test_auc, val_auc, test_acc, val_acc, test_f1  = train(datasets, i, args)
