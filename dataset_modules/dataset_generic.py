@@ -595,8 +595,10 @@ class Generic_Split(Generic_MIL_Dataset):
 		self.slide_cls_ids = [[] for i in range(self.num_classes)]
 
 		for idx, labels in enumerate(self.slide_data['label']):
-			for label in labels:  # 多标签中每个标签都需要记录
-				self.slide_cls_ids[label].append(idx)
+			for i, is_present in enumerate(labels):
+				if is_present == 1:  # 如果类别 i 出现（即值为 1）
+					self.slide_cls_ids[i].append(idx)  # 将样本索引加入到该类别的列表中
+
 		print(f"slide_cls_ids={self.slide_cls_ids}")
 
 
