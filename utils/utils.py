@@ -145,12 +145,32 @@ def calculate_error(Y_hat, Y):
 	return error
 
 def make_weights_for_balanced_classes_split(dataset):
-	N = float(len(dataset))                                           
-	weight_per_class = [N/len(dataset.slide_cls_ids[c]) for c in range(len(dataset.slide_cls_ids))]                                                                                                     
-	weight = [0] * int(N)                                           
-	for idx in range(len(dataset)):   
-		y = dataset.getlabel(idx)                        
-		weight[idx] = weight_per_class[y]                                  
+	# N = float(len(dataset))
+	# weight_per_class = [N/len(dataset.slide_cls_ids[c]) for c in range(len(dataset.slide_cls_ids))]
+	# weight = [0] * int(N)
+	# for idx in range(len(dataset)):
+	# 	y = dataset.getlabel(idx)
+	# 	weight[idx] = weight_per_class[y]
+	N = len(dataset.slide_data)
+	weight = np.zeros(N)  # 初始化所有样本的权重
+	weight_per_class = []
+
+	# 确保每个类别至少有一个样本
+	for c in range(len(dataset.slide_cls_ids)):
+		if len(dataset.slide_cls_ids[c]) > 0:  # 如果该类不为空
+			weight_per_class.append(N / len(dataset.slide_cls_ids[c]))
+		else:
+			weight_per_class.append(0)  # 空类的权重可以设置为0，避免影响
+
+	# 为每个样本分配权重
+	for idx, labels in enumerate(dataset.slide_data['label']):
+		for label in labels:  # 遍历每个样本的所有标签
+			if label < len(weight_per_class) and len(dataset.slide_cls_ids[label]) > 0:  # 确保标签是有效的
+				weight[idx] = weight_per_class[label]
+
+	for c in range(len(dataset.slide_cls_ids)):
+		if len(dataset.slide_cls_ids[c]) == 0:
+			print(f"Class {c} is empty!")
 
 	return torch.DoubleTensor(weight)
 
