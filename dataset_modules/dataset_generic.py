@@ -300,6 +300,12 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 	def get_split_from_df(self, all_splits, split_key='train'):
 		split = all_splits[split_key]
+		#######Rigel test
+		print(f"Columns in all_splits: {all_splits.columns}")
+		print(f"Content of '{split_key}' column: {all_splits[split_key].head()}")
+		print(f"slide_id dtype: {self.slide_data['slide_id'].dtype}")
+		print(f"Sample slide_id values: {self.slide_data['slide_id'].head()}")
+
 		split = split.dropna().reset_index(drop=True)
 
 		if len(split) > 0:
