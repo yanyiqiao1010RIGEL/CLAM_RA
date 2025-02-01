@@ -583,7 +583,6 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 class Generic_Split(Generic_MIL_Dataset):
 	def __init__(self, slide_data, data_dir=None, num_classes=28):
 		print(f"Initializing Generic_Split with slide_data of size {len(slide_data)}")
-		print(f"First few rows of slide_data:\n{slide_data.head()}")
 
 
 		self.use_h5 = True
@@ -599,7 +598,6 @@ class Generic_Split(Generic_MIL_Dataset):
 				if is_present == 1:  # 如果类别 i 出现（即值为 1）
 					self.slide_cls_ids[i].append(idx)  # 将样本索引加入到该类别的列表中
 
-		print(f"slide_cls_ids={self.slide_cls_ids}")
 
 
 	def __len__(self):
