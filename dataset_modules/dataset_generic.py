@@ -315,9 +315,6 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		print(f"Number of test ids found in slide_data: {test_ids_in_slide_data}")
 
 		split = split.dropna().reset_index(drop=True)
-		print(f"Number of train ids found in slide_data: {train_ids_in_slide_data}")
-		print(f"Number of val ids found in slide_data: {val_ids_in_slide_data}")
-		print(f"Number of test ids found in slide_data: {test_ids_in_slide_data}")
 
 		if len(split) > 0:
 			mask = self.slide_data['slide_id'].isin(split.tolist())
@@ -584,6 +581,9 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 
 class Generic_Split(Generic_MIL_Dataset):
 	def __init__(self, slide_data, data_dir=None, num_classes=28):
+		print(f"Initializing Generic_Split with slide_data of size {len(slide_data)}")
+		print(f"First few rows of slide_data:\n{slide_data.head()}")
+
 		super().__init__(
 			data_dir=data_dir,
 			csv_path=None,  # 不需要 CSV 路径，直接从 DataFrame 初始化
