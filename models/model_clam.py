@@ -117,6 +117,8 @@ class CLAM_SB(nn.Module):
         n_targets = self.create_negative_targets(self.k_sample, device)
 
         all_targets = torch.cat([p_targets, n_targets], dim=0)
+        #####Match shape of all targets
+        all_targets = all_targets.view(1, -1)
         all_instances = torch.cat([top_p, top_n], dim=0)
         logits = classifier(all_instances)
 
