@@ -120,11 +120,14 @@ class CLAM_SB(nn.Module):
         #####Match shape of all targets
         all_targets = all_targets.view(1, -1)
         all_instances = torch.cat([top_p, top_n], dim=0)
+        print(f"all_instances shape:{all_instances}")
         logits = classifier(all_instances)
+        print(f"logits shape:{logits}")
 
         ##########Change for multilabel
         # Use sigmoid
         all_preds = torch.sigmoid(logits)  # 获取每个标签的预测概率
+        print(f"all_preds shape:{all_preds}")
         all_preds = (all_preds > 0.5).float()
 
         #all_preds = torch.topk(logits, 1, dim = 1)[1].squeeze(1)
