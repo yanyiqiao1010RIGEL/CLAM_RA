@@ -121,14 +121,14 @@ class CLAM_SB(nn.Module):
         logits = classifier(all_instances)
 
         ##########Change for multilabel
-
-        all_targets = all_targets.float()
-        #all_preds = torch.topk(logits, 1, dim = 1)[1].squeeze(1)
-
-        instance_loss = self.instance_loss_fn(logits, all_targets)
         # Use sigmoid
         all_preds = torch.sigmoid(logits)  # 获取每个标签的预测概率
         all_preds = (all_preds > 0.5).float()
+
+        #all_preds = torch.topk(logits, 1, dim = 1)[1].squeeze(1)
+
+        instance_loss = self.instance_loss_fn(logits, all_targets)
+
         return instance_loss, all_preds, all_targets
     
     #instance-level evaluation for out-of-the-class attention branch
