@@ -118,8 +118,11 @@ class CLAM_SB(nn.Module):
 
         all_targets = torch.cat([p_targets, n_targets], dim=0)
         print(f"all_targets shape:{all_targets.shape}")
+
+
         #####Match shape of all targets
-        all_targets = all_targets.view(1, -1)
+        num_classes = 28
+        all_targets = all_targets.view(1, -1).expand(-1, num_classes)
         print(f"all_targets after reshape:{all_targets.shape}")
         print(all_targets)
         all_instances = torch.cat([top_p, top_n], dim=0)
@@ -130,7 +133,7 @@ class CLAM_SB(nn.Module):
         ##########Change for multilabel
         # Use sigmoid
         all_preds = torch.sigmoid(logits)  # 获取每个标签的预测概率
-        print(f"all_preds shape:{all_preds}")
+        print(f"all_preds shape:{all_preds.shape}")
         all_preds = (all_preds > 0.5).float()
 
         #all_preds = torch.topk(logits, 1, dim = 1)[1].squeeze(1)
