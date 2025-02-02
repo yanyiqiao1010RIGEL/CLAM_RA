@@ -75,7 +75,7 @@ args:
     subtyping: whether it's a subtyping problem
 """
 class CLAM_SB(nn.Module):
-    def __init__(self, gate = True, size_arg = "small", dropout = 0., k_sample=8, n_classes=2,
+    def __init__(self, gate = True, size_arg = "small", dropout = 0., k_sample=8, n_classes=28,
         instance_loss_fn=nn.BCEWithLogitsLoss(),
                  subtyping=False, embed_dim=1024):
         super().__init__()
@@ -120,9 +120,9 @@ class CLAM_SB(nn.Module):
         #####Match shape of all targets
         all_targets = all_targets.view(1, -1)
         all_instances = torch.cat([top_p, top_n], dim=0)
-        print(f"all_instances shape:{all_instances}")
+        print(f"all_instances shape:{all_instances.shape}")
         logits = classifier(all_instances)
-        print(f"logits shape:{logits}")
+        print(f"logits shape:{logits.shape}")
 
         ##########Change for multilabel
         # Use sigmoid
@@ -195,7 +195,7 @@ class CLAM_SB(nn.Module):
         return logits, Y_prob, Y_hat, A_raw, results_dict
 
 class CLAM_MB(CLAM_SB):
-    def __init__(self, gate = True, size_arg = "small", dropout = 0., k_sample=8, n_classes=2,
+    def __init__(self, gate = True, size_arg = "small", dropout = 0., k_sample=8, n_classes=28,
         instance_loss_fn=nn.BCEWithLogitsLoss(), subtyping=False, embed_dim=1024):
         nn.Module.__init__(self)
         self.size_dict = {"small": [embed_dim, 512, 256], "big": [embed_dim, 512, 384]}
