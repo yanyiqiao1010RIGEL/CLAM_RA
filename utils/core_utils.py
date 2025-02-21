@@ -24,10 +24,20 @@ class Accuracy_Logger(object):
         self.data = [{"count": 0, "correct": 0} for i in range(self.n_classes)]
     
     def log(self, Y_hat, Y):
+        print('hellooooooooooooooooo', Y_hat)
+        print('hellooooooooooooooooo', Y)
+        Y_list = Y.nonzero(as_tuple=True)[1].tolist()  
         Y_hat = int(Y_hat)
-        Y = int(Y)
-        self.data[Y]["count"] += 1
-        self.data[Y]["correct"] += (Y_hat == Y)
+        print('hiiiiiiiiiiiiiiiiiiiiii', Y_hat)
+        print('hiiiiiiiiiiiiiiiiiiiiii', Y)
+        #Y = int(Y)
+        #self.data[Y]["count"] += 1
+        #self.data[Y]["correct"] += (Y_hat == Y)
+        for Y in Y_list:  # Iterate over each active class
+          Y = int(Y)
+          self.data[Y]["count"] += 1
+          self.data[Y]["correct"] += (Y_hat == Y)
+
     
     def log_batch(self, Y_hat, Y):
         Y_hat = np.array(Y_hat).astype(int)
@@ -239,27 +249,30 @@ def train_loop_clam(epoch, model, loader, optimizer, n_classes, bag_weight, writ
     print('\n')
     for batch_idx, (data, label) in enumerate(loader):
         data, label = data.to(device), label.to(device)
-        logits, Y_prob, Y_hat, _, instance_dict = model(data, label=label, instance_eval=True)
+        logits, Y_prob, Y_hat, _, instance_dict = model(data, label=label, instance_eval=False)
 
         acc_logger.log(Y_hat, label)
         loss = loss_fn(logits, label)
         loss_value = loss.item()
 
-        instance_loss = instance_dict['instance_loss']
+        #instance_loss = instance_dict['instance_loss']
+        instance_loss = 0
         inst_count+=1
-        instance_loss_value = instance_loss.item()
+        inst_count = 0
+        #instance_loss_value = instance_loss.item()
+        instance_loss_value = 0
         train_inst_loss += instance_loss_value
         
         total_loss = bag_weight * loss + (1-bag_weight) * instance_loss 
 
-        inst_preds = instance_dict['inst_preds']
-        inst_labels = instance_dict['inst_labels']
-        inst_logger.log_batch(inst_preds, inst_labels)
+        #inst_preds = instance_dict['inst_preds']
+        #inst_labels = instance_dict['inst_labels']
+        #inst_logger.log_batch(inst_preds, inst_labels)
 
         train_loss += loss_value
         if (batch_idx + 1) % 20 == 0:
-            print('batch {}, loss: {:.4f}, instance_loss: {:.4f}, weighted_loss: {:.4f}, '.format(batch_idx, loss_value, instance_loss_value, total_loss.item()) + 
-                'label: {}, bag_size: {}'.format(label.item(), data.size(0)))
+            print('batch {}, loss: {:.4f}, instance_loss: {:.4f}, weighted_loss: {:.4f}, '.format(batch_idx, loss_value, instance_loss_value, total_loss.item()) + 'label: {}, bag_size: {}'.format(", ".join(map(str, label.nonzero(as_tuple=True)[1].tolist())), data.size(0)))
+
 
         error = calculate_error(Y_hat, label)
         train_error += error
@@ -413,22 +426,24 @@ def validate_clam(cur, epoch, model, loader, n_classes, early_stopping = None, w
     with torch.inference_mode():
         for batch_idx, (data, label) in enumerate(loader):
             data, label = data.to(device), label.to(device)      
-            logits, Y_prob, Y_hat, _, instance_dict = model(data, label=label, instance_eval=True)
+            logits, Y_prob, Y_hat, _, instance_dict = model(data, label=label, instance_eval=False)
             acc_logger.log(Y_hat, label)
             
             loss = loss_fn(logits, label)
 
             val_loss += loss.item()
-
-            instance_loss = instance_dict['instance_loss']
+  
+            instance_loss = 0
+            #instance_loss = instance_dict['instance_loss']
             
-            inst_count+=1
-            instance_loss_value = instance_loss.item()
+            inst_count = 0 #+=1
+            instance_loss_value = 0 #= instance_loss.item()
             val_inst_loss += instance_loss_value
 
+            '''
             inst_preds = instance_dict['inst_preds']
             inst_labels = instance_dict['inst_labels']
-            inst_logger.log_batch(inst_preds, inst_labels)
+            inst_logger.log_batch(inst_preds, inst_labels)'''
 
             prob[batch_idx] = Y_prob.cpu().numpy()
             labels[batch_idx] = label.item()
