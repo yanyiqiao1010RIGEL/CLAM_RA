@@ -27,16 +27,19 @@ class Accuracy_Logger(object):
         print('hellooooooooooooooooo', Y_hat)
         print('hellooooooooooooooooo', Y)
         Y_list = Y.nonzero(as_tuple=True)[1].tolist()  
-        Y_hat = int(Y_hat)
-        print('hiiiiiiiiiiiiiiiiiiiiii', Y_hat)
-        print('hiiiiiiiiiiiiiiiiiiiiii', Y)
+        #Y_hat = int(Y_hat)
+        Y_hat_list = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)[1].tolist()  # 预测类别索引
+
+        print('hiiiiiiiiiiiiiiiiiiiiii', Y_hat_list)
+        print('hiiiiiiiiiiiiiiiiiiiiii', Y_list)
         #Y = int(Y)
         #self.data[Y]["count"] += 1
         #self.data[Y]["correct"] += (Y_hat == Y)
         for Y in Y_list:  # Iterate over each active class
           Y = int(Y)
           self.data[Y]["count"] += 1
-          self.data[Y]["correct"] += (Y_hat == Y)
+          #self.data[Y]["correct"] += (Y_hat == Y)
+          self.data[Y]["correct"] += (Y in Y_hat_list)
 
     
     def log_batch(self, Y_hat, Y):
