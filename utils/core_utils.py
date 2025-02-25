@@ -199,6 +199,14 @@ def train(datasets, cur, args):
     train_loader = get_split_loader(train_split, training=True, testing = args.testing, weighted = args.weighted_sample)
     val_loader = get_split_loader(val_split,  testing = args.testing)
     test_loader = get_split_loader(test_split, testing = args.testing)
+    ##############
+    data_iter = iter(train_loader)
+    first_batch = next(data_iter)  # 取出第一个 batch
+    data, label = first_batch  # 解包数据
+
+    print(f"Train Loader - First batch label shape: {label.shape}")
+    print(f"Train Loader - First batch label: {label[:5]}")
+    ###################
     print('Done!')
 
     print('\nSetup EarlyStopping...', end=' ')
