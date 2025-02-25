@@ -609,9 +609,14 @@ class Generic_Split(Generic_MIL_Dataset):
 		self.slide_cls_ids = [[] for i in range(self.num_classes)]
 
 		for idx, labels in enumerate(self.slide_data['label']):
+			print(f"Index {idx} - Label: {labels} - Type: {type(labels)}")
+			print(f"Label Shape: {labels.shape if isinstance(labels, np.ndarray) else 'Not an array'}")
+
 			for i, is_present in enumerate(labels):
+				print(f"Checking label[{i}]: {is_present}")
 				if is_present == 1:  # 如果类别 i 出现（即值为 1）
 					self.slide_cls_ids[i].append(idx)  # 将样本索引加入到该类别的列表中
+			break
 
 
 
