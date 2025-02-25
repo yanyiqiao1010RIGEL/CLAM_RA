@@ -124,8 +124,12 @@ class Generic_WSI_Classification_Dataset(Dataset):
 				f"Index {i}: Type: {type(labels)}, Shape: {labels.shape if isinstance(labels, np.ndarray) else 'N/A'}, Labels: {labels}")
 
 		for i, labels in enumerate(self.slide_data['label']):
-			for label in labels:  # 每个样本可能属于多个类别
-				self.slide_cls_ids[label].append(i)
+			label_indices = np.where(labels == 1)[0]
+			print(f"Index {i}, Labels: {labels}, Label indices: {label_indices}")  # 调试
+
+			for label_idx in label_indices:
+				self.slide_cls_ids[label_idx].append(i)
+
 				print("\nFinal slide_cls_ids:")
 				for class_idx, sample_indices in enumerate(self.slide_cls_ids):
 					print(f"Class {class_idx}: {sample_indices}")
