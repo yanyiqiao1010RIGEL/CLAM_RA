@@ -83,6 +83,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 		slide_data = self.filter_df(slide_data, filter_dict)
 		self.slide_data = slide_data
+		print("slide_data.head():",slide_data.head())  # 直接看 DataFrame 解析后的数据
 
 		###shuffle data
 		if shuffle:
@@ -116,6 +117,12 @@ class Generic_WSI_Classification_Dataset(Dataset):
 	def cls_ids_prep(self):
 		# 初始化类别计数器
 		self.slide_cls_ids = [[] for _ in range(self.num_classes)]
+		print("\nChecking label data structure:")
+		for i in range(min(5, len(self.slide_data))):  # 只打印前5个，防止数据太多
+			labels = self.slide_data.iloc[i]['label']
+			print(
+				f"Index {i}: Type: {type(labels)}, Shape: {labels.shape if isinstance(labels, np.ndarray) else 'N/A'}, Labels: {labels}")
+
 		for i, labels in enumerate(self.slide_data['label']):
 			for label in labels:  # 每个样本可能属于多个类别
 				self.slide_cls_ids[label].append(i)

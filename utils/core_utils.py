@@ -31,12 +31,12 @@ class Accuracy_Logger(object):
         print("Y_hat shape:", Y_hat.shape)
         print("Y_hat:", Y_hat)
 
-        #Y_hat_list = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)[1].tolist()  # 预测类别索引
+        #Y_hat_list = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)[1].tolist()
         nonzero_indices = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)
 
-        if len(nonzero_indices) == 0:  # 如果没有非零索引
-            Y_hat_list = []  # 设为空列表，防止 IndexError
-        elif len(nonzero_indices) == 1:  # 只有一个维度，避免索引越界
+        if len(nonzero_indices) == 0:
+            Y_hat_list = []
+        elif len(nonzero_indices) == 1:
             Y_hat_list = nonzero_indices[0].tolist()
         else:
             Y_hat_list = nonzero_indices[1].tolist()
