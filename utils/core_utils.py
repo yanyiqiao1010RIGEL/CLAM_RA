@@ -24,12 +24,12 @@ class Accuracy_Logger(object):
         self.data = [{"count": 0, "correct": 0} for i in range(self.n_classes)]
     
     def log(self, Y_hat, Y):
-        #print('hellooooooooooooooooo', Y_hat)
-        #print('hellooooooooooooooooo', Y)
+        print('hellooooooooooooooooo', Y_hat)
+        print('hellooooooooooooooooo', Y)
         Y_list = Y.nonzero(as_tuple=True)[1].tolist()  
         #Y_hat = int(Y_hat)
-        #print("Y_hat shape:", Y_hat.shape)
-        #print("Y_hat:", Y_hat)
+        print("Y_hat shape:", Y_hat.shape)
+        print("Y_hat:", Y_hat)
 
         #Y_hat_list = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)[1].tolist()
         nonzero_indices = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)

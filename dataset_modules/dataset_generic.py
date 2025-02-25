@@ -117,22 +117,22 @@ class Generic_WSI_Classification_Dataset(Dataset):
 	def cls_ids_prep(self):
 		# 初始化类别计数器
 		self.slide_cls_ids = [[] for _ in range(self.num_classes)]
-		print("\nChecking label data structure:")
-		for i in range(min(5, len(self.slide_data))):  # 只打印前5个，防止数据太多
-			labels = self.slide_data.iloc[i]['label']
-			print(
-				f"Index {i}: Type: {type(labels)}, Shape: {labels.shape if isinstance(labels, np.ndarray) else 'N/A'}, Labels: {labels}")
+		# print("\nChecking label data structure:")
+		# for i in range(min(5, len(self.slide_data))):  # 只打印前5个，防止数据太多
+		# 	labels = self.slide_data.iloc[i]['label']
+		# 	print(
+		# 		f"Index {i}: Type: {type(labels)}, Shape: {labels.shape if isinstance(labels, np.ndarray) else 'N/A'}, Labels: {labels}")
 
 		for i, labels in enumerate(self.slide_data['label']):
 			label_indices = np.where(labels == 1)[0]
-			print(f"Index {i}, Labels: {labels}, Label indices: {label_indices}")  # 调试
+			#print(f"Index {i}, Labels: {labels}, Label indices: {label_indices}")
 
 			for label_idx in label_indices:
 				self.slide_cls_ids[label_idx].append(i)
 
-				print("\nFinal slide_cls_ids:")
-				for class_idx, sample_indices in enumerate(self.slide_cls_ids):
-					print(f"Class {class_idx}: {sample_indices}")
+				# print("\nFinal slide_cls_ids:")
+				# for class_idx, sample_indices in enumerate(self.slide_cls_ids):
+				# 	print(f"Class {class_idx}: {sample_indices}")
 
 
 	def patient_data_prep(self, patient_voting='max'):
