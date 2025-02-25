@@ -126,6 +126,10 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		for i, labels in enumerate(self.slide_data['label']):
 			for label in labels:  # 每个样本可能属于多个类别
 				self.slide_cls_ids[label].append(i)
+				print("\nFinal slide_cls_ids:")
+				for class_idx, sample_indices in enumerate(self.slide_cls_ids):
+					print(f"Class {class_idx}: {sample_indices}")
+
 
 	def patient_data_prep(self, patient_voting='max'):
 		patients = np.unique(np.array(self.slide_data['case_id'])) # get unique patients
