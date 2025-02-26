@@ -133,9 +133,9 @@ def train(datasets, cur, args):
 
     print('\nInit train/val/test splits...', end=' ')
     train_split, val_split, test_split = datasets
-    # print("Train split 5 heads:", train_split[:5])  # 只打印前5个检查
-    # print("Val split 5 heads:", val_split[:5])
-    # print("Test split 5 heads:", test_split[:5])
+    for i in range(5):  # 只检查前 5 个样本
+        image_id, label = train_split[i]  # 获取 image_id 和 label
+        print(f"Image ID: {image_id}, Label shape: {label.shape}, Label values: {label}")
 
     save_splits(datasets, ['train', 'val', 'test'], os.path.join(args.results_dir, 'splits_{}.csv'.format(cur)))
     print('Done!')
