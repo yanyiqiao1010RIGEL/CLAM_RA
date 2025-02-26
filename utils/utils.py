@@ -65,6 +65,7 @@ def get_split_loader(split_dataset, training = False, testing = False, weighted 
 	if not testing:
 		if training:
 			if weighted:
+				print("Saaaaaaaaample from split_dataset:", split_dataset[0])
 				weights = make_weights_for_balanced_classes_split(split_dataset)
 				print("SSSSSSSSSample from split_dataset:", split_dataset[0])
 				loader = DataLoader(split_dataset, batch_size=1, sampler = WeightedRandomSampler(weights, len(weights)), collate_fn = collate_MIL, **kwargs)
