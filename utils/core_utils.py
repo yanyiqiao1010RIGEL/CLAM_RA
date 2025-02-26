@@ -444,7 +444,9 @@ def validate_clam(cur, epoch, model, loader, n_classes, early_stopping = None, w
     inst_count=0
     
     prob = np.zeros((len(loader), n_classes))
-    labels = np.zeros(len(loader))
+    #labels = np.zeros(len(loader))
+    labels = np.zeros((len(loader), n_classes))  # args.n_classes = 28
+
     sample_size = model.k_sample
     with torch.inference_mode():
         for batch_idx, (data, label) in enumerate(loader):
@@ -471,7 +473,9 @@ def validate_clam(cur, epoch, model, loader, n_classes, early_stopping = None, w
             prob[batch_idx] = Y_prob.cpu().numpy()
             #labels[batch_idx] = label.item()
             #######validation part change
-            labels[batch_idx] = label.cpu().numpy()
+            #labels[batch_idx] = label.cpu().numpy()
+            ####label for 28 categories
+            labels[batch_idx, :] = label.cpu().numpy()
 
             error = calculate_error(Y_hat, label)
             val_error += error
