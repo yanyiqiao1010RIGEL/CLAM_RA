@@ -133,9 +133,9 @@ def train(datasets, cur, args):
 
     print('\nInit train/val/test splits...', end=' ')
     train_split, val_split, test_split = datasets
-    print("Train split 5 heads:", train_split[:5])  # 只打印前5个检查
-    print("Val split 5 heads:", val_split[:5])
-    print("Test split 5 heads:", test_split[:5])
+    # print("Train split 5 heads:", train_split[:5])  # 只打印前5个检查
+    # print("Val split 5 heads:", val_split[:5])
+    # print("Test split 5 heads:", test_split[:5])
 
     save_splits(datasets, ['train', 'val', 'test'], os.path.join(args.results_dir, 'splits_{}.csv'.format(cur)))
     print('Done!')
