@@ -336,7 +336,10 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			mask = self.slide_data['slide_id'].isin(split.tolist())
 			df_slice = self.slide_data[mask].reset_index(drop=True)
 			print(f"Split for {split_key} contains {len(df_slice)} items.")
-
+			print(f"df_slice labels sample:\n{df_slice[['slide_id', 'label']].head()}")
+			print(f"df_slice['label'] type: {type(df_slice['label'].iloc[0])}")
+			print(
+				f"df_slice['label'].shape (if ndarray): {df_slice['label'].iloc[0].shape if isinstance(df_slice['label'].iloc[0], np.ndarray) else 'Not an array'}")
 
 			split = Generic_Split(df_slice, data_dir=self.data_dir, num_classes=self.num_classes)
 		else:
