@@ -603,19 +603,19 @@ class Generic_Split(Generic_MIL_Dataset):
 		self.use_h5 = True
 		self.slide_data = slide_data
 		self.data_dir = data_dir
-		print(f"datadir after init:{self.data_dir}")
+		#print(f"datadir after init:{self.data_dir}")
 		self.num_classes = num_classes
-		print(f"Num class={self.num_classes}")
+		#print(f"Num class={self.num_classes}")
 		self.slide_cls_ids = [[] for i in range(self.num_classes)]
 
 		for idx, labels in enumerate(self.slide_data['label']):
-			print(f"Index {idx} - Label: {labels} - Type: {type(labels)}")
-			print(f"Label Shape: {labels.shape if isinstance(labels, np.ndarray) else 'Not an array'}")
+			#print(f"Index {idx} - Label: {labels} - Type: {type(labels)}")
+			#print(f"Label Shape: {labels.shape if isinstance(labels, np.ndarray) else 'Not an array'}")
 
 			for i, is_present in enumerate(labels):
-				print(f"Checking label[{i}]: {is_present}")
-				if is_present == 1:  # 如果类别 i 出现（即值为 1）
-					self.slide_cls_ids[i].append(idx)  # 将样本索引加入到该类别的列表中
+				#print(f"Checking label[{i}]: {is_present}")
+				if is_present == 1:
+					self.slide_cls_ids[i].append(idx)
 
 
 
