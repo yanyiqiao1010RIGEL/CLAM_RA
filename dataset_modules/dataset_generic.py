@@ -556,6 +556,14 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		# else:
 		# 	data_dir = self.data_dir
 		#####Rigel exp2
+		print(f"Inside __getitem__ - Index {idx}")
+		print(f"  - slide_id: {slide_id}")
+		print(f"  - Label Type: {type(label)}, Label: {label}")
+		if isinstance(label, np.ndarray):
+			print(f"  🔹 Label is a numpy array, shape: {label.shape}")
+		elif isinstance(label, torch.Tensor):
+			print(f"  🔴 Label has already become a tensor!")
+
 		one_hot_label = np.zeros(self.num_classes, dtype=np.float32)
 		one_hot_label[label] = 1.0  # 将对应索引位置设置为 1
 
@@ -599,12 +607,6 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 
 class Generic_Split(Generic_MIL_Dataset):
 	def __init__(self, slide_data, data_dir=None, num_classes=28):
-		print(f"。。。。。Initializing Generic_Split with slide_data of size {len(slide_data)}")
-		print(f"。。。。。Inside Generic_Split.__init__() - slide_data sample:\n{slide_data.head()}")
-		print(f"。。。。。slide_data['label'] type: {type(slide_data['label'].iloc[0])}")
-		print(
-			f"slide_data['label'].shape (if ndarray): {slide_data['label'].iloc[0].shape if isinstance(slide_data['label'].iloc[0], np.ndarray) else 'Not an array'}")
-
 		self.use_h5 = True
 		self.slide_data = slide_data
 		self.data_dir = data_dir
