@@ -40,7 +40,7 @@ def collate_MIL(batch):
 	#label = torch.LongTensor([item[1] for item in batch])
 	######Rigel changed multilabel type
 	label = torch.stack([item[1] for item in batch])
-	#print(f"Labels tensor: {label}")
+	print(f"Labels tensor in collate_MIL: {label}")
 
 	return [img, label]
 
@@ -74,7 +74,12 @@ def get_split_loader(split_dataset, training = False, testing = False, weighted 
 	
 	else:
 		ids = np.random.choice(np.arange(len(split_dataset), int(len(split_dataset)*0.1)), replace = False)
+		print("SSSSSSSSSample from split_dataset:", split_dataset[0])  # 确保格式正确
+
 		loader = DataLoader(split_dataset, batch_size=1, sampler = SubsetSequentialSampler(ids), collate_fn = collate_MIL, **kwargs )
+		for batch in loader:
+			print(f"INNNNNNNNNNNnside get_split_loader - First batch: {batch}")
+			break
 
 	return loader
 
