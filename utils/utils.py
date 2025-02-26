@@ -66,7 +66,12 @@ def get_split_loader(split_dataset, training = False, testing = False, weighted 
 		if training:
 			if weighted:
 				weights = make_weights_for_balanced_classes_split(split_dataset)
-				loader = DataLoader(split_dataset, batch_size=1, sampler = WeightedRandomSampler(weights, len(weights)), collate_fn = collate_MIL, **kwargs)	
+				print("SSSSSSSSSample from split_dataset:", split_dataset[0])
+				loader = DataLoader(split_dataset, batch_size=1, sampler = WeightedRandomSampler(weights, len(weights)), collate_fn = collate_MIL, **kwargs)
+				for batch in loader:
+					print(f"INNNNNNNNNNNnside get_split_loader - First batch: {batch}")
+					break
+
 			else:
 				loader = DataLoader(split_dataset, batch_size=1, sampler = RandomSampler(split_dataset), collate_fn = collate_MIL, **kwargs)
 		else:
@@ -74,12 +79,9 @@ def get_split_loader(split_dataset, training = False, testing = False, weighted 
 	
 	else:
 		ids = np.random.choice(np.arange(len(split_dataset), int(len(split_dataset)*0.1)), replace = False)
-		print("SSSSSSSSSample from split_dataset:", split_dataset[0])  # 确保格式正确
+
 
 		loader = DataLoader(split_dataset, batch_size=1, sampler = SubsetSequentialSampler(ids), collate_fn = collate_MIL, **kwargs )
-		for batch in loader:
-			print(f"INNNNNNNNNNNnside get_split_loader - First batch: {batch}")
-			break
 
 	return loader
 
