@@ -564,8 +564,9 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		elif isinstance(label, torch.Tensor):
 			print(f"  🔴 Label has already become a tensor!")
 
-		one_hot_label = np.zeros(self.num_classes, dtype=np.float32)
-		one_hot_label[label] = 1.0  # 将对应索引位置设置为 1
+		# one_hot_label = np.zeros(self.num_classes, dtype=np.float32)
+		# one_hot_label[label] = 1.0
+		one_hot_label = label.astype(np.float32)
 
 		if self.use_h5:
 			full_path = os.path.join(self.data_dir, f'{slide_id}.h5')
