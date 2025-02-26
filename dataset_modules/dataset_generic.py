@@ -611,7 +611,7 @@ class Generic_Split(Generic_MIL_Dataset):
 		self.slide_cls_ids = [[] for i in range(self.num_classes)]
 
 		for idx, labels in enumerate(self.slide_data['label']):
-			#print(f"Index {idx} - Label: {labels} - Type: {type(labels)}")
+			print(f"Index {idx} - Labellllllll: {labels} - Type: {type(labels)}")
 			#print(f"Label Shape: {labels.shape if isinstance(labels, np.ndarray) else 'Not an array'}")
 
 			for i, is_present in enumerate(labels):
