@@ -133,6 +133,7 @@ def train(datasets, cur, args):
 
     print('\nInit train/val/test splits...', end=' ')
     train_split, val_split, test_split = datasets
+    print("Innnnnnnnnnnnnnit datasets:", train_split[0])
 
     save_splits(datasets, ['train', 'val', 'test'], os.path.join(args.results_dir, 'splits_{}.csv'.format(cur)))
     print('Done!')
