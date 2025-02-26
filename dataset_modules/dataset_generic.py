@@ -336,10 +336,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			mask = self.slide_data['slide_id'].isin(split.tolist())
 			df_slice = self.slide_data[mask].reset_index(drop=True)
 			print(f"Split for {split_key} contains {len(df_slice)} items.")
-			print(f"df_slice labels sample:\n{df_slice[['slide_id', 'label']].head()}")
-			print(f"df_slice['label'] type: {type(df_slice['label'].iloc[0])}")
-			print(
-				f"df_slice['label'].shape (if ndarray): {df_slice['label'].iloc[0].shape if isinstance(df_slice['label'].iloc[0], np.ndarray) else 'Not an array'}")
+
 
 			split = Generic_Split(df_slice, data_dir=self.data_dir, num_classes=self.num_classes)
 		else:
@@ -602,8 +599,11 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 
 class Generic_Split(Generic_MIL_Dataset):
 	def __init__(self, slide_data, data_dir=None, num_classes=28):
-		print(f"Initializing Generic_Split with slide_data of size {len(slide_data)}")
-
+		print(f"。。。。。Initializing Generic_Split with slide_data of size {len(slide_data)}")
+		print(f"。。。。。Inside Generic_Split.__init__() - slide_data sample:\n{slide_data.head()}")
+		print(f"。。。。。slide_data['label'] type: {type(slide_data['label'].iloc[0])}")
+		print(
+			f"slide_data['label'].shape (if ndarray): {slide_data['label'].iloc[0].shape if isinstance(slide_data['label'].iloc[0], np.ndarray) else 'Not an array'}")
 
 		self.use_h5 = True
 		self.slide_data = slide_data
