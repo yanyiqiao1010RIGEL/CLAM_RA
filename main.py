@@ -49,6 +49,7 @@ def main(args):
         print(f"Using CSV file at: {csv_path}")
 
         train_dataset, val_dataset, test_dataset = dataset.return_splits(from_id=False, csv_path=csv_path)
+        print("进dataset之前的label tensor就已经错误:", train_dataset[0])
 
         # train_dataset, val_dataset, test_dataset = dataset.return_splits(from_id=False,
         #         csv_path='{}/splits_{}.csv'.format(args.split_dir, i))
