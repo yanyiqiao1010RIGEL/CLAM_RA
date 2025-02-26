@@ -24,12 +24,12 @@ class Accuracy_Logger(object):
         self.data = [{"count": 0, "correct": 0} for i in range(self.n_classes)]
     
     def log(self, Y_hat, Y):
-        print('hellooooooooooooooooo', Y_hat)
-        print('hellooooooooooooooooo', Y)
+        # print('hellooooooooooooooooo', Y_hat)
+        # print('hellooooooooooooooooo', Y)
         Y_list = Y.nonzero(as_tuple=True)[1].tolist()  
         #Y_hat = int(Y_hat)
-        print("Y_hat shape:", Y_hat.shape)
-        print("Y_hat:", Y_hat)
+        # print("Y_hat shape:", Y_hat.shape)
+        # print("Y_hat:", Y_hat)
 
         #Y_hat_list = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)[1].tolist()
         nonzero_indices = (Y_hat > 0.5).int().squeeze().nonzero(as_tuple=True)
@@ -41,8 +41,8 @@ class Accuracy_Logger(object):
         else:
             Y_hat_list = nonzero_indices[1].tolist()
 
-        print('hiiiiiiiiiiiiiiiiiiiiii', Y_hat_list)
-        print('hiiiiiiiiiiiiiiiiiiiiii', Y_list)
+        # print('hiiiiiiiiiiiiiiiiiiiiii', Y_hat_list)
+        # print('hiiiiiiiiiiiiiiiiiiiiii', Y_list)
         #Y = int(Y)
         #self.data[Y]["count"] += 1
         #self.data[Y]["correct"] += (Y_hat == Y)
@@ -201,12 +201,12 @@ def train(datasets, cur, args):
     val_loader = get_split_loader(val_split,  testing = args.testing)
     test_loader = get_split_loader(test_split, testing = args.testing)
     ##############
-    data_iter = iter(train_loader)
-    first_batch = next(data_iter)  # 取出第一个 batch
-    data, label = first_batch  # 解包数据
+    # data_iter = iter(train_loader)
+    # first_batch = next(data_iter)  # 取出第一个 batch
+    # data, label = first_batch  # 解包数据
 
-    print(f"Train Loader - First batch label shape: {label.shape}")
-    print(f"Train Loader - First batch label: {label[:5]}")
+    # print(f"Train Loader - First batch label shape: {label.shape}")
+    # print(f"Train Loader - First batch label: {label[:5]}")
     ###################
     print('Done!')
 

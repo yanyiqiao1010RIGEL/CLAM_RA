@@ -543,9 +543,9 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		self.slide_data = self.slide_data[self.slide_data['slide_id'].isin(existing_files)]
 		self.slide_data.reset_index(drop=True, inplace=True)
 		filtered_len = len(self.slide_data)
-		print(f"Filtered initial_len={initial_len}")
-		print(f"Filtered filtered_len={filtered_len}")
-		print(f"Filtered {initial_len - filtered_len} entries without corresponding .h5 files.")
+		# print(f"Filtered initial_len={initial_len}")
+		# print(f"Filtered filtered_len={filtered_len}")
+		# print(f"Filtered {initial_len - filtered_len} entries without corresponding .h5 files.")
 
 	def __getitem__(self, idx):
 		slide_id = self.slide_data['slide_id'][idx]
@@ -556,13 +556,13 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		# else:
 		# 	data_dir = self.data_dir
 		#####Rigel exp2
-		print(f"Inside __getitem__ - Index {idx}")
-		print(f"  - slide_id: {slide_id}")
-		print(f"  - Label Type: {type(label)}, Label: {label}")
-		if isinstance(label, np.ndarray):
-			print(f"  🔹 Label is a numpy array, shape: {label.shape}")
-		elif isinstance(label, torch.Tensor):
-			print(f"  🔴 Label has already become a tensor!")
+		# print(f"Inside __getitem__ - Index {idx}")
+		# print(f"  - slide_id: {slide_id}")
+		# print(f"  - Label Type: {type(label)}, Label: {label}")
+		# if isinstance(label, np.ndarray):
+		# 	print(f"  🔹 Label is a numpy array, shape: {label.shape}")
+		# elif isinstance(label, torch.Tensor):
+		# 	print(f"  🔴 Label has already become a tensor!")
 
 		# one_hot_label = np.zeros(self.num_classes, dtype=np.float32)
 		# one_hot_label[label] = 1.0
