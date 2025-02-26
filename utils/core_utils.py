@@ -469,8 +469,10 @@ def validate_clam(cur, epoch, model, loader, n_classes, early_stopping = None, w
             inst_logger.log_batch(inst_preds, inst_labels)'''
 
             prob[batch_idx] = Y_prob.cpu().numpy()
-            labels[batch_idx] = label.item()
-            
+            #labels[batch_idx] = label.item()
+            #######validation part change
+            labels[batch_idx] = label.cpu().numpy()
+
             error = calculate_error(Y_hat, label)
             val_error += error
 
