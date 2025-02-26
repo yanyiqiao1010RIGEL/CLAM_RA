@@ -367,7 +367,9 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		if from_id:
 			if len(self.train_ids) > 0:
 				train_data = self.slide_data.loc[self.train_ids].reset_index(drop=True)
+				print("进Generic_Split之前的Train data打印:", train_data[0])
 				train_split = Generic_Split(train_data, data_dir=self.data_dir, num_classes=self.num_classes)
+				print("进Generic_Split之后的Train split打印:", train_split[0])
 
 			else:
 				train_split = None
