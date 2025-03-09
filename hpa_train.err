@@ -1,4 +1,10 @@
 Traceback (most recent call last):
-  File "/g/data/au38/CLAM/main.py", line 226, in <module>
-    assert os.path.isdir(args.split_dir)
-AssertionError
+  File "/g/data/au38/CLAM/main.py", line 254, in <module>
+    results = main(args)
+  File "/g/data/au38/CLAM/main.py", line 57, in main
+    results, test_auc, val_auc, test_acc, val_acc, test_f1  = train(datasets, i, args)
+  File "/g/data/au38/CLAM/utils/core_utils.py", line 240, in train
+    _, val_error, val_auc, _, val_f1 = summary(model, val_loader, args.n_classes)
+  File "/g/data/au38/CLAM/utils/core_utils.py", line 555, in summary
+    all_labels[batch_idx] = label.item()
+RuntimeError: a Tensor with 28 elements cannot be converted to Scalar
