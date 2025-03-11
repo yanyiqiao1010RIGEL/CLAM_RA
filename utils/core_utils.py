@@ -8,7 +8,7 @@ from models.model_clam import CLAM_MB, CLAM_SB
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import roc_auc_score, roc_curve
 from sklearn.metrics import auc as calc_auc
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, hamming_loss
 
 
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -537,8 +537,10 @@ def summary(model, loader, n_classes):
     test_error = 0.
 
     all_probs = np.zeros((len(loader), n_classes))
-    all_labels = np.zeros(len(loader))
-    all_preds = np.zeros(len(loader))
+    # all_labels = np.zeros(len(loader))
+    # all_preds = np.zeros(len(loader))
+    all_labels = np.zeros((len(loader), n_classes))
+    all_preds = np.zeros((len(loader), n_classes))
 
     slide_ids = loader.dataset.slide_data['slide_id']
     patient_results = {}
@@ -552,11 +554,15 @@ def summary(model, loader, n_classes):
         acc_logger.log(Y_hat, label)
         probs = Y_prob.cpu().numpy()
         all_probs[batch_idx] = probs
-        all_labels[batch_idx] = label.item()
-        all_preds[batch_idx] = Y_hat.item()
+
+        #all_labels[batch_idx] = label.item()
+        all_labels[batch_idx] = label.cpu().numpy()
+        #all_preds[batch_idx] = Y_hat.item()
+        all_preds[batch_idx] = Y_hat.item().numpy()
         
         patient_results.update({slide_id: {'slide_id': np.array(slide_id), 'prob': probs, 'label': label.item()}})
-        error = calculate_error(Y_hat, label)
+        #error = calculate_error(Y_hat, label)
+        error = hamming_loss(label.cpu().numpy(), Y_hat.cpu().numpy())
         test_error += error
 
     test_error /= len(loader)
@@ -567,17 +573,18 @@ def summary(model, loader, n_classes):
         f1 = f1_score(all_labels, all_preds, average='binary')
         aucs = []
     else:
-        aucs = []
-        binary_labels = label_binarize(all_labels, classes=[i for i in range(n_classes)])
-        for class_idx in range(n_classes):
-            if class_idx in all_labels:
-                fpr, tpr, _ = roc_curve(binary_labels[:, class_idx], all_probs[:, class_idx])
-                aucs.append(calc_auc(fpr, tpr))
-            else:
-                aucs.append(float('nan'))
+        #aucs = []
+        auc_per_class = [roc_auc_score(all_labels[:, i], all_probs[:, i]) for i in range(n_classes)]
+        # binary_labels = label_binarize(all_labels, classes=[i for i in range(n_classes)])
+        # for class_idx in range(n_classes):
+        #     if class_idx in all_labels:
+        #         fpr, tpr, _ = roc_curve(binary_labels[:, class_idx], all_probs[:, class_idx])
+        #         aucs.append(calc_auc(fpr, tpr))
+        #     else:
+        #         aucs.append(float('nan'))
 
-        auc = np.nanmean(np.array(aucs))
-        f1 = f1_score(all_labels, all_preds, average='weighted')
+        auc = np.nanmean(np.array(auc_per_class))
+        f1 = f1_score(all_labels, all_preds, average='macro')
 
 
     return patient_results, test_error, auc, acc_logger, f1
