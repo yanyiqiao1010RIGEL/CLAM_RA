@@ -558,7 +558,7 @@ def summary(model, loader, n_classes):
         #all_labels[batch_idx] = label.item()
         all_labels[batch_idx] = label.cpu().numpy()
         #all_preds[batch_idx] = Y_hat.item()
-        all_preds[batch_idx] = Y_hat.item().numpy()
+        all_preds[batch_idx] = Y_hat.cpu().numpy()
         
         patient_results.update({slide_id: {'slide_id': np.array(slide_id), 'prob': probs, 'label': label.item()}})
         #error = calculate_error(Y_hat, label)
