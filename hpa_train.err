@@ -1,10 +1,18 @@
 Traceback (most recent call last):
-  File "/g/data/au38/CLAM/main.py", line 254, in <module>
-    results = main(args)
-  File "/g/data/au38/CLAM/main.py", line 57, in main
-    results, test_auc, val_auc, test_acc, val_acc, test_f1  = train(datasets, i, args)
-  File "/g/data/au38/CLAM/utils/core_utils.py", line 240, in train
-    _, val_error, val_auc, _, val_f1 = summary(model, val_loader, args.n_classes)
-  File "/g/data/au38/CLAM/utils/core_utils.py", line 555, in summary
-    all_labels[batch_idx] = label.item()
-RuntimeError: a Tensor with 28 elements cannot be converted to Scalar
+  File "/g/data/au38/CLAM/main.py", line 208, in <module>
+    dataset = Generic_MIL_Dataset(csv_path = "/scratch/au38/CLAM_RA/dataset_csv/train_hpa_onehot.csv", #'dataset_csv/train_hpa_onehot.csv',
+  File "/g/data/au38/CLAM/dataset_modules/dataset_generic.py", line 524, in __init__
+    super(Generic_MIL_Dataset, self).__init__(**kwargs)
+  File "/g/data/au38/CLAM/dataset_modules/dataset_generic.py", line 69, in __init__
+    slide_data = pd.read_csv(csv_path)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/scratch/au38/CLAM_RA/dataset_csv/train_hpa_onehot.csv'
