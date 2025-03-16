@@ -44,7 +44,8 @@ def main(args):
     for i in folds:
         seed_torch(args.seed)
         ##########Rigel add base path
-        csv_path = '/scratch/au38/CLAM_RA/{}'.format(args.split_dir)  #'/g/data/au38/CLAM/{}'.format(args.split_dir)
+        #csv_path = '/scratch/au38/CLAM_RA/{}'.format(args.split_dir)
+        csv_path = '/g/data/au38/CLAM/{}'.format(args.split_dir)
         csv_path = '{}/splits_{}.csv'.format(csv_path, i)
         print(f"Using CSV file at: {csv_path}")
 
@@ -205,7 +206,7 @@ elif args.task == 'task_3_tgca':
 ###Rigel add task 4
 elif args.task == 'task_4_hpa':
     args.n_classes=28##########
-    dataset = Generic_MIL_Dataset(csv_path = "/scratch/au38/CLAM_RA/dataset_csv/train_hpa_onehot.csv", #'dataset_csv/train_hpa_onehot.csv',
+    dataset = Generic_MIL_Dataset(csv_path = "dataset_csv/train_hpa_onehot.csv", #'dataset_csv/train_hpa_onehot.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False,
                             seed = args.seed,
