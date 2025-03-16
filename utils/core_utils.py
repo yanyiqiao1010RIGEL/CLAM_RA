@@ -560,7 +560,9 @@ def summary(model, loader, n_classes):
         #all_preds[batch_idx] = Y_hat.item()
         all_preds[batch_idx] = Y_hat.cpu().numpy()
         
-        patient_results.update({slide_id: {'slide_id': np.array(slide_id), 'prob': probs, 'label': label.item()}})
+        #patient_results.update({slide_id: {'slide_id': np.array(slide_id), 'prob': probs, 'label': label.item()}})
+        patient_results.update({slide_id: {'slide_id': np.array(slide_id), 'prob': probs, 'label': label.cpu().numpy()}})
+
         #error = calculate_error(Y_hat, label)
         error = hamming_loss(label.cpu().numpy(), Y_hat.cpu().numpy())
         test_error += error
