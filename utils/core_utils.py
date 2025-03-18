@@ -576,7 +576,13 @@ def summary(model, loader, n_classes):
         aucs = []
     else:
         #aucs = []
-        auc_per_class = [roc_auc_score(all_labels[:, i], all_probs[:, i]) for i in range(n_classes)]
+        #auc_per_class = [roc_auc_score(all_labels[:, i], all_probs[:, i]) for i in range(n_classes)]
+        auc_per_class = []
+        for i in range(n_classes):
+            if len(np.unique(all_labels[:, i])) < 2:  # Check if only one class is present
+                auc_per_class.append(float('nan'))  # Append NaN to avoid errors
+            else:
+                auc_per_class.append(roc_auc_score(all_labels[:, i], all_probs[:, i]))
         # binary_labels = label_binarize(all_labels, classes=[i for i in range(n_classes)])
         # for class_idx in range(n_classes):
         #     if class_idx in all_labels:
