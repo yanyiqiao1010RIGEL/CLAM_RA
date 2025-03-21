@@ -1,18 +1,18 @@
-Traceback (most recent call last):
-  File "/g/data/au38/CLAM/main.py", line 208, in <module>
-    dataset = Generic_MIL_Dataset(csv_path = "/scratch/au38/CLAM_RA/dataset_csv/train_hpa_onehot.csv", #'dataset_csv/train_hpa_onehot.csv',
-  File "/g/data/au38/CLAM/dataset_modules/dataset_generic.py", line 524, in __init__
-    super(Generic_MIL_Dataset, self).__init__(**kwargs)
-  File "/g/data/au38/CLAM/dataset_modules/dataset_generic.py", line 69, in __init__
-    slide_data = pd.read_csv(csv_path)
-  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
-    return _read(filepath_or_buffer, kwds)
-  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
-    self._engine = self._make_engine(f, self.engine)
-  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
-    self.handles = get_handle(
-  File "/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
-    handle = open(
-FileNotFoundError: [Errno 2] No such file or directory: '/scratch/au38/CLAM_RA/dataset_csv/train_hpa_onehot.csv'
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/g/data/au38/yy3740/miniconda3/envs/clam_latest/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1531: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
