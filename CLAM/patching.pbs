@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -P au38
+#PBS -q normal
+#PBS -l ncpus=8          
+#PBS -l mem=64GB      
+#PBS -l walltime=05:00:00  
+#PBS -l storage=gdata/au38
+#PBS -N Patching      
+#PBS -o patch_images.out    
+#PBS -e patch_images.err  
+
+
+source /g/data/au38/yy3740/miniconda3/bin/activate clam_latest
+
+python3 /g/data/au38/CLAM/create_patches_fp.py --source /g/data/au38/yy3740/hpa_train_full_stack --save_dir /g/data/au38/yy3740/hpa_train_full_feats --patch_size 224 --patch

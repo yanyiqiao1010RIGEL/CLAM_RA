@@ -1,0 +1,1 @@
+{'task': 'task_3_tgca', 'split': 'all', 'save_dir': '/g/data/au38/yy3740/results/EVAL_Minnesota_eval_run', 'models_dir': '/g/data/au38/yy3740/results/task_3_tgca_clam_sb_k3_lr1e-4/task_3_tgca_clam_sb_s1', 'model_type': 'clam_sb', 'drop_out': 0.25, 'model_size': 'small'}
