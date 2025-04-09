@@ -90,8 +90,8 @@ parser.add_argument('--reg', type=float, default=1e-5,
 parser.add_argument('--seed', type=int, default=1, 
                     help='random seed for reproducible experiment (default: 1)')
 ### Rigel changed the default k = 10 to k = 3
-### Rigel changed the default k = 3 to k = 5
-parser.add_argument('--k', type=int, default=5, help='number of folds (default: 5)')
+### Rigel changed the default k = 3 to k = 1
+parser.add_argument('--k', type=int, default=1, help='number of folds (default: 5)')
 parser.add_argument('--k_start', type=int, default=-1, help='start fold (default: -1, last fold)')
 parser.add_argument('--k_end', type=int, default=-1, help='end fold (default: -1, first fold)')
 parser.add_argument('--results_dir', default='./results', help='results directory (default: ./results)')
@@ -112,7 +112,7 @@ parser.add_argument('--weighted_sample', action='store_true', default=False, hel
 parser.add_argument('--model_size', type=str, choices=['small', 'big'], default='small', help='size of model, does not affect mil')
 ### Rigel added 1 task for tgca
 ### Rigel added 1 task for hpa
-parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_tgca', 'task_4_hpa'])
+parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_tgca', 'task_4_hpa', 'task_5_sif'])
 ### CLAM specific options
 parser.add_argument('--no_inst_cluster', action='store_true', default=False,
                      help='disable instance-level clustering')
@@ -213,6 +213,14 @@ elif args.task == 'task_4_hpa':
                             print_info = True,
                             ignore=[])
 
+elif args.task == 'task_5_sif':
+    args.n_classes=26##########
+    dataset = Generic_MIL_Dataset(csv_path = "/g/data/au38/CLAM/dataset_csv/enhanced_multihot.csv",
+                            data_dir= args.data_root_dir,
+                            shuffle = False,
+                            seed = args.seed,
+                            print_info = True,
+                            ignore=[])
 
 
 else:
@@ -237,9 +245,9 @@ else:
 print('split_dir: ', args.split_dir)
 
 assert os.path.isdir(args.split_dir)'''
-
-args.split_dir = '/splits/task_4_hpa_80/'
-
+########Rigel changed split dir
+#args.split_dir = '/splits/task_4_hpa_80/'
+args.split_dir = '/splits/task_5_sif_70/'
 settings.update({'split_dir': args.split_dir})
 
 
