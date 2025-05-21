@@ -45,7 +45,7 @@ def main(args):
         seed_torch(args.seed)
         ##########Rigel add base path
         #csv_path = '/scratch/au38/CLAM_RA/{}'.format(args.split_dir)
-        csv_path = '/g/data/au38/CLAM/{}'.format(args.split_dir)
+        csv_path = '/g/data/ey6/yiqiao/CLAM_RA/{}'.format(args.split_dir)
         csv_path = '{}/splits_{}.csv'.format(csv_path, i)
         print(f"Using CSV file at: {csv_path}")
 
