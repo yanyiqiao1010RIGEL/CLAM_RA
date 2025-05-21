@@ -394,7 +394,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			#all_splits = pd.read_csv(csv_path, dtype={'slideid': str}, on_bad_lines='skip',  skip_blank_lines=True)
 			#print("ggggggget_split_from_df all splits:", all_splits.iloc[0])
 			train_split = self.get_split_from_df(all_splits, 'train')
-			print("geeeeeeeet_split_from_df train splits:", train_split[0])
+			# print("geeeeeeeet_split_from_df train splits:", train_split[0])
 			val_split = self.get_split_from_df(all_splits, 'val')
 			test_split = self.get_split_from_df(all_splits, 'test')
 
