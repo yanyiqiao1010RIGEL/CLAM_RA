@@ -215,7 +215,7 @@ elif args.task == 'task_4_hpa':
 
 elif args.task == 'task_5_sif':
     args.n_classes=26##########
-    dataset = Generic_MIL_Dataset(csv_path = "/g/data/au38/CLAM/dataset_csv/enhanced_multihot.csv",
+    dataset = Generic_MIL_Dataset(csv_path = "/g/data/ey6/yiqiao/CLAM_RA/dataset_csv/enhanced_multihot.csv",
                             data_dir= args.data_root_dir,
                             shuffle = False,
                             seed = args.seed,
