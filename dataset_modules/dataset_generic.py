@@ -548,7 +548,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		# print(f"Filtered {initial_len - filtered_len} entries without corresponding .h5 files.")
 
 	def __getitem__(self, idx):
-		slide_id = self.slide_data['slide_id'][idx]
+		slide_id = self.slide_data['slide_id'].iloc[idx]
 		label = self.slide_data['label'][idx]
 		# if type(self.data_dir) == dict:
 		# 	source = self.slide_data['source'][idx]
