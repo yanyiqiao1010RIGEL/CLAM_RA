@@ -7,7 +7,7 @@ from utils.constants import MODEL2CONSTANTS
 from utils.transform_utils import get_eval_transforms
 
 ###Rigel add new
-from .resnet50_7channel import get_resnet50_
+# from .resnet50_7channel import get_resnet50_
 
 
 def has_CONCH():
