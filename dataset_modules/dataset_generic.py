@@ -529,7 +529,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		print(f"Initializing dataset with {len(self.slide_data)} entries")
 
 		### slide_id fliter
-		self.filter_invalid_h5_files()
+		# self.filter_invalid_h5_files()
 
 	def load_from_h5(self, toggle):
 		self.use_h5 = toggle
