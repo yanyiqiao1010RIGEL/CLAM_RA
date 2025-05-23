@@ -608,7 +608,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 
 class Generic_Split(Generic_MIL_Dataset):
 	def __init__(self, slide_data, data_dir=None, num_classes=28):
-		self.use_h5 = True
+		self.use_h5 = False
 		self.slide_data = slide_data
 		self.data_dir = data_dir
 		#print(f"datadir after init:{self.data_dir}")
