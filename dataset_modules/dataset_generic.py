@@ -524,7 +524,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		super(Generic_MIL_Dataset, self).__init__(**kwargs)
 		print(f"Data directory: {data_dir}")
 		self.data_dir = data_dir
-		self.use_h5 = True
+		self.use_h5 = False
 
 		print(f"Initializing dataset with {len(self.slide_data)} entries")
 
