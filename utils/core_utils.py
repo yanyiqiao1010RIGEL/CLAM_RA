@@ -9,6 +9,8 @@ from sklearn.preprocessing import label_binarize
 from sklearn.metrics import roc_auc_score, roc_curve
 from sklearn.metrics import auc as calc_auc
 from sklearn.metrics import f1_score, hamming_loss
+from torch.optim import lr_scheduler
+
 
 
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -194,6 +196,9 @@ def train(datasets, cur, args):
 
     print('\nInit optimizer ...', end=' ')
     optimizer = get_optim(model, args)
+    scheduler = lr_scheduler.StepLR(  # ← 立刻在这行之后定义 StepLR
+        optimizer, step_size=25, gamma=0.1
+    )
     print('Done!')
     
     print('\nInit Loaders...', end=' ')
@@ -228,7 +233,9 @@ def train(datasets, cur, args):
             train_loop(epoch, model, train_loader, optimizer, args.n_classes, writer, loss_fn)
             stop = validate(cur, epoch, model, val_loader, args.n_classes, 
                 early_stopping, writer, loss_fn, args.results_dir)
-        
+#########################
+        scheduler.step()
+
         if stop: 
             break
 
