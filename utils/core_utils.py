@@ -235,7 +235,6 @@ def train(datasets, cur, args):
                 early_stopping, writer, loss_fn, args.results_dir)
 #########################
         scheduler.step()
-
         if stop: 
             break
 
@@ -558,9 +557,6 @@ def summary(model, loader, n_classes):
         with torch.inference_mode():
             logits, Y_prob, Y_hat, _, _ = model(data)
 
-        y_true = label.cpu().numpy().reshape(-1)
-        y_pred = Y_hat.cpu().numpy().reshape(-1)
-
         acc_logger.log(Y_hat, label)
         probs = Y_prob.cpu().numpy()
         all_probs[batch_idx] = probs
@@ -574,7 +570,7 @@ def summary(model, loader, n_classes):
         patient_results.update({slide_id: {'slide_id': np.array(slide_id), 'prob': probs, 'label': label.cpu().numpy()}})
 
         #error = calculate_error(Y_hat, label)
-        error = hamming_loss(y_true, y_pred)
+        error = hamming_loss(label.cpu().numpy(), Y_hat.cpu().numpy())
         test_error += error
 
     test_error /= len(loader)
